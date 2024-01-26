@@ -14,6 +14,14 @@ export const Frame = styled.div`
 
   width: 1200px;
   height: 100vh;
+
+  & > video {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -100;
+    object-fit: cover;
+  }
 `;
 
 export const Header = styled.div`
@@ -24,13 +32,13 @@ export const Header = styled.div`
 
   & > .title {
     font-family: "Pretendard-Bold";
-    font-size: 72px;
-    color: #333333;
+    font-size: 128px;
+    color: #ffffff;
   }
   & > .subtitle {
     font-family: "Pretendard-Regular";
-    font-size: 28px;
-    color: #7E7E7E;
+    font-size: 36px;
+    color: #d3d3d3;
   }
 }
 `;
@@ -45,10 +53,14 @@ export const Search = styled.div`
         width: 50px;
         height: 50px;
         border-radius: 30px;
-        border: 1px solid #333333;
+        border: 1px solid #ffffff;
         text-align: center;
         transition: all 0.5s ease-in-out;
         cursor: pointer;
+        font-family: "Pretendard-Bold";
+        font-size: 16px;
+        background-color: transparent;
+        
 
         &:focus {
             width: 600px;
@@ -57,6 +69,7 @@ export const Search = styled.div`
             border-color: #3ec5f1;
             box-shadow: 0 0 4px #719ece;
             cursor : text;
+            color: #ffffff;
 
             & + .icon {
                 display: block;
@@ -64,19 +77,14 @@ export const Search = styled.div`
         }
     }
 
+    & > .search::placeholder {
+      color: #ffffff;
+    }
+
     & > .icon {
         display: none;
         transform: translateX(-40px);
     }
-`;
-
-export const Blur = styled.div`
-  z-index: 10;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
 `;
 
 export const ModalFrame = styled.div`
@@ -90,12 +98,28 @@ export const ModalFrame = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   width: 800px;
-  height: 400px;
+  height: 430px;
   padding: 20px;
 
   background-color: rgba(255, 255, 192, 0.1);
   backdrop-filter: blur(25px);
   box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
+`;
+
+export const Background = styled.div`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  object-fit: cover;
+
+  & > video {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -100;
+    object-fit: cover;
+  }
 `;
 
 export const ModalHeader = styled.div`
@@ -114,7 +138,7 @@ export const ModalHeader = styled.div`
     & > p {
       font-family: "Pretendard-Bold";
       font-size: 72px;
-      color: #000000;
+      color: #ffffff;
     }
   }
   & > svg {
@@ -139,7 +163,11 @@ export const ModalDesc = styled.div`
     & > p {
       font-family: "Pretendard-Light";
       font-size: 18px;
-      color: #000000;
+      color: #ffffff;
+    }
+    & > img {
+      width: 40px;
+      height: 40px;
     }
   }
 `;
@@ -148,22 +176,25 @@ export const ModalBody = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 
   & > .col:nth-child(1) {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
 
     & > p:nth-child(1) {
       font-family: "Pretendard-Light";
       font-size: 16px;
-      color: #6e6e6e;
+      color: #ffffff;
     }
     & > p:nth-child(2) {
       font-family: "Pretendard-Bold";
       font-size: 120px;
-      color: #000000;
+      color: #ffffff;
     }
   }
 
@@ -174,7 +205,7 @@ export const ModalBody = styled.div`
     justify-content: center;
     gap: 80px;
 
-    width: 100%;
+    width: 70%;
 
     & > .col {
       display: flex;
@@ -186,12 +217,12 @@ export const ModalBody = styled.div`
       & > p:nth-child(1) {
         font-family: "Pretendard-Light";
         font-size: 12px;
-        color: #6e6e6e;
+        color: #ffffff;
       }
       & > p:nth-child(2) {
         font-family: "Pretendard-Bold";
         font-size: 52px;
-        color: #474747;
+        color: #ffffff;
       }
     }
   }
@@ -214,12 +245,12 @@ export const ModalFooter = styled.div`
     & > p:nth-child(1) {
       font-family: "Pretendard-Light";
       font-size: 12px;
-      color: #6e6e6e;
+      color: #ffffff;
     }
     & > p:nth-child(3) {
       font-family: "Pretendard-Regular";
       font-size: 18px;
-      color: #474747;
+      color: #ffffff;
     }
   }
 `;
