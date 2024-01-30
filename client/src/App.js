@@ -2,15 +2,18 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Views
+// Portfolio
+import Portfolio from "./views/portfolio/Main";
 // Weather Picking
-import Main from "./views/weatherPicker/Main";
+import WeatherPicker from "./views/weatherPicker/Main";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/weatherpicker" element={<Main />} />
+          <Route path="/" element={<Portfolio />} />
+          <Route path="/weatherpicker" element={<WeatherPicker />} />
         </Routes>
       </BrowserRouter>
     </>
