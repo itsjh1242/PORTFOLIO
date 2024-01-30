@@ -84,6 +84,36 @@ export const FrameLeft = styled.div`
 `;
 
 export const FrameRight = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40%;
   height: 100vh;
+`;
+
+export const ImageBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
+  height: 460px;
+
+  & > .overlay {
+    z-index: 1;
+    position: absolute;
+    width: 320px;
+    height: 460px;
+    background: linear-gradient(105deg, transparent 40%, rgba(255, 219, 112, 0.8) 45%, rgba(132, 50, 255, 0.6) 50%, transparent 54%);
+    filter: brightness(1.1) opacity(0.8);
+    mix-blend-mode: color-dodge;
+    background-size: 150% 150%;
+    background-position: 100%;
+  }
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  }
 `;
