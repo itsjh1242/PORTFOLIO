@@ -6,7 +6,7 @@ export function ScrollDown() {
       options={{
         loop: true,
         autoplay: true,
-        animationData: require("../../assets/lottie/scroll-down.json"),
+        animationData: require("../../assets/lottie/scrolldown.json"),
         rendererSettings: {
           preserveAspectRatio: "xMidYMid slice",
         },

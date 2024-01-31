@@ -14,7 +14,8 @@ export const Nav = styled.div`
   max-width: 1440px;
   height: 75px;
   background-color: transparent;
-  //   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
 `;
 
 export const NavLogo = styled.div`
@@ -51,11 +52,23 @@ export const NavMenu = styled.div`
 
 export const Frame = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 1200px;
   margin: 0 auto;
+
+  & > .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  & > .lottie-scrolldown {
+    height: 5vh;
+  }
 `;
 
 export const FrameLeft = styled.div`
@@ -64,7 +77,7 @@ export const FrameLeft = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 60%;
-  height: 100vh;
+  height: 95vh;
   padding-left: 50px;
 
   & > .title {
@@ -88,7 +101,7 @@ export const FrameRight = styled.div`
   justify-content: center;
   align-items: center;
   width: 40%;
-  height: 100vh;
+  height: 95vh;
 `;
 
 export const ImageBox = styled.div`
@@ -103,9 +116,6 @@ export const ImageBox = styled.div`
     position: absolute;
     width: 320px;
     height: 460px;
-    background: linear-gradient(105deg, transparent 40%, rgba(255, 219, 112, 0.8) 45%, rgba(132, 50, 255, 0.6) 50%, transparent 54%);
-    filter: brightness(1.1) opacity(0.8);
-    mix-blend-mode: color-dodge;
     background-size: 150% 150%;
     background-position: 100%;
   }
@@ -114,6 +124,66 @@ export const ImageBox = styled.div`
     width: 100%;
     height: 100%;
     object-fit: contain;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
   }
+`;
+
+// About Section
+export const AboutFrame = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+
+  width: 100vw;
+  max-width: 1200px;
+  height: 170vh;
+`;
+
+export const AboutTitle = styled.p`
+  opacity: ${(props) => (props.isfixed ? 1 : 0)};
+  transition: all 0.5s ease-in-out;
+  font-family: "Pretendard-Bold";
+  font-size: 196px;
+  color: #d3d3d3;
+`;
+
+export const AboutMain = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  height: 100%;
+  gap: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  & > p {
+    font-family: "Pretendard-Regular";
+    font-size: 24px;
+    color: #9d9d9d;
+
+    & > span {
+      font-family: "Pretendard-Bold";
+      font-size: 12px;
+      color: #000000;
+    }
+  }
+  & > p:nth-child(even) {
+    transform: translateX(-55%);
+    text-align: right;
+  }
+  & > p:nth-child(odd) {
+    transform: translateX(55%);
+    text-align: left;
+  }
+`;
+
+export const AboutVerticalLine = styled.div`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background-color: #d3d3d3;
 `;
