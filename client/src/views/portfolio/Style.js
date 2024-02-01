@@ -73,35 +73,32 @@ export const Frame = styled.div`
 
 export const FrameLeft = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 95vh;
+`;
+
+export const FrameRight = styled.div`
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-end;
   width: 60%;
   height: 95vh;
   padding-left: 50px;
 
   & > .title {
-    font-family: "Pretendard-Bold";
+    font-family: "Pretendard-Regular";
     font-size: 96px;
     color: #000000;
   }
-  & > .title:nth-child(2) {
-    font-family: "Pretendard-Light";
-  }
   & > .subtitle {
     margin-top: 30px;
-    font-family: "Pretendard-Regular";
+    font-family: "Pretendard-Light";
     font-size: 24px;
     color: #9d9d9d;
   }
-`;
-
-export const FrameRight = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  height: 95vh;
 `;
 
 export const ImageBox = styled.div`
@@ -137,15 +134,16 @@ export const AboutFrame = styled.div`
 
   width: 100vw;
   max-width: 1200px;
-  height: 170vh;
+  height: 1200px;
 `;
 
-export const AboutTitle = styled.p`
-  opacity: ${(props) => (props.isfixed ? 1 : 0)};
-  transition: all 0.5s ease-in-out;
-  font-family: "Pretendard-Bold";
-  font-size: 196px;
-  color: #d3d3d3;
+export const AboutTitle = styled.div`
+  & > p {
+    text-align: center;
+    font-family: "Pretendard-Bold";
+    font-size: 196px;
+    color: #d3d3d3;
+  }
 `;
 
 export const AboutMain = styled.div`
@@ -186,4 +184,13 @@ export const AboutVerticalLine = styled.div`
   width: 2px;
   height: 100%;
   background-color: #d3d3d3;
+`;
+
+export const AboutVerticalLineColor = styled.div`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: ${(props) => props.height}%;
+  background-color: #000000;
 `;

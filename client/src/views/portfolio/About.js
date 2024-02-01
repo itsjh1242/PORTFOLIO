@@ -6,33 +6,18 @@ import * as S from "./Style";
 export default function About() {
   const date = new Date();
   const Year = date.getFullYear();
-  const AboutTitleRef = useRef();
-  const [isTitleFixed, setIsTitleFixed] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const AboutTitle = AboutTitleRef.current;
-
-      const AboutTitleRect = AboutTitle.getBoundingClientRect();
-      if (AboutTitleRect.top < window.innerHeight / 2) {
-        setIsTitleFixed(true);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // About VerticalLine
 
   return (
     <>
       <S.AboutFrame>
-        <S.AboutTitle ref={AboutTitleRef} isfixed={isTitleFixed}>
-          About
+        <S.AboutTitle>
+          <p>About</p>
         </S.AboutTitle>
         <S.AboutMain>
           <S.AboutVerticalLine />
+          <S.AboutVerticalLineColor height={100} />
           <p>
             <span>Intro</span>
             <br />
@@ -68,11 +53,11 @@ export default function About() {
           <p>
             <span>Strength</span>
             <br />
-            저는 개발만큼이나 디자인에도 관심이 많습니다.
+            저는 개발만큼이나 <strong>디자인</strong>에도 관심이 많습니다.
             <br />
             디자인을 전공하지는 않았지만,
             <br />
-            UI/UX와 디자인을 고려하여 개발하는 것을 좋아합니다.
+            <strong>UI/UX와 디자인</strong>을 고려하여 개발하는 것을 좋아합니다.
           </p>
           <p>
             <span>End</span>

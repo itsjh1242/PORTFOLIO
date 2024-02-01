@@ -39,15 +39,15 @@ function Main() {
       <S.Frame>
         <div className="row">
           <S.FrameLeft>
-            <p className="title">개발자, 디자이너</p>
-            <p className="title">김준현입니다.</p>
-            <p className="subtitle">코드는 나의 언어, 웹은 나의 캔버스</p>
-          </S.FrameLeft>
-          <S.FrameRight>
             <S.ImageBox ref={IDCardRef}>
               <div className="overlay"></div>
               <img src="portfolio/idcard.png" alt="main" />
             </S.ImageBox>
+          </S.FrameLeft>
+          <S.FrameRight>
+            <p className="title">반갑습니다,</p>
+            <p className="title">김준현입니다.</p>
+            <p className="subtitle">코드는 나의 언어, 웹은 나의 캔버스</p>
           </S.FrameRight>
         </div>
         <div className="lottie-scrolldown">
