@@ -56,6 +56,7 @@ export const Frame = styled.div`
   justify-content: center;
   align-items: center;
   width: 1200px;
+  height: 100vh;
   margin: 0 auto;
 
   & > .row {
@@ -67,7 +68,11 @@ export const Frame = styled.div`
   }
 
   & > .lottie-scrolldown {
-    height: 5vh;
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
   }
 `;
 
@@ -160,6 +165,7 @@ export const AboutMain = styled.div`
     font-family: "Pretendard-Regular";
     font-size: 24px;
     color: #9d9d9d;
+    transition: all 0.8s ease-in-out;
 
     & > span {
       font-family: "Pretendard-Bold";
@@ -193,4 +199,5 @@ export const AboutVerticalLineColor = styled.div`
   width: 2px;
   height: ${(props) => props.height}%;
   background-color: #000000;
+  transition: all 0.8s ease-in-out;
 `;

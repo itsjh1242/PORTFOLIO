@@ -7,7 +7,30 @@ export default function About() {
   const date = new Date();
   const Year = date.getFullYear();
 
-  // About VerticalLine
+  const verticalLineDefine = [0, 20, 40, 60, 80, 100];
+  const [verticalLineHeight, setVerticalLineHeight] = useState(0);
+
+  function handleScrollAboutText() {
+    const TextElements = document.querySelectorAll(".about-text p");
+    const screenCenter = window.innerHeight / 2;
+
+    TextElements.forEach((p, index) => {
+      const introPosition = p.getBoundingClientRect().top;
+      if (introPosition < screenCenter) {
+        p.style.color = "#000000";
+        setVerticalLineHeight(Math.min(5, index));
+      } else {
+        p.style.color = "#d3d3d3";
+      }
+    });
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollAboutText);
+    return () => {
+      window.removeEventListener("scroll", handleScrollAboutText);
+    };
+  }, []);
 
   return (
     <>
@@ -15,9 +38,9 @@ export default function About() {
         <S.AboutTitle>
           <p>About</p>
         </S.AboutTitle>
-        <S.AboutMain>
+        <S.AboutMain className="about-text">
           <S.AboutVerticalLine />
-          <S.AboutVerticalLineColor height={100} />
+          <S.AboutVerticalLineColor height={verticalLineDefine[verticalLineHeight]} />
           <p>
             <span>Intro</span>
             <br />
