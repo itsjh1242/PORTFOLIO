@@ -11,53 +11,64 @@ import * as S from "./Style";
 
 // Views
 import About from "./About";
+import Stack from "./Stack";
 
 function Main() {
-  // const IDCardRef = useRef();
+  const [leftSelected, setleftSelected] = useState(true);
+  const [rightSelected, setRightSelected] = useState(false);
 
-  // useEffect(() => {
-  //   const idCard = IDCardRef.current;
-  //   const overlay = idCard.querySelector("div");
+  function handleSelected() {
+    const left = document.querySelector(".left");
+    const right = document.querySelector(".right");
 
-  //   idCard.addEventListener("mousemove", (e) => {
-  //     var x = e.offsetX;
-  //     var y = e.offsetY;
-  //     var rotateY = (-1 / 5) * x + 20;
-  //     var rotateX = (1 / 5) * y - 20;
+    left.addEventListener("mouseover", () => {
+      setleftSelected(true);
+      setRightSelected(false);
+    });
+    right.addEventListener("mouseover", () => {
+      setleftSelected(false);
+      setRightSelected(true);
+    });
+  }
 
-  //     overlay.style = `background-position: ${x / 5 + y / 5}%`;
-  //     idCard.style.transform = `perspective(350px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
-  //   });
-  //   idCard.addEventListener("mouseleave", () => {
-  //     idCard.style.transform = `perspective(350px) rotateY(0deg) rotateX(0deg)`;
-  //   });
-  // });
+  useEffect(() => {
+    handleSelected();
+  }, []);
 
   return (
     <>
       <Nav />
       <S.Frame>
-        {/* <div className="row">
-          <S.FrameLeft>
-            <S.ImageBox ref={IDCardRef}>
-              <div className="overlay"></div>
-              <img src="portfolio/idcard.png" alt="main" />
-            </S.ImageBox>
-          </S.FrameLeft>
-          <S.FrameRight>
-            <p className="title">반갑습니다,</p>
-            <p className="title">김준현입니다.</p>
-            <p className="subtitle">코드는 나의 언어, 웹은 나의 캔버스</p>
-          </S.FrameRight>
+        <div className="background-text">
+          <p>PORTFOLIO</p>
         </div>
-        <div className="lottie-scrolldown">
-          <Lottie.ScrollDown />
-        </div> */}
+        <S.FrameLeft className="left">
+          <S.BlurFrame selected={leftSelected}></S.BlurFrame>
+          <S.FrameTitle selected={leftSelected} position={"left"}>
+            <p className="title">Designer</p>
+            <p className="desc">저는 개발만큼이나 UI/UX를 디자인하는 것도 좋아합니다. 저만의 독특한 디자인 개념을 제 다양한 프로젝트에 녹여봤습니다.</p>
+          </S.FrameTitle>
+        </S.FrameLeft>
+        <S.FrameRight className="right">
+          <S.BlurFrame selected={rightSelected}></S.BlurFrame>
+          <S.FrameTitle selected={rightSelected} position={"right"}>
+            <p className="title">
+              {"<"}Coder {"/>"}
+            </p>
+            <p className="desc">
+              저는 깔끔한 코드를 적는 개발자입니다. 코드를 짜는 일이라면 무엇이든 좋아합니다. 코드는 저에게 언어이고, 웹은 제 캔버스입니다.
+            </p>
+          </S.FrameTitle>
+        </S.FrameRight>
+        <div className="center-image">
+          <img src="./portfolio/profileImage.png" alt="profile" />
+        </div>
         <div className="lottie-scrolldown">
           <Lottie.ScrollDown />
         </div>
       </S.Frame>
       <About />
+      <Stack />
     </>
   );
 }

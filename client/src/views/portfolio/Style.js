@@ -52,80 +52,105 @@ export const NavMenu = styled.div`
 
 export const Frame = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 1200px;
+  width: 100vw;
   height: 100vh;
   margin: 0 auto;
 
-  & > .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  & > .background-text {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -3;
+
+    & > p {
+      font-family: "Pretendard-Bold";
+      font-size: 196px;
+      color: #000000;
+      transition: all 0.8s ease-in-out;
+    }
+  }
+
+  & > .center-image {
+    z-index: -2;
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    transform: translateX(-50%);
+    width: 30vw;
+    height: 650px;
+    overflow: hidden;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: all 0.8s ease-in-out;
+    }
   }
 
   & > .lottie-scrolldown {
     position: absolute;
     left: 50%;
     bottom: 50px;
+    transform: translateX(-50%);
     width: 50px;
     height: 50px;
   }
 `;
 
 export const FrameLeft = styled.div`
+  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 40%;
-  height: 95vh;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding-left: 50px;
 `;
 
 export const FrameRight = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  width: 60%;
-  height: 95vh;
-  padding-left: 50px;
-
-  & > .title {
-    font-family: "Pretendard-Regular";
-    font-size: 96px;
-    color: #000000;
-  }
-  & > .subtitle {
-    margin-top: 30px;
-    font-family: "Pretendard-Light";
-    font-size: 24px;
-    color: #9d9d9d;
-  }
+  width: 100%;
+  height: 100%;
+  padding-right: 50px;
 `;
 
-export const ImageBox = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 320px;
-  height: 460px;
+export const BlurFrame = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  height: 100vh;
+  transition: all 0.8s ease-in-out;
+  backdrop-filter: ${(props) => (props.selected ? "" : "blur(5px)")};
+`;
 
-  & > .overlay {
-    z-index: 1;
-    position: absolute;
-    width: 320px;
-    height: 460px;
-    background-size: 150% 150%;
-    background-position: 100%;
+export const FrameTitle = styled.div`
+  & > p {
+    width: 500px;
+    text-align: ${(props) => (props.position === "left" ? "left" : "right")};
+    font-family: "Pretendard-Bold";
+    font-size: 72px;
+    transition: all 0.8s ease-in-out;
+    color: ${(props) => (props.selected ? "#000000" : "#d3d3d3")};
   }
 
-  & > img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  & > p:nth-child(2) {
+    text-align: left;
+    font-family: "Pretendard-Regular";
+    font-size: 24px;
+    color: ${(props) => (props.selected ? "#000000" : "#d3d3d3")};
+    transition: all 0.8s ease-in-out;
   }
 `;
 
@@ -147,7 +172,6 @@ export const AboutTitle = styled.div`
     text-align: center;
     font-family: "Pretendard-Bold";
     font-size: 196px;
-    color: #d3d3d3;
   }
 `;
 
