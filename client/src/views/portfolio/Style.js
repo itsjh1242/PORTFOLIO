@@ -80,7 +80,7 @@ export const Frame = styled.div`
     left: 50%;
     bottom: 0%;
     transform: translateX(-50%);
-    width: 30vw;
+    width: 580px;
     height: 650px;
     overflow: hidden;
 
@@ -224,4 +224,62 @@ export const AboutVerticalLineColor = styled.div`
   height: ${(props) => props.height}%;
   background-color: #000000;
   transition: all 0.8s ease-in-out;
+`;
+
+// Stack Section
+export const StackFrame = styled.div`
+  width: 100vw;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-center;
+  align-items: center;
+`;
+
+export const StackSlide = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const StackSlideItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 50px;
+  margin-right: 50px;
+
+  animation: slide 33s linear infinite;
+
+  @keyframes slide {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+
+    & > img {
+      width: 80%;
+      height: 90%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    & > p {
+      font-family: "Pretendard-Bold";
+      font-size: 16px;
+      color: #000000;
+      margin-top: 10px;
+    }
+  }
 `;
