@@ -56,6 +56,7 @@ export const Frame = styled.div`
   justify-content: center;
   align-items: center;
   width: 100vw;
+  max-width: 1440px;
   height: 100vh;
   margin: 0 auto;
 
@@ -104,7 +105,6 @@ export const Frame = styled.div`
 `;
 
 export const FrameLeft = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -174,7 +174,7 @@ export const AboutTitle = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -2;
-  opacity: ${(props) => props.handleColor * 0.2};
+  opacity: ${(props) => props.handlecolor * 0.2};
   transition: all 0.8s ease-in-out;
   & > p {
     font-family: "Pretendard-Bold";
@@ -293,6 +293,133 @@ export const StackSlideItem = styled.div`
 
 // Work Section
 export const WorkFrame = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+
   width: 100vw;
-  height: 100%;
+  max-width: 1000px;
+  height: 100vh;
+`;
+
+export const WorkHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 50px;
+  margin-bottom: 50px;
+
+  width: 100vw;
+  max-width: 1000px;
+
+  & > p {
+    font-family: "Pretendard-Regular";
+    font-size: 48px;
+  }
+  & > p:nth-child(2) {
+    font-family: "Pretendard-Regular";
+    font-size: 16px;
+    cursor: pointer;
+  }
+`;
+
+export const WorkMain = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 20px;
+  width: 100vw;
+  max-width: 1100px;
+  height: 700px;
+
+  & > div {
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0px 0px 4px 0px #d3d3d3;
+
+    & > .pop-up {
+      position: absolute;
+      bottom: -50%;
+      left: 0;
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 8px;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      padding: 20px;
+      background-color: #0f172ad3;
+      color: #dce3ed;
+
+      & > p {
+        font-family: "Pretendard-Regular";
+        font-size: 24px;
+      }
+      & > p:nth-child(2) {
+        font-family: "Pretendard-Regular";
+        font-size: 18px;
+        color: #8c98ac;
+      }
+
+      & > .footer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  & > .item1 {
+    grid-row: 1 / 3;
+  }
+
+  & > .item2 {
+    & > .pop-up {
+      & > p {
+        font-family: "Pretendard-Regular";
+        font-size: 20px;
+      }
+      & > p:nth-child(2) {
+        font-family: "Pretendard-Regular";
+        font-size: 16px;
+        color: #8c98ac;
+      }
+    }
+  }
+  & > .item3 {
+    & > .pop-up {
+      & > p {
+        font-family: "Pretendard-Regular";
+        font-size: 20px;
+      }
+      & > p:nth-child(2) {
+        font-family: "Pretendard-Regular";
+        font-size: 16px;
+        color: #8c98ac;
+      }
+    }
+  }
+`;
+
+export const WorkMainDescription = styled.div`
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background-color: #112b38;
+
+  & > p {
+    font-family: "Pretendard-Regular";
+    font-size: ${(props) => (props.side === "true" ? "12px" : "14px")};
+    color: #71d6cc;
+  }
 `;

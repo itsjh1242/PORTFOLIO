@@ -35,7 +35,7 @@ export default function About() {
   return (
     <>
       <S.AboutFrame>
-        <S.AboutTitle handleColor={verticalLineHeight}>
+        <S.AboutTitle $handlecolor={verticalLineHeight}>
           <p>About</p>
         </S.AboutTitle>
         <S.AboutMain className="about-text">

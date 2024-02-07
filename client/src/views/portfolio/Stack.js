@@ -13,12 +13,10 @@ export default function Stack() {
             {stack.map((item, index) => {
               const imagePath = item === "Node.js" ? `./portfolio/stack/Node.png` : `./portfolio/stack/${item}.png`;
               return (
-                <>
                   <div key={index}>
                     <img src={imagePath} alt=""></img>
                     <p>{item}</p>
                   </div>
-                </>
               );
             })}
           </S.StackSlideItem>
@@ -26,10 +24,10 @@ export default function Stack() {
             {stack.map((item, index) => {
               const imagePath = item === "Node.js" ? `./portfolio/stack/Node.png` : `./portfolio/stack/${item}.png`;
               return (
-                <div key={index}>
-                  <img src={imagePath} alt=""></img>
-                  <p>{item}</p>
-                </div>
+                  <div key={index}>
+                    <img src={imagePath} alt=""></img>
+                    <p>{item}</p>
+                  </div>
               );
             })}
           </S.StackSlideItem>
