@@ -35,7 +35,7 @@ export default function About() {
   return (
     <>
       <S.AboutFrame>
-        <S.AboutTitle>
+        <S.AboutTitle handleColor={verticalLineHeight}>
           <p>About</p>
         </S.AboutTitle>
         <S.AboutMain className="about-text">
@@ -71,14 +71,14 @@ export default function About() {
             <br />
             UbSE (Ubiquitous Software Engineering) 연구실에서
             <br />
-            다양한 <strong>프로젝트, 공모전</strong>에 참여했습니다
+            다양한 <strong>프로젝트와 공모전</strong>에 참여했습니다
           </p>
           <p>
             <span>Strength</span>
             <br />
             저는 개발만큼이나 <strong>디자인</strong>에도 관심이 많습니다
             <br />
-            디자인을 전공하지는 않았지만
+            디자인을 전공하지는 않았지만,
             <br />
             <strong>UI/UX와 디자인</strong>을 고려하여 개발하는 것을 좋아합니다
           </p>

@@ -137,7 +137,7 @@ export const BlurFrame = styled.div`
 
 export const FrameTitle = styled.div`
   & > p {
-    width: 500px;
+    width: 450px;
     text-align: ${(props) => (props.position === "left" ? "left" : "right")};
     font-family: "Pretendard-Bold";
     font-size: 72px;
@@ -148,7 +148,7 @@ export const FrameTitle = styled.div`
   & > p:nth-child(2) {
     text-align: left;
     font-family: "Pretendard-Regular";
-    font-size: 24px;
+    font-size: 18px;
     color: ${(props) => (props.selected ? "#000000" : "#d3d3d3")};
     transition: all 0.8s ease-in-out;
   }
@@ -156,6 +156,7 @@ export const FrameTitle = styled.div`
 
 // About Section
 export const AboutFrame = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -164,14 +165,21 @@ export const AboutFrame = styled.div`
 
   width: 100vw;
   max-width: 1200px;
-  height: 1200px;
+  height: 900px;
 `;
 
 export const AboutTitle = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -2;
+  opacity: ${(props) => props.handleColor * 0.2};
+  transition: all 0.8s ease-in-out;
   & > p {
-    text-align: center;
     font-family: "Pretendard-Bold";
     font-size: 196px;
+    color: #bababa;
   }
 `;
 
@@ -181,13 +189,12 @@ export const AboutMain = styled.div`
   flex-direction: column;
   max-width: 1200px;
   height: 100%;
-  gap: 50px;
+  gap: 75px;
   margin-top: 50px;
-  margin-bottom: 50px;
 
   & > p {
     font-family: "Pretendard-Regular";
-    font-size: 24px;
+    font-size: 18px;
     color: #9d9d9d;
     transition: all 0.8s ease-in-out;
 
@@ -282,4 +289,10 @@ export const StackSlideItem = styled.div`
       margin-top: 10px;
     }
   }
+`;
+
+// Work Section
+export const WorkFrame = styled.div`
+  width: 100vw;
+  height: 100%;
 `;
