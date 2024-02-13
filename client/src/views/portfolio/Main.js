@@ -13,6 +13,7 @@ import * as S from "./Style";
 import About from "./About";
 import Stack from "./Stack";
 import Work from "./Work";
+import Footer from "./Footer";
 
 function Main() {
   const [leftSelected, setleftSelected] = useState(true);
@@ -45,7 +46,7 @@ function Main() {
         </div>
         <S.FrameLeft className="left">
           <S.BlurFrame selected={leftSelected}></S.BlurFrame>
-          <S.FrameTitle selected={leftSelected} $position={"left"}>
+          <S.FrameTitle selected={leftSelected} position={"left"}>
             <p className="title">Designer</p>
             <p className="desc">개발만큼이나 UI/UX를 디자인하는 것도 좋아합니다. 저만의 독특한 디자인 개념을 제 다양한 프로젝트에 녹여봤습니다.</p>
           </S.FrameTitle>
@@ -69,6 +70,7 @@ function Main() {
       <About />
       <Stack />
       <Work />
+      <Footer />
     </>
   );
 }

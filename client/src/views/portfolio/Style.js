@@ -306,23 +306,62 @@ export const WorkFrame = styled.div`
 
 export const WorkHeader = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 50px;
-  margin-bottom: 50px;
-
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  gap: 10px;
   width: 100vw;
   max-width: 1000px;
 
-  & > p {
-    font-family: "Pretendard-Regular";
-    font-size: 48px;
+  & > .quote {
+    font-family: "Roboto";
+    font-size: 28px;
+    color: #000000;
+    letter-spacing: -1px;
+    word-spacing: 0.5px;
   }
-  & > p:nth-child(2) {
-    font-family: "Pretendard-Regular";
-    font-size: 16px;
+  & > .quote-small {
+    font-family: "Roboto";
+    font-size: 18px;
+    color: #8c98ac;
+  }
+  span {
+    font-family: "Roboto";
+    font-size: 14px;
+    color: #6d6d6d;
+  }
+
+  & > .view-all-button {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
     cursor: pointer;
+    border: 1px solid #aaaaaa;
+    border-radius: 25px;
+    padding: 10px 20px;
+    overflow: hidden;
+    height: 20px;
+
+    & > p {
+      font-family: "Roboto";
+      font-size: 18px;
+      color: #000000;
+    }
+    &:hover {
+      & > p {
+        animation: text-move 0.5s ease-in-out;
+      }
+    }
+    @keyframes text-move {
+      0% {
+        transform: translateY(0%);
+      }
+      100% {
+        transform: translateY(-150%);
+      }
+    }
   }
 `;
 
@@ -358,11 +397,11 @@ export const WorkMain = styled.div`
 
       & > p {
         font-family: "Pretendard-Regular";
-        font-size: 24px;
+        font-size: 20px;
       }
       & > p:nth-child(2) {
         font-family: "Pretendard-Regular";
-        font-size: 18px;
+        font-size: 14px;
         color: #8c98ac;
       }
 
@@ -387,11 +426,11 @@ export const WorkMain = styled.div`
     & > .pop-up {
       & > p {
         font-family: "Pretendard-Regular";
-        font-size: 20px;
+        font-size: 18px;
       }
       & > p:nth-child(2) {
         font-family: "Pretendard-Regular";
-        font-size: 16px;
+        font-size: 12px;
         color: #8c98ac;
       }
     }
@@ -400,11 +439,11 @@ export const WorkMain = styled.div`
     & > .pop-up {
       & > p {
         font-family: "Pretendard-Regular";
-        font-size: 20px;
+        font-size: 18px;
       }
       & > p:nth-child(2) {
         font-family: "Pretendard-Regular";
-        font-size: 16px;
+        font-size: 12px;
         color: #8c98ac;
       }
     }
@@ -422,4 +461,82 @@ export const WorkMainDescription = styled.div`
     font-size: ${(props) => (props.side === "true" ? "12px" : "14px")};
     color: #71d6cc;
   }
+`;
+
+// Footer Section
+export const FooterFrame = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding-top: 20px;
+  width: 100vw;
+  height: 100px;
+
+  border-top: 1px solid #d3d3d3;
+
+  & > .element {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 100vw;
+    max-width: 1000px;
+  }
+
+  p {
+    font-family: "Pretendard-Regular";
+    font-size: 14px;
+    color: #8c98ac;
+  }
+
+  .name {
+    color: #465d85;
+  }
+`;
+
+export const CopyRight = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+`;
+
+export const Contact = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  & > .icon {
+    width: 30px;
+    height: 30px;
+    opacity: 0.4;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+    & > a {
+      & > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+`;
+
+export const DesignedBy = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
 `;
