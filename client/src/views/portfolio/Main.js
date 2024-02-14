@@ -12,6 +12,7 @@ import * as S from "./Style";
 // Views
 import About from "./About";
 import Stack from "./Stack";
+import Experience from "./Experience";
 import Work from "./Work";
 import Footer from "./Footer";
 
@@ -69,6 +70,7 @@ function Main() {
       </S.Frame>
       <About />
       <Stack />
+      <Experience />
       <Work />
       <Footer />
     </>

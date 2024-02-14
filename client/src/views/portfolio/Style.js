@@ -301,7 +301,7 @@ export const WorkFrame = styled.div`
 
   width: 100vw;
   max-width: 1000px;
-  height: 100vh;
+  height: 100%;
 `;
 
 export const WorkHeader = styled.div`
@@ -339,7 +339,7 @@ export const WorkHeader = styled.div`
     margin-top: 20px;
     cursor: pointer;
     border: 1px solid #aaaaaa;
-    border-radius: 25px;
+    border-radius: 5px;
     padding: 10px 20px;
     overflow: hidden;
     height: 20px;
@@ -375,6 +375,7 @@ export const WorkMain = styled.div`
   height: 700px;
 
   & > div {
+    border-radius: 5px;
     overflow: hidden;
     position: relative;
     box-shadow: 0px 0px 4px 0px #d3d3d3;
@@ -539,4 +540,136 @@ export const DesignedBy = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+`;
+
+// Experience Section
+export const ExperienceFrame = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  padding: 50px;
+  width: 100vw;
+  max-width: 1000px;
+  height: 100%;
+
+  & > .gap {
+    margin-top: 12px;
+  }
+
+  & > .title {
+    font-family: "Pretendard-Medium";
+    font-size: 48px;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+`;
+
+export const ExperienceItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 20px;
+  background-color: ${(props) => props.bgc};
+  width: 730px;
+  height: 54px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+
+  & > div > .title-text {
+    font-size: 16px;
+    font-family: "Prentendard-Regular";
+    color: #ffffff;
+  }
+
+  & > .right {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  & > .right > svg {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+`;
+
+export const ExperienceItemPopup = styled.div`
+  display: ${(props) => props.display};
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 730px;
+  height: 150px;
+  gap: 8px;
+  background-color: #241d41;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 20px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 0px 4px 0px #d3d3d3;
+  overflow: hidden;
+  animation: ${(props) => (props.display === "flex" ? "popup 0.5s ease-in-out" : "")};
+
+  @keyframes popup {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 150px;
+    }
+  }
+
+  & > .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    width: 80%;
+
+    & > .head {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px;
+
+      & > p {
+        font-size: 16px;
+        font-family: "Roboto";
+        color: #c8c6d0;
+        margin-right: 8px;
+      }
+    }
+    & > .dsec {
+      font-size: 14px;
+      font-family: "Roboto";
+      color: #ffffff;
+      line-height: 1.5;
+    }
+    & > .stack {
+      display: flex;
+      background-color: #2d3599;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-family: "Roboto";
+      font-size: 14px;
+      color: #bcbedc;
+    }
+  }
+
+  & > .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+  }
 `;

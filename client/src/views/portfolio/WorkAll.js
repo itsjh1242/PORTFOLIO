@@ -6,21 +6,33 @@ import * as S from "./WorkAllStyle";
 
 // Icon
 import { IoIosArrowBack } from "react-icons/io";
+import { FaLink } from "react-icons/fa";
+
+// Data
+import * as D from "./Data/WorkData";
 
 export default function WorkAll() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   const { category } = useParams();
+  const [Data, setData] = useState([]);
+
+  useEffect(() => {
+    const dummy = category === "default" ? D.ProjectData.concat(D.DesignData) : category === "project" ? D.ProjectData : D.DesignData;
+    dummy.sort((a, b) => b.year - a.year);
+    setData(dummy);
+  }, [category]);
+
   return (
     <>
       <S.WorkAllFrame>
         <S.WorkAllHeader>
           <div className="left">
             <Link to="/">
-              <IoIosArrowBack size={36} />
+              <div className="row">
+                <IoIosArrowBack size={16} />
+                <p>KimJunHyeon</p>
+              </div>
             </Link>
-            <p>PORTFOLIO</p>
+            <p>All Projects</p>
           </div>
           <div className="right">
             <p>Kim Jun Hyeon's Works</p>
@@ -39,113 +51,83 @@ export default function WorkAll() {
               <S.CategoryItem condition={category === "design" ? "true" : "false"}>Design</S.CategoryItem>
             </Link>
           </S.WorkCategory>
-          <S.WorkItemGridHead>
-            <p>Name</p>
-            <p>Skill</p>
-            <p>Note</p>
-            <p>Link • Demo</p>
-          </S.WorkItemGridHead>
-          <S.WorkGrid>
-            <S.WorkItemGridItem>
-              <div className="name">
-                <p className="title">긍정적 감정 유발을 위한 AI챗봇 기반 일기 작성 시스템</p>
-                <p className="description">
-                  웰니스 대화 스크립트를 활용하여 학습된 챗봇과 자유롭게 대화를 하면 자동으로 일기가 생성되고, 해당 일기에 따른 나의 감정 분포도를 확인할 수
-                  있습니다.
-                </p>
-              </div>
-              <div className="skill">
-                <img src=".././portfolio/stack/Python.png" alt="python" />
-                <img src=".././portfolio/stack/MySQL.png" alt="python" />
-                <img src=".././portfolio/stack/HTML.png" alt="python" />
-              </div>
-              <div className="note">
-                <div className="item">
-                  <p>졸업작품</p>
+          {Data.map((item, index) => {
+            return index % 2 === 0 ? (
+              <S.WorkItemLeft key={index}>
+                <div className="img-box">
+                  <img src={`.././portfolio/workall/prev_${item.pid}.png`} alt="" />
                 </div>
-                <div className="item">
-                  <p>개인프로젝트</p>
+                <div className="text-box">
+                  <p className="year">2023 • {item.category_kr}</p>
+                  <p className="title">{item.title}</p>
+                  <div className="use">
+                    {item.use.map((use_item, use_index) => {
+                      return (
+                        <div className="icon" key={use_index}>
+                          <img src={`.././portfolio/stack/${use_item}.png`} alt={use_item} />
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <p className="desc">{item.desc.length > 200 ? item.desc.slice(0, 200) + "..." : item.desc}</p>
+                  <div className="tag">
+                    {item.tag.map((tag_item, tag_index) => {
+                      return <p key={tag_index}>{tag_item}</p>;
+                    })}
+                  </div>
+                  <div className="link">
+                    {item.link[0] === "" ? null : (
+                      <Link to={item.link[0]} target="_blank">
+                        <img src=".././portfolio/stack/Github.png" alt="github" />
+                      </Link>
+                    )}
+                    {item.link[1] === "" ? null : (
+                      <Link to={item.link[1]} target="_blank">
+                        <FaLink size={30} />
+                      </Link>
+                    )}
+                  </div>
                 </div>
-                <div className="item">
-                  <p>특허 출원</p>
+              </S.WorkItemLeft>
+            ) : (
+              <S.WorkItemRight key={index}>
+                <div className="text-box">
+                  <p className="year">2023 • {item.category_kr}</p>
+                  <p className="title">{item.title}</p>
+                  <div className="use">
+                    {item.use.map((use_item, use_index) => {
+                      return (
+                        <div className="icon" key={use_index}>
+                          <img src={`.././portfolio/stack/${use_item}.png`} alt={use_item} />
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <p className="desc">{item.desc.length > 200 ? item.desc.slice(0, 200) + "..." : item.desc}</p>
+                  <div className="tag">
+                    {item.tag.map((tag_item, tag_index) => {
+                      return <p key={tag_index}>{tag_item}</p>;
+                    })}
+                  </div>
+                  <div className="link">
+                    {item.link[0] === "" ? null : (
+                      <Link to={item.link[0]} target="_blank">
+                        <img src=".././portfolio/stack/Github.png" alt="github" />
+                      </Link>
+                    )}
+                    {item.link[1] === "" ? null : (
+                      <Link to={item.link[1]} target="_blank">
+                        <FaLink size={30} />
+                      </Link>
+                    )}
+                  </div>
                 </div>
-                <div className="item">
-                  <p>한국컴퓨터정보학회</p>
+                <div className="img-box">
+                  <img src={`.././portfolio/workall/prev_${item.pid}.png`} alt="" />
                 </div>
-              </div>
-              <div className="link">
-                <Link to="/">
-                  <img src=".././portfolio/stack/Github.png" alt="" />
-                </Link>
-              </div>
-            </S.WorkItemGridItem>
-            <S.WorkItemGridItem>
-              <div className="name">
-                <p className="title">긍정적 감정 유발을 위한 AI챗봇 기반 일기 작성 시스템</p>
-                <p className="description">
-                  웰니스 대화 스크립트를 활용하여 학습된 챗봇과 자유롭게 대화를 하면 자동으로 일기가 생성되고, 해당 일기에 따른 나의 감정 분포도를 확인할 수
-                  있습니다.
-                </p>
-              </div>
-              <div className="skill">
-                <img src=".././portfolio/stack/Python.png" alt="python" />
-                <img src=".././portfolio/stack/MySQL.png" alt="python" />
-                <img src=".././portfolio/stack/HTML.png" alt="python" />
-              </div>
-              <div className="note">
-                <div className="item">
-                  <p>졸업작품</p>
-                </div>
-                <div className="item">
-                  <p>개인프로젝트</p>
-                </div>
-                <div className="item">
-                  <p>특허 출원</p>
-                </div>
-                <div className="item">
-                  <p>한국컴퓨터정보학회</p>
-                </div>
-              </div>
-              <div className="link">
-                <Link to="/">
-                  <img src=".././portfolio/stack/Github.png" alt="" />
-                </Link>
-              </div>
-            </S.WorkItemGridItem>
-            <S.WorkItemGridItem>
-              <div className="name">
-                <p className="title">긍정적 감정 유발을 위한 AI챗봇 기반 일기 작성 시스템</p>
-                <p className="description">
-                  웰니스 대화 스크립트를 활용하여 학습된 챗봇과 자유롭게 대화를 하면 자동으로 일기가 생성되고, 해당 일기에 따른 나의 감정 분포도를 확인할 수
-                  있습니다.
-                </p>
-              </div>
-              <div className="skill">
-                <img src=".././portfolio/stack/Python.png" alt="python" />
-                <img src=".././portfolio/stack/MySQL.png" alt="python" />
-                <img src=".././portfolio/stack/HTML.png" alt="python" />
-              </div>
-              <div className="note">
-                <div className="item">
-                  <p>졸업작품</p>
-                </div>
-                <div className="item">
-                  <p>개인프로젝트</p>
-                </div>
-                <div className="item">
-                  <p>특허 출원</p>
-                </div>
-                <div className="item">
-                  <p>한국컴퓨터정보학회</p>
-                </div>
-              </div>
-              <div className="link">
-                <Link to="/">
-                  <img src=".././portfolio/stack/Github.png" alt="" />
-                </Link>
-              </div>
-            </S.WorkItemGridItem>
-          </S.WorkGrid>
+              </S.WorkItemRight>
+            );
+          })}
         </S.WorkAllBody>
       </S.WorkAllFrame>
     </>

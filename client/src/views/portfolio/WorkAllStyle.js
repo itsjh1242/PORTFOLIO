@@ -17,19 +17,39 @@ export const WorkAllHeader = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   width: 100%;
-  height: 100px;
+  height: 150px;
   padding-bottom: 8px;
   margin-bottom: 16px;
 
   & > .left {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
     gap: 8px;
 
+    & > a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & > .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+
+        & p {
+          font-size: 16px;
+          font-family: "Pretendard-Medium";
+          padding: 0;
+        }
+      }
+    }
+
     & > p {
-      font-size: 36px;
+      font-size: 48px;
       font-family: "Pretendard-Medium";
     }
   }
@@ -40,11 +60,13 @@ export const WorkAllHeader = styled.div`
     justify-content: flex-start;
     align-items: flex-end;
     gap: 8px;
+
     & > p {
       font-size: 14px;
       font-family: "Pretendard-Medium";
     }
     & > p:nth-child(1) {
+      color: #8a8a8a;
       line-height: 0.3;
     }
   }
@@ -77,105 +99,239 @@ export const CategoryItem = styled.p`
   margin-bottom: 20px;
 `;
 
-export const WorkGrid = styled.div`
-  display: grid;
-  grid-template-rows: repeat(10, 1fr);
-  gap: 44px;
-  width: 100%;
-  height: 100%;
-  margin-top: 20px;
-`;
-
-export const WorkItemGridHead = styled.div`
-  display: grid;
-  grid-template-columns: 5fr 2fr 4fr 1fr;
-  justify-content: flex-start;
+export const WorkItemLeft = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  gap: 12px;
+  height: fit-content;
+  margin-bottom: 20px;
+  padding: 20px;
+  gap: 8px;
 
-  & > p {
-    font-size: 16px;
-    font-family: "Pretendard-Medium";
-  }
-`;
-
-export const WorkItemGridItem = styled.div`
-  display: grid;
-  grid-template-columns: 5fr 2fr 4fr 1fr;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 12px;
-  height: 50px;
-
-  & > .name {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-
-    & > .title {
-      font-size: 20px;
-      font-family: "Pretendard-Medium";
-    }
-    & > .description {
-      font-size: 14px;
-      font-family: "Pretendard-Regular";
-      line-height: 1.5;
-    }
-  }
-
-  & > .skill {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 4px;
-
+  & > .img-box {
+    width: 560px;
+    height: 320px;
     & > img {
-      width: 30px;
-      height: 30px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-    }
-  }
+      transition: transform 0.5s;
+      box-shadow: 0 60px 123px -25px hsla(225, 2%, 62%, 0.42), 0 35px 75px -35px hsla(225, 2%, 62%, 0.08);
+      transform: perspective(800px) rotateY(25deg) scale(0.8) rotateX(10deg);
 
-  & > .note {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 2px;
-
-    & > .item {
-      width: fit-content;
-      padding: 8px 12px;
-      border-radius: 20px;
-      background-color: #112b38;
-
-      & > p {
-        font-size: 10px;
-        font-family: "Pretendard-Regular";
-        color: #fff;
+      &:hover {
+        transform: perspective(800px) rotateY(0deg) scale(1) rotateX(0deg);
       }
     }
   }
 
-  & > .link {
+  & > .text-box {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 4px;
-    width: 30px;
-    height: 30px;
+    align-items: flex-end;
+    gap: 8px;
+    width: 50%;
+    height: 100%;
 
-    & img {
+    & > .year {
+      font-size: 12px;
+      color: #8a8a8a;
+    }
+    & > .title {
+      font-size: 28px;
+      font-family: "Pretendard-Medium";
+    }
+    & > .desc {
+      font-size: 16px;
+      font-family: "Pretendard-Regular";
+      line-height: 1.5;
+      text-align: right;
+      word-break: keep-all;
+      color: #8a8a8a;
+    }
+
+    & > .tag {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+
+      & > p {
+        font-size: 12px;
+        width: fit-content;
+        padding: 8px 12px;
+        border-radius: 20px;
+        background-color: #112b38;
+        color: #71d6cc;
+      }
+    }
+
+    & > .use {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      gap: 8px;
+
+      & > .icon {
+        width: 30px;
+        height: 30px;
+        & > img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    & > .link {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+
+      & > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        width: 25px;
+        height: 25px;
+
+        & > img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
     }
   }
 `;
 
-// Name, Description, skill, github, note, image
+export const WorkItemRight = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 20px;
+  padding: 20px;
+  gap: 8px;
+
+  & > .img-box {
+    width: 560px;
+    height: 320px;
+    border-radius: 5px;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+
+      box-shadow: 0 60px 123px -25px hsla(225, 2%, 62%, 0.42), 0 35px 75px -35px hsla(225, 2%, 62%, 0.08);
+      transform: perspective(800px) rotateY(-25deg) scale(0.8) rotateX(10deg);
+
+      &:hover {
+        transform: perspective(800px) rotateY(0deg) scale(1) rotateX(0deg);
+      }
+    }
+  }
+
+  & > .text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    width: 50%;
+    height: 100%;
+
+    & > .year {
+      font-size: 12px;
+      color: #8a8a8a;
+    }
+    & > .title {
+      font-size: 28px;
+      font-family: "Pretendard-Medium";
+    }
+    & > .desc {
+      font-size: 16px;
+      font-family: "Pretendard-Regular";
+      line-height: 1.5;
+      text-align: left;
+      word-break: keep-all;
+      color: #8a8a8a;
+    }
+
+    & > .tag {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px;
+
+      & > p {
+        font-size: 12px;
+        width: fit-content;
+        padding: 8px 12px;
+        border-radius: 20px;
+        background-color: #112b38;
+        color: #71d6cc;
+      }
+    }
+
+    & > .use {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      gap: 8px;
+
+      & > .icon {
+        width: 30px;
+        height: 30px;
+        & > img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    & > .link {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+
+      & > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        width: 25px;
+        height: 25px;
+
+        & > img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+`;
