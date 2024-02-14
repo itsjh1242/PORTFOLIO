@@ -543,29 +543,26 @@ export const DesignedBy = styled.div`
 `;
 
 // Experience Section
+
+export const ExperienceTitle = styled.p`
+  font-family: "Prentendard-Bold";
+  font-size: 48px;
+  color: #000000;
+  text-align: center;
+`;
+
 export const ExperienceFrame = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  gap: 12px;
   margin: 0 auto;
   margin-bottom: 50px;
-  padding: 50px;
+  padding: 20px;
   width: 100vw;
   max-width: 1000px;
-  height: 100%;
-
-  & > .gap {
-    margin-top: 12px;
-  }
-
-  & > .title {
-    font-family: "Pretendard-Medium";
-    font-size: 48px;
-    color: #000000;
-    text-align: center;
-    margin-bottom: 40px;
-  }
+  height: fit-content;
 `;
 
 export const ExperienceItem = styled.div`
@@ -573,103 +570,99 @@ export const ExperienceItem = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 20px;
-  background-color: ${(props) => props.bgc};
-  width: 730px;
-  height: 54px;
+  width: 800px;
+  height: 50px;
+  padding: 8px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0px 0px 4px 0px #d3d3d3;
   border-radius: 5px;
-  transition: all 0.3s ease-in-out;
 
-  & > div > .title-text {
-    font-size: 16px;
-    font-family: "Prentendard-Regular";
-    color: #ffffff;
+  p {
+    transition: all 0.3s ease-in-out;
+    color: ${(props) => (props.$visible === "true" ? "#000000" : "#8c98ac")};
   }
-
-  & > .right {
+  & > .experience-item-title {
+    font-family: "Pretendard-Medium";
+    font-size: 16px;
+  }
+  & > .experience-item-right {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-  }
+    gap: 12px;
 
-  & > .right > svg {
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    & > p {
+      font-family: "Pretendard-Regular";
+      font-size: 14px;
+    }
+    & > svg {
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
   }
 `;
 
-export const ExperienceItemPopup = styled.div`
-  display: ${(props) => props.display};
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 730px;
-  height: 150px;
-  gap: 8px;
-  background-color: #241d41;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  padding: 20px 20px;
+export const ExperiencePopup = styled.div`
+  display: flex;
+  display: ${(props) => (props.$visible === "true" ? "flex" : "none")};
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  width: 800px;
+  height: 100%;
+  padding: 20px 16px;
   border-radius: 5px;
-  transition: all 0.3s ease-in-out;
   box-shadow: 0px 0px 4px 0px #d3d3d3;
-  overflow: hidden;
-  animation: ${(props) => (props.display === "flex" ? "popup 0.5s ease-in-out" : "")};
+  animation: slide-up 0.3s ease-in-out;
 
-  @keyframes popup {
+  @keyframes slide-up {
     0% {
-      height: 0;
+      height: 0%;
     }
     100% {
-      height: 150px;
+      height: 100%;
     }
   }
 
-  & > .left {
+  & > .experience-popup-top {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
-    align-items: flex-start;
-    gap: 16px;
-    width: 80%;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
 
-    & > .head {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 8px;
-
-      & > p {
-        font-size: 16px;
-        font-family: "Roboto";
-        color: #c8c6d0;
-        margin-right: 8px;
-      }
-    }
-    & > .dsec {
+    p {
+      font-family: "Pretendard-Medium";
       font-size: 14px;
-      font-family: "Roboto";
-      color: #ffffff;
-      line-height: 1.5;
-    }
-    & > .stack {
-      display: flex;
-      background-color: #2d3599;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-family: "Roboto";
-      font-size: 14px;
-      color: #bcbedc;
+      margin-right: 8px;
     }
   }
 
-  & > .right {
+  & > .experience-popup-desc {
+    font-family: "Pretendard-Regular";
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  & > .experience-popup-stack {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    width: 20%;
+    gap: 8px;
+    width: 100%;
+
+    & > .experience-popup-stack-item {
+      font-family: "Pretendard-Medium";
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: 25px;
+      color: #71d6cc;
+      background-color: #112b38;
+    }
   }
 `;

@@ -40,59 +40,48 @@ export default function Experience() {
 
   return (
     <>
+      <S.ExperienceTitle>
+        My
+        <br />
+        Experience
+      </S.ExperienceTitle>
       <S.ExperienceFrame>
-        <p className="title">
-          My
-          <br />
-          Experience
-        </p>
-        {ExperienceData.map((item, index) => {
+        {ExperienceData.map((data, index) => {
           return (
-            <div className="gap" key={index}>
-              <S.ExperienceItem bgc={handlePopup[index] === "true" ? "#740cdc" : "#430e79"}>
-                <div className="left">
-                  <p className="title-text">{item.title}</p>
-                </div>
-                <div className="right">
-                  <p className="title-text">{item.period}</p>
+            <div key={index}>
+              <S.ExperienceItem $visible={handlePopup[index]}>
+                <p className="experience-item-title">{data.title}</p>
+                <div className="experience-item-right">
+                  <p>{data.period}</p>
                   {handlePopup[index] === "true" ? (
-                    <CiCircleMinus
-                      size={30}
-                      color="#ffffff"
-                      onClick={() => {
-                        close(index);
-                      }}
-                    />
+                    <CiCircleMinus size={28} color="#8c98ac" onClick={() => close(index)} />
                   ) : (
-                    <CiCirclePlus
-                      size={30}
-                      color="#ffffff"
-                      onClick={() => {
-                        open(index);
-                      }}
-                    />
+                    <CiCirclePlus size={28} color="#8c98ac" onClick={() => open(index)} />
                   )}
                 </div>
               </S.ExperienceItem>
-              <S.ExperienceItemPopup display={handlePopup[index] === "true" ? "flex" : "none"}>
-                <div className="left">
-                  <div className="head">
-                    <FaLocationDot size={20} color="#ba77fe" />
-                    <p>{item.location}</p>
-                    <FaExternalLinkAlt size={20} color="#ba77fe" />
-                    <p>
-                      <Link to={item.website}>dongseo.ac.kr</Link>
-                    </p>
-                  </div>
-                  <p className="dsec">{item.desc}</p>
-                  <div className="stack">
-                    {item.stack.map((stack, index) => {
-                      return <p key={index}>{stack}</p>;
-                    })}
-                  </div>
+              <S.ExperiencePopup $visible={handlePopup[index]}>
+                <div className="experience-popup-top">
+                  <FaLocationDot size={16} />
+                  <p>{data.location}</p>
+                  <FaExternalLinkAlt size={16} />
+                  <Link to={data.website} target="_blank">
+                    <p>{data.website_n}</p>
+                  </Link>
                 </div>
-                <div className="right">d</div>
-              </S.ExperienceItemPopup>
+                <div className="experience-popup-desc">
+                  <p>{data.desc}</p>
+                </div>
+                <div className="experience-popup-stack">
+                  {data.stack.map((stack, index) => {
+                    return (
+                      <p key={index} className="experience-popup-stack-item">
+                        {stack}
+                      </p>
+                    );
+                  })}
+                </div>
+              </S.ExperiencePopup>
             </div>
           );
         })}
