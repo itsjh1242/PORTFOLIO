@@ -375,11 +375,20 @@ export const WorkMain = styled.div`
   max-width: 1100px;
   height: 700px;
 
+  & > div:hover {
+    & > img {
+      transform: scale(1.1);
+    }
+  }
   & > div {
     border-radius: 5px;
     overflow: hidden;
     position: relative;
     box-shadow: 0px 0px 4px 0px #d3d3d3;
+
+    & > img {
+      transition: all 0.5s ease-in-out;
+    }
 
     & > .pop-up {
       position: absolute;

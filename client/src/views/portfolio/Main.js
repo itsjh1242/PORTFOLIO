@@ -16,14 +16,30 @@ import Experience from "./Experience";
 import Work from "./Work";
 import Footer from "./Footer";
 
+const NAV_ITEMS = [
+  { index: 0, name: "About" },
+  { index: 1, name: "Work" },
+  { index: 2, name: "Contact" },
+];
+
 function Main() {
-  const NavRef = useRef();
-  const aboutRef = useRef(null);
-  const workRef = useRef(null);
-  const contactRef = useRef(null);
+  const homeRef = useRef();
+  const aboutRef = useRef();
+  const workRef = useRef();
+  const contactRef = useRef();
 
   const [leftSelected, setleftSelected] = useState(true);
   const [rightSelected, setRightSelected] = useState(false);
+
+  function onMove(index) {
+    index === 0
+      ? aboutRef.current.scrollIntoView({ behavior: "smooth" })
+      : index === 1
+      ? workRef.current.scrollIntoView({ behavior: "smooth" })
+      : index === 2
+      ? contactRef.current.scrollIntoView({ behavior: "smooth" })
+      : homeRef.current.scrollIntoView({ behavior: "smooth" });
+  }
 
   function handleSelected() {
     const left = document.querySelector(".left");
@@ -39,45 +55,14 @@ function Main() {
     });
   }
 
-  const onMove = (ref) => {
-    ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   useEffect(() => {
     handleSelected();
   }, []);
 
   return (
     <>
-      <S.Nav ref={NavRef}>
-        <S.NavLogo>
-          <p>김준현 포트폴리오</p>
-        </S.NavLogo>
-        <S.NavMenu>
-          <p
-            onClick={() => {
-              onMove(aboutRef);
-            }}
-          >
-            About
-          </p>
-          <p
-            onClick={() => {
-              onMove(workRef);
-            }}
-          >
-            Works
-          </p>
-          <p
-            onClick={() => {
-              onMove(contactRef);
-            }}
-          >
-            Contact
-          </p>
-        </S.NavMenu>
-      </S.Nav>
-      <S.Frame>
+      <Nav onMove={onMove} />
+      <S.Frame ref={homeRef}>
         <div className="background-text">
           <p>PORTFOLIO</p>
         </div>
@@ -104,11 +89,11 @@ function Main() {
           <Lottie.ScrollDown />
         </div>
       </S.Frame>
-      <About id="test" ref={aboutRef} />
+      <About aboutRef={aboutRef} />
       <Stack />
       <Experience />
-      <Work ref={workRef} />
-      <Footer ref={contactRef} />
+      <Work workRef={workRef} />
+      <Footer contactRef={contactRef} />
     </>
   );
 }
