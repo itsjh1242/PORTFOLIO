@@ -10,7 +10,7 @@ import * as S from "./Style";
 // Video
 import Video from "../../assets/weatherPicker/weatherpicker_bg.mp4";
 
-function Main() {
+export default function WeatherPicker() {
   const URL = "http://localhost:8080/";
   const API_KEY = process.env.REACT_APP_WEATHER_PICKER_API_KEY;
 
@@ -198,5 +198,3 @@ function Modal(props) {
     </>
   );
 }
-
-export default Main;

@@ -17,6 +17,11 @@ import Work from "./Work";
 import Footer from "./Footer";
 
 function Main() {
+  const NavRef = useRef();
+  const aboutRef = useRef(null);
+  const workRef = useRef(null);
+  const contactRef = useRef(null);
+
   const [leftSelected, setleftSelected] = useState(true);
   const [rightSelected, setRightSelected] = useState(false);
 
@@ -34,13 +39,44 @@ function Main() {
     });
   }
 
+  const onMove = (ref) => {
+    ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   useEffect(() => {
     handleSelected();
   }, []);
 
   return (
     <>
-      <Nav />
+      <S.Nav ref={NavRef}>
+        <S.NavLogo>
+          <p>김준현 포트폴리오</p>
+        </S.NavLogo>
+        <S.NavMenu>
+          <p
+            onClick={() => {
+              onMove(aboutRef);
+            }}
+          >
+            About
+          </p>
+          <p
+            onClick={() => {
+              onMove(workRef);
+            }}
+          >
+            Works
+          </p>
+          <p
+            onClick={() => {
+              onMove(contactRef);
+            }}
+          >
+            Contact
+          </p>
+        </S.NavMenu>
+      </S.Nav>
       <S.Frame>
         <div className="background-text">
           <p>PORTFOLIO</p>
@@ -68,11 +104,11 @@ function Main() {
           <Lottie.ScrollDown />
         </div>
       </S.Frame>
-      <About />
+      <About id="test" ref={aboutRef} />
       <Stack />
       <Experience />
-      <Work />
-      <Footer />
+      <Work ref={workRef} />
+      <Footer ref={contactRef} />
     </>
   );
 }

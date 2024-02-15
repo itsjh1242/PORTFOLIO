@@ -39,7 +39,8 @@ export const NavMenu = styled.div`
   padding-right: 50px;
   gap: 50px;
 
-  & > a {
+  & > p {
+    cursor: pointer;
     width: fit-content;
     height: fit-content;
     border-radius: 25px;

@@ -110,6 +110,9 @@ export const WorkItemLeft = styled.div`
   padding: 20px;
   gap: 8px;
 
+  & > .img-box:hover {
+    cursor: none;
+  }
   & > .img-box {
     width: 560px;
     height: 320px;
@@ -118,7 +121,7 @@ export const WorkItemLeft = styled.div`
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s;
-      box-shadow: 0 60px 123px -25px hsla(225, 2%, 62%, 0.42), 0 35px 75px -35px hsla(225, 2%, 62%, 0.08);
+      box-shadow: 0 60px 123px -25px hsla(225, 70%, 10%, 0.42), 0 35px 75px -35px hsla(225, 2%, 62%, 0.08);
       transform: perspective(800px) rotateY(25deg) scale(0.8) rotateX(10deg);
 
       &:hover {
@@ -227,6 +230,9 @@ export const WorkItemRight = styled.div`
   padding: 20px;
   gap: 8px;
 
+  & > .img-box:hover {
+    cursor: none;
+  }
   & > .img-box {
     width: 560px;
     height: 320px;
@@ -238,7 +244,7 @@ export const WorkItemRight = styled.div`
       object-fit: cover;
       transition: transform 0.5s;
 
-      box-shadow: 0 60px 123px -25px hsla(225, 2%, 62%, 0.42), 0 35px 75px -35px hsla(225, 2%, 62%, 0.08);
+      box-shadow: 0 60px 123px -25px hsla(225, 70%, 10%, 0.42), 0 35px 75px -35px hsla(225, 2%, 62%, 0.08);
       transform: perspective(800px) rotateY(-25deg) scale(0.8) rotateX(10deg);
 
       &:hover {
@@ -332,6 +338,64 @@ export const WorkItemRight = styled.div`
           object-fit: cover;
         }
       }
+    }
+  }
+`;
+
+export const ViewCursor = styled.div`
+  display: ${(props) => (props.$visible ? "block" : "none")};
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: #201d1d;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 100;
+
+  & > p {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-family: "Pretendard-Medium";
+    color: #fff;
+  }
+`;
+
+export const WorkAllDetailBackground = styled.div`
+  display: ${(props) => (props.$visible ? "block" : "none")};
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+`;
+export const WorkAllDetailFrame = styled.div`
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 90vh;
+  overflow-y: scroll;
+  box-shadow: 0 60px 123px -25px hsla(225, 70%, 10%, 0.42), 0 35px 75px -35px hsla(225, 2%, 62%, 0.08);
+  z-index: 100;
+
+  & > .detail-img-box {
+    width: 100%;
+    height: fit-content;
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 `;

@@ -1,9 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Route, Link } from "react-router-dom";
 
-// Views
-import WorkAll from "./WorkAll";
-
 // Style
 import * as S from "./Style";
 

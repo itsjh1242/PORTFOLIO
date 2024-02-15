@@ -4,7 +4,6 @@ import * as S from "./Style";
 
 function Nav() {
   const NavRef = useRef();
-
   useEffect(() => {
     const Nav = NavRef.current;
     const NavMenu = Nav.querySelectorAll("a");

@@ -14,12 +14,44 @@ import * as D from "./Data/WorkData";
 export default function WorkAll() {
   const { category } = useParams();
   const [Data, setData] = useState([]);
+  const [handleCursorIn, setHandleCursorIn] = useState(false);
+  const [handleImageClick, sethandleImageClick] = useState(false);
+  const [handlePopupImageSrc, setHandlePopupImageSrc] = useState("");
+
+  const background = useRef(null);
+  const cursor = useRef(null);
 
   useEffect(() => {
     const dummy = category === "default" ? D.ProjectData.concat(D.DesignData) : category === "project" ? D.ProjectData : D.DesignData;
     dummy.sort((a, b) => b.year - a.year);
     setData(dummy);
   }, [category]);
+
+  // 마우스 커서가 이미지 박스 안에 들어왔을 때, 이벤트 처리
+  useEffect(() => {
+    if (handleCursorIn) {
+      const handleMousemove = (event) => {
+        cursor.current.style.left = event.clientX + "px";
+        cursor.current.style.top = event.clientY + "px";
+      };
+      window.addEventListener("mousemove", handleMousemove);
+      return () => {
+        window.removeEventListener("mousemove", handleMousemove);
+      };
+    }
+  }, [handleCursorIn]);
+
+  // 팝업 창 제외 클릭 시 창 닫기
+  useEffect(() => {
+    if (handleImageClick) {
+      const body = document.querySelector("body");
+      body.style.overflow = "hidden";
+      background.current.addEventListener("click", () => {
+        sethandleImageClick(false);
+        body.style.overflow = "auto";
+      });
+    }
+  }, [handleImageClick]);
 
   return (
     <>
@@ -54,17 +86,31 @@ export default function WorkAll() {
           {Data.map((item, index) => {
             return index % 2 === 0 ? (
               <S.WorkItemLeft key={index}>
-                <div className="img-box">
-                  <img src={`.././portfolio/workall/prev_${item.pid}.png`} alt="" />
+                <div
+                  className="img-box"
+                  onMouseEnter={() => {
+                    setHandleCursorIn(true);
+                  }}
+                  onMouseLeave={() => {
+                    setHandleCursorIn(false);
+                  }}
+                  onClick={() => {
+                    sethandleImageClick(true);
+                    setHandlePopupImageSrc(item.detail);
+                  }}
+                >
+                  <img src={`/portfolio/workall/${item.pid}.png`} alt="" />
                 </div>
                 <div className="text-box">
-                  <p className="year">2023 • {item.category_kr}</p>
+                  <p className="year">
+                    {item.year} • {item.category_kr}
+                  </p>
                   <p className="title">{item.title}</p>
                   <div className="use">
                     {item.use.map((use_item, use_index) => {
                       return (
                         <div className="icon" key={use_index}>
-                          <img src={`.././portfolio/stack/${use_item}.png`} alt={use_item} />
+                          <img src={`/portfolio/stack/${use_item}.png`} alt={use_item} />
                         </div>
                       );
                     })}
@@ -78,7 +124,7 @@ export default function WorkAll() {
                   <div className="link">
                     {item.link[0] === "" ? null : (
                       <Link to={item.link[0]} target="_blank">
-                        <img src=".././portfolio/stack/Github.png" alt="github" />
+                        <img src="/portfolio/stack/Github.png" alt="github" />
                       </Link>
                     )}
                     {item.link[1] === "" ? null : (
@@ -92,13 +138,15 @@ export default function WorkAll() {
             ) : (
               <S.WorkItemRight key={index}>
                 <div className="text-box">
-                  <p className="year">2023 • {item.category_kr}</p>
+                  <p className="year">
+                    {item.category_kr} • {item.year}
+                  </p>
                   <p className="title">{item.title}</p>
                   <div className="use">
                     {item.use.map((use_item, use_index) => {
                       return (
                         <div className="icon" key={use_index}>
-                          <img src={`.././portfolio/stack/${use_item}.png`} alt={use_item} />
+                          <img src={`/portfolio/stack/${use_item}.png`} alt={use_item} />
                         </div>
                       );
                     })}
@@ -112,7 +160,7 @@ export default function WorkAll() {
                   <div className="link">
                     {item.link[0] === "" ? null : (
                       <Link to={item.link[0]} target="_blank">
-                        <img src=".././portfolio/stack/Github.png" alt="github" />
+                        <img src="/portfolio/stack/Github.png" alt="github" />
                       </Link>
                     )}
                     {item.link[1] === "" ? null : (
@@ -122,14 +170,38 @@ export default function WorkAll() {
                     )}
                   </div>
                 </div>
-                <div className="img-box">
-                  <img src={`.././portfolio/workall/prev_${item.pid}.png`} alt="" />
+                <div
+                  className="img-box"
+                  onMouseEnter={() => {
+                    setHandleCursorIn(true);
+                  }}
+                  onMouseLeave={() => {
+                    setHandleCursorIn(false);
+                  }}
+                  onClick={() => {
+                    sethandleImageClick(true);
+                    setHandlePopupImageSrc(item.detail);
+                  }}
+                >
+                  <img src={`/portfolio/workall/${item.pid}.png`} alt="" />
                 </div>
               </S.WorkItemRight>
             );
           })}
         </S.WorkAllBody>
       </S.WorkAllFrame>
+      <S.WorkAllDetailBackground $visible={handleImageClick} ref={background}>
+        <S.WorkAllDetailFrame $visible={handleImageClick}>
+          <div className="detail-img-box">
+            <img src={`/portfolio/${handlePopupImageSrc}.png`} alt="" />
+          </div>
+        </S.WorkAllDetailFrame>
+      </S.WorkAllDetailBackground>
+      <S.ViewCursor ref={cursor} $visible={handleCursorIn}>
+        <p>
+          {"<"}Detail{"/>"}
+        </p>
+      </S.ViewCursor>
     </>
   );
 }
