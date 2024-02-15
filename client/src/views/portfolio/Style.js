@@ -340,7 +340,6 @@ export const WorkHeader = styled.div`
     margin-top: 20px;
     cursor: pointer;
     border: 1px solid #aaaaaa;
-    border-radius: 5px;
     padding: 10px 20px;
     overflow: hidden;
     height: 20px;
@@ -381,7 +380,6 @@ export const WorkMain = styled.div`
     }
   }
   & > div {
-    border-radius: 5px;
     overflow: hidden;
     position: relative;
     box-shadow: 0px 0px 4px 0px #d3d3d3;
@@ -585,7 +583,6 @@ export const ExperienceItem = styled.div`
   padding: 8px 16px;
   margin-bottom: 12px;
   box-shadow: 0px 0px 4px 0px #d3d3d3;
-  border-radius: 5px;
 
   p {
     transition: all 0.3s ease-in-out;
