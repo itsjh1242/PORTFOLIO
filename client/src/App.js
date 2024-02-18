@@ -1,15 +1,13 @@
-import React from "react";
+import React, { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Views
 // Portfolio
 import Portfolio from "./views/portfolio/Main";
-
+import WorkAll from "./views/portfolio/WorkAll";
 // Lazy Loading
-// Work Detail Page
-const WorkAll = React.lazy(() => import("./views/portfolio/WorkAll"));
 // Weather Picking Page
-const WeatherPicker = React.lazy(() => import("./views/weatherPicker/Main"));
+const WeatherPicker = lazy(() => import("./views/weatherPicker/Main"));
 
 function App() {
   return (

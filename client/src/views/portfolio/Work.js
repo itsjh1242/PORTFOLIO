@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect, forwardRef } from "react";
-import { Route, Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // Style
 import * as S from "./Style";

@@ -84,19 +84,40 @@ export const WorkAllBody = styled.div`
 export const WorkCategory = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
   width: 100%;
   height: fit-content;
+  margin-bottom: 20px;
+
+  & > .category-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  & > .category-select-dispaly {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+
+    & > svg {
+      transition: all 0.7s;
+    }
+    & > svg:hover {
+      cursor: pointer;
+    }
+  }
 `;
 
 export const CategoryItem = styled.p`
   font-size: ${(props) => (props.condition === "true" ? "16px" : "14px")};
   font-family: ${(props) => (props.condition === "true" ? "Pretendard-Bold" : "Pretendard-Regular")};
   border-bottom: ${(props) => (props.condition === "true" ? "2px solid #000" : "none")};
-  padding: 4px 8px;
-  margin-right: 16px;
-  margin-bottom: 20px;
 `;
 
 export const WorkItemLeft = styled.div`
@@ -110,9 +131,6 @@ export const WorkItemLeft = styled.div`
   padding: 20px;
   gap: 8px;
 
-  & > .img-box:hover {
-    cursor: none;
-  }
   & > .img-box {
     width: 560px;
     height: 320px;
@@ -125,6 +143,7 @@ export const WorkItemLeft = styled.div`
       transform: perspective(800px) rotateY(25deg) scale(0.8) rotateX(10deg);
 
       &:hover {
+        cursor: none;
         transform: perspective(800px) rotateY(0deg) scale(1) rotateX(0deg);
       }
     }
@@ -230,9 +249,6 @@ export const WorkItemRight = styled.div`
   padding: 20px;
   gap: 8px;
 
-  & > .img-box:hover {
-    cursor: none;
-  }
   & > .img-box {
     width: 560px;
     height: 320px;
@@ -248,6 +264,7 @@ export const WorkItemRight = styled.div`
       transform: perspective(800px) rotateY(-25deg) scale(0.8) rotateX(10deg);
 
       &:hover {
+        cursor: none;
         transform: perspective(800px) rotateY(0deg) scale(1) rotateX(0deg);
       }
     }
@@ -396,6 +413,103 @@ export const WorkAllDetailFrame = styled.div`
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+  }
+`;
+
+// WorkAllBody Grid Section
+export const WorkAllBodyGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100vw;
+  max-width: 1200px;
+  height: fit-content;
+  padding: 20px;
+  margin: 0 auto;
+
+  & > .card {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    box-shadow: 0 60px 123px -25px hsla(225, 70%, 10%, 0.42), 0 35px 75px -35px hsla(225, 2%, 62%, 0.08);
+
+    & > .img-box {
+      width: 350px;
+      height: 200px;
+      overflow: hidden;
+
+      & > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+        }
+      }
+    }
+    & > .text-box {
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+      height: 150px;
+
+      & > .text-box-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+
+        & > .category {
+          font-size: 12px;
+          font-family: "Pretendard-Medium";
+          color: #71d6cc;
+          background-color: #112b38;
+          border-radius: 25px;
+          padding: 8px 16px;
+        }
+        & > .year {
+          font-size: 12px;
+          color: #8a8a8a;
+        }
+      }
+      & > .text-box-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 0px 12px;
+        height: 38px;
+
+        & > .title {
+          font-size: 16px;
+          font-family: "Pretendard-Medium";
+          word-break: keep-all;
+        }
+      }
+      & > .text-box-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 8px 12px;
+        gap: 8px;
+
+        & > .icon {
+          width: 20px;
+          height: 20px;
+          & > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
     }
   }
 `;

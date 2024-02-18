@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // Style
 import * as S from "./Style";
@@ -11,7 +11,7 @@ import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
-export default function Experience() {
+const Experienced = () => {
   const [handlePopup, setHandlePopup] = useState([]);
 
   useEffect(() => {
@@ -88,4 +88,6 @@ export default function Experience() {
       </S.ExperienceFrame>
     </>
   );
-}
+};
+
+export default Experienced;

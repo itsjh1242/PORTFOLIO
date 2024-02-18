@@ -45,7 +45,7 @@ export const DesignData = [
     year: "2022.03~07",
     desc: "눈으로 보지 못하는 시각장애인을 위한 만져서 확인할 수 있는 3D 헤어 카탈로그라는 아이디어를 도출하고 프로토타입을 제작했습니다. 헤어 디자이너와 시각장애인을 대상으로 설문조사를 진행하여 피드백을 받고, 이를 바탕으로 디자인을 수정하였습니다. 본 아이디어는 Reddot Design Award에서 Best of the Best를 수상하였습니다.",
     tag: ["Best of the Best", "Idea", "UI/UX", "Prototype", "팀 프로젝트"],
-    use: [],
+    use: ["Reddot"],
     link: ["", ""],
     detail: "/",
   },

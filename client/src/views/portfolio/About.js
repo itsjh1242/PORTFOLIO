@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, forwardRef } from "react";
+import React, { useState, useEffect } from "react";
 
 // Style
 import * as S from "./Style";

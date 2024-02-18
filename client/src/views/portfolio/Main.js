@@ -12,15 +12,9 @@ import * as S from "./Style";
 // Views
 import About from "./About";
 import Stack from "./Stack";
-import Experience from "./Experience";
+import Experienced from "./Experienced";
 import Work from "./Work";
 import Footer from "./Footer";
-
-const NAV_ITEMS = [
-  { index: 0, name: "About" },
-  { index: 1, name: "Work" },
-  { index: 2, name: "Contact" },
-];
 
 function Main() {
   const homeRef = useRef();
@@ -91,7 +85,7 @@ function Main() {
       </S.Frame>
       <About aboutRef={aboutRef} />
       <Stack />
-      <Experience />
+      <Experienced />
       <Work workRef={workRef} />
       <Footer contactRef={contactRef} />
     </>
