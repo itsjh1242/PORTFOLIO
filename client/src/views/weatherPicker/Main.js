@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { MdLocationOn, MdClose, MdWaterDrop, MdWindPower, MdCloudQueue, MdSunny, MdSunnySnowing } from "react-icons/md";
 import * as converter from "./EntoKo";
@@ -63,9 +63,9 @@ export default function WeatherPicker() {
         .then((res) => {
           translatedCity = res.message.result.translatedText;
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log("@@@@", err));
 
-      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${translatedCity}&appid=${API_KEY}&units=metric `);
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${translatedCity}&appid=${API_KEY}&units=metric`);
       setWeatherData({
         city: city,
         main_weather: response.data.weather[0].main,
@@ -93,10 +93,6 @@ export default function WeatherPicker() {
     }
   };
 
-  useEffect(() => {
-    console.log("Modal Opened");
-  }, [weatherData]);
-
   return (
     <>
       {handleModal ? <Modal setHandleModal={setHandleModal} {...weatherData} /> : null}
@@ -109,7 +105,8 @@ export default function WeatherPicker() {
           <p className="subtitle">전국 날씨를 한 눈에 확인하기</p>
         </S.Header>
         <S.Search>
-          <input className="search" placeholder="검색" onKeyDown={(e) => handleKeyPress(e)} />
+          <input className="search" place
+          holder="검색" onKeyDown={(e) => handleKeyPress(e)} />
           <p className="icon">🔍</p>
         </S.Search>
       </S.Frame>

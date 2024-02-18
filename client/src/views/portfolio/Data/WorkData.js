@@ -20,19 +20,17 @@ export const ProjectData = [
     ],
     use: ["Python", "MySQL", "HTML"],
     link: ["https://github.com/itsjh1242/DiaryWritingSystem", ""],
-    detail: "test_lh",
   },
   {
     pid: "pj-02",
     category: "project",
     category_kr: "프로젝트",
-    title: "한국어 지원 검색 기반 날씨 검색 서비스",
+    title: "한국어 지원 날씨 검색 서비스",
     year: "2024.01",
     desc: "React 공부를 위한 미니 프로젝트로 사용자가 입력한 지역의 날씨 정보를 제공하는 서비스를 개발하였습니다. React 공부를 위해 미니 프로젝트를 진행하였고, OpenWeatherAPI를 사용할 때에 한국어 입력이 제한되는 점을 보완하기 위해서 Papago API를 사용하였습니다.",
     tag: ["개인 프로젝트", "Papago API", "OpenWeatherMap API", "React", "Node.js"],
     use: ["Python", "MySQL", "HTML"],
     link: ["https://github.com/itsjh1242/mini-project/tree/main/client/src/views/weatherPicker", "/weatherpicker"],
-    detail: "/",
   },
 ];
 
@@ -47,6 +45,5 @@ export const DesignData = [
     tag: ["Best of the Best", "Idea", "UI/UX", "Prototype", "팀 프로젝트"],
     use: ["Reddot"],
     link: ["", ""],
-    detail: "/",
   },
 ];

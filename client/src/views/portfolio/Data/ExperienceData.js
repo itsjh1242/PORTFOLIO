@@ -9,6 +9,15 @@ const ExperienceData = [
     stack: ["UbSE Lab"],
   },
   {
+    title: "AI+X 융합연구소 연구원",
+    period: "2023.03 ~ 2023.12",
+    location: "Busan, Korea",
+    website: "https://aisw.dongseo.ac.kr/comm/comm_01_view.html?kind=1&seq=8&page=1&keyword=",
+    website_n: "aisw.dongseo.ac.kr",
+    desc: "학부 연구생을 중심으로 운영되는 4차 산업혁명 관련 융합기술 연구센터에서 1년간 연구원으로 활동하며, AI+X 지도 교수님의 지도아래 모션인식 기반 이중암호 시스템 연구를 진행하였습니다. 해당 프로젝트는 논문 및 특허 출원을 목표로 연구를 진행하였으며, 학술대회에서 구두 발표를 성공적으로 마쳤습니다.",
+    stack: ["동서대학교 소프트웨어중심대학 사업단", "AI+X 융합연구소", "Flutter", "MySQL", "Node.js", "정보보안", "암호화"],
+  },
+  {
     title: "R&D 전문기업 에핀(EPIN) 인턴십",
     period: "2022.06 ~ 2022.08",
     location: "Busan, Korea",

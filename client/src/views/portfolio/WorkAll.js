@@ -61,6 +61,14 @@ export default function WorkAll() {
   };
   const [display, setDisplay] = useState("list");
 
+  // Scroll To Top
+  const popupRef = useRef(null);
+  useEffect(() => {
+    if (handleImageClick) {
+      popupRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [handleImageClick]);
+
   return (
     <>
       <S.WorkAllFrame>
@@ -125,9 +133,9 @@ export default function WorkAll() {
         )}
       </S.WorkAllFrame>
       <S.WorkAllDetailBackground $visible={handleImageClick} ref={background}>
-        <S.WorkAllDetailFrame $visible={handleImageClick}>
+        <S.WorkAllDetailFrame ref={popupRef} $visible={handleImageClick}>
           <div className="detail-img-box">
-            <img src={`/portfolio/${handlePopupImageSrc}.png`} alt="" />
+            <img src={`/portfolio/workall/${handlePopupImageSrc}-detail.png`} alt="" />
           </div>
         </S.WorkAllDetailFrame>
       </S.WorkAllDetailBackground>
@@ -151,7 +159,7 @@ export function WorkAllBodyGrid({ data, setHandleCursorIn, sethandleImageClick, 
               key={index}
               onClick={() => {
                 sethandleImageClick(true);
-                setHandlePopupImageSrc(item.detail);
+                setHandlePopupImageSrc(item.pid);
               }}
             >
               <img
@@ -200,7 +208,7 @@ export function WorkAllBodyList({ data, setHandleCursorIn, sethandleImageClick, 
               className="img-box"
               onClick={() => {
                 sethandleImageClick(true);
-                setHandlePopupImageSrc(item.detail);
+                setHandlePopupImageSrc(item.pid);
               }}
             >
               <img
@@ -287,7 +295,7 @@ export function WorkAllBodyList({ data, setHandleCursorIn, sethandleImageClick, 
               className="img-box"
               onClick={() => {
                 sethandleImageClick(true);
-                setHandlePopupImageSrc(item.detail);
+                setHandlePopupImageSrc(item.pid);
               }}
             >
               <img

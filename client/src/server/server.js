@@ -3,14 +3,13 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const app = express();
 const server = require("http").createServer(app);
+require("dotenv").config();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(bodyParser.json());
 
-var papago_client_id = "WNuFVwBjucKghLUUB3_g";
-var papago_client_secret = "i00xiYKcp6";
-
+// Weather Picker API
 app.post("/translate", function (req, res) {
   const { query } = req.body;
   var api_url = "https://openapi.naver.com/v1/papago/n2mt";
@@ -18,7 +17,7 @@ app.post("/translate", function (req, res) {
   var options = {
     url: api_url,
     form: { source: "ko", target: "en", text: query },
-    headers: { "X-Naver-Client-Id": papago_client_id, "X-Naver-Client-Secret": papago_client_secret },
+    headers: { "X-Naver-Client-Id": process.env.PAPAGO_CLIENT_ID, "X-Naver-Client-Secret": process.env.PAPAGO_CLIENT_SECRET },
   };
   request.post(options, function (error, response, body) {
     if (!error && response.statusCode === 200) {
