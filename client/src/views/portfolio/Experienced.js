@@ -40,11 +40,7 @@ const Experienced = () => {
 
   return (
     <>
-      <S.ExperienceTitle>
-        My
-        <br />
-        Experience
-      </S.ExperienceTitle>
+      <S.ExperienceTitle>Experienced</S.ExperienceTitle>
       <S.ExperienceFrame>
         {ExperienceData.map((data, index) => {
           return (

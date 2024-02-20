@@ -19,7 +19,7 @@ export default function WorkAll() {
   const [data, setData] = useState([]);
   useEffect(() => {
     const dummy = category === "default" ? D.ProjectData.concat(D.DesignData) : category === "project" ? D.ProjectData : D.DesignData;
-    dummy.sort((a, b) => b.year - a.year);
+    dummy.sort((a, b) => b.key - a.key);
     setData(dummy);
   }, [category]);
 

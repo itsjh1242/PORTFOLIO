@@ -5,9 +5,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Portfolio
 import Portfolio from "./views/portfolio/Main";
 import WorkAll from "./views/portfolio/WorkAll";
+
 // Lazy Loading
 // Weather Picking Page
 const WeatherPicker = lazy(() => import("./views/weatherPicker/Main"));
+const Lottery = lazy(() => import("./views/lottery/Main"));
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
             <Route path="/" element={<Portfolio />} />
             <Route path="/workall/:category" element={<WorkAll />} />
             <Route path="/weatherpicker" element={<WeatherPicker />} />
+            <Route path="/lottery" element={<Lottery />} />
           </Routes>
         </React.Suspense>
       </BrowserRouter>

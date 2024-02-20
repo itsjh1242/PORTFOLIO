@@ -553,10 +553,11 @@ export const DesignedBy = styled.div`
 // Experience Section
 
 export const ExperienceTitle = styled.p`
-  font-family: "Prentendard-Bold";
-  font-size: 48px;
+  font-family: "Prentendard-Medium";
+  font-size: 60px;
   color: #000000;
   text-align: center;
+  
 `;
 
 export const ExperienceFrame = styled.div`
