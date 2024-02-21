@@ -6,8 +6,6 @@ const server = require("http").createServer(app);
 const request = require("request");
 const moment = require("moment");
 
-require("dotenv").config();
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(bodyParser.json());
@@ -33,6 +31,11 @@ app.post("/translate", function (req, res) {
 });
 
 // Lottery
+// Get Week
+app.get("/lottery/week", (req, res) => {
+  return res.json(getWeek());
+});
+
 // Default API
 app.post("/lottery/:drwNo", (req, res) => {
   try {
@@ -54,6 +57,7 @@ app.get("/lottery/last", (req, res) => {
     console.log("@@@@getLastLottery", error);
   }
 });
+
 // 가장 최신 회차 주 구하기
 const getWeek = () => {
   const firstDate = moment("20021207");

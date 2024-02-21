@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
-
 import { db } from "./firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 
 const URL = "http://localhost:8080/";
 
@@ -88,10 +86,39 @@ function WinCheck(myLotto, winLotto) {
     } else if (myNumbers.filter((value) => winNumbers.includes(value)).length === 1) {
       returnCount = 1;
     } else {
-      returnCount = 0;
+      returnCount = "0";
     }
   }
   return { returnStatus: returnStatus, returnCount: returnCount };
 }
 
-export { GetLastLottery, getLottery, GetMyLottery };
+async function GenerateLottery() {
+  try {
+    // Week
+    const response = await fetch(URL + "lottery/week");
+    const week = await response.json();
+
+    // Generate
+    let lotteryNumbers = [];
+    while (lotteryNumbers.length < 6) {
+      let randomNumber = Math.floor(Math.random() * 45) + 1; // 1부터 45 사이의 무작위 숫자 생성
+      if (!lotteryNumbers.includes(randomNumber)) {
+        lotteryNumbers.push(randomNumber);
+      }
+    }
+    lotteryNumbers.sort((a, b) => a - b);
+
+    // Firebase
+    const lotteryCollectionRef = collection(db, "lottery");
+    const newDoc = await addDoc(lotteryCollectionRef, {
+      date: new Date(),
+      drwNo: week + 1,
+      myDrwNo: lotteryNumbers,
+    });
+  } catch (error) {
+    console.log("@@@@GenerateLottery", error);
+    throw error;
+  }
+}
+
+export { GetLastLottery, getLottery, GetMyLottery, GenerateLottery };

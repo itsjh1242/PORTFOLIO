@@ -182,58 +182,65 @@ export const LotteryHistoryBox = styled.div`
   width: 600px;
   height: 250px;
   border: 1px solid #0000000a;
+  overflow: hidden;
 
-  & > .grid-row {
-    display: grid;
+  & > .overflow {
+    overflow: auto;
     width: 100%;
-    height: 30px;
-    grid-template-columns: 20px 180px 210px 50px 40px;
-    justify-content: space-around;
-    align-items: center;
+    height: 100%;
 
-    & > p {
-      font-family: "Pretendard-Regular";
-      font-size: 11px;
-      text-align: center;
-    }
-
-    & > .mynum {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
+    & > .grid-row {
+      display: grid;
+      width: 100%;
+      height: 30px;
+      grid-template-columns: 20px 180px 210px 50px 40px;
+      justify-content: space-around;
       align-items: center;
-      width: 180px;
-      height: 20px;
-      gap: 4px;
 
-      & > .ball {
+      & > p {
+        font-family: "Pretendard-Regular";
+        font-size: 11px;
+        text-align: center;
+      }
+
+      & > .mynum {
         display: flex;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
-        width: 20px;
+        width: 180px;
         height: 20px;
-        border-radius: 50%;
+        gap: 4px;
 
-        & > p {
+        & > .ball {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+
+          & > p {
+            font-family: "Pretendard-Bold";
+            font-size: 10px;
+            color: #ffffff;
+          }
+        }
+      }
+
+      & > .win-rate {
+        & > span {
           font-family: "Pretendard-Bold";
-          font-size: 10px;
-          color: #ffffff;
+          font-size: 12px;
         }
       }
     }
 
-    & > .win-rate {
-      & > span {
+    & .head {
+      & > p {
         font-family: "Pretendard-Bold";
-        font-size: 12px;
+        font-size: 11px;
       }
-    }
-  }
-
-  & .head {
-    & > p {
-      font-family: "Pretendard-Bold";
-      font-size: 11px;
     }
   }
 `;
@@ -246,7 +253,12 @@ export const LotteryGenerateButton = styled.div`
   height: 250px;
   border: 1px solid #0000000a;
   background-color: #fafafa;
+  cursor: pointer;
+  transition: 0.5s;
 
+  &:hover {
+    background-color: #f0f0f0;
+  }
   & > p {
     font-family: "Pretendard-Bold";
     font-size: 18px;

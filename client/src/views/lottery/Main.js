@@ -25,6 +25,7 @@ function LotteryBallColor(number) {
 }
 
 export default function Lottery() {
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [currentDrwNo, setCurrentDrwNo] = useState(0);
   const [lotteryData, setlotteryData] = useState({
     bnusNo: 0,
@@ -44,7 +45,7 @@ export default function Lottery() {
   });
   const [lotteryHistoryData, setLotteryHistoryData] = useState({});
 
-  // 최신회차 정보
+  // 생성 내역 및 최신회차 정보
   useEffect(() => {
     const getLotteryHistoryData = async () => {
       try {
@@ -55,7 +56,6 @@ export default function Lottery() {
       }
     };
     getLotteryHistoryData();
-    console.log(lotteryHistoryData);
 
     const getLastLottery = async () => {
       try {
@@ -67,7 +67,7 @@ export default function Lottery() {
       }
     };
     getLastLottery();
-  }, []);
+  }, [isButtonClicked]);
 
   //   지난 회차 정보 가져오기
   async function getPrevWeek() {
@@ -87,6 +87,12 @@ export default function Lottery() {
       console.log("@@@@getPrev", error);
     }
   }
+
+  // 번호 생성
+  const handleGenerateClick = () => {
+    F.GenerateLottery();
+    setIsButtonClicked(!isButtonClicked);
+  };
 
   return (
     <>
@@ -147,52 +153,57 @@ export default function Lottery() {
               </div>
             </S.LotteryResultBox>
             <S.Row>
-              <S.LotteryHistoryBox>
-                <div className="grid-row head">
-                  <p>회차</p>
-                  <p>내 번호</p>
-                  <p>추첨 번호</p>
-                  <p>당첨 개수</p>
-                  <p>상태</p>
+              <S.LotteryHistoryBox key={isButtonClicked}>
+                <div className="overflow">
+                  <div className="grid-row head">
+                    <p>회차</p>
+                    <p>내 번호</p>
+                    <p>추첨 번호</p>
+                    <p>당첨 개수</p>
+                    <p>상태</p>
+                  </div>
+                  {Object.keys(lotteryHistoryData).map((key, index) => {
+                    return (
+                      <div className="grid-row" key={index}>
+                        <p>{lotteryHistoryData[key].drwNo}</p>
+                        <div className="mynum">
+                          {lotteryHistoryData[key].myDrwNo.map((num, index) => {
+                            return (
+                              <div className="ball" key={index} style={{ background: `#${LotteryBallColor(num)}` }}>
+                                <p>{num}</p>
+                              </div>
+                            );
+                          })}
+                        </div>
+                        <div className="mynum">
+                          {lotteryHistoryData[key].drwNoWin
+                            ? lotteryHistoryData[key].drwNoWin.map((num, index) => {
+                                if (index === 6) {
+                                  return <FaPlus size={10} key={index} />;
+                                } else {
+                                  return (
+                                    <div className="ball" key={index} style={{ background: `#${LotteryBallColor(num)}` }}>
+                                      <p>{num}</p>
+                                    </div>
+                                  );
+                                }
+                              })
+                            : "-"}
+                        </div>
+                        <p className="win-rate">
+                          <span>{lotteryHistoryData[key].status["returnCount"] ? lotteryHistoryData[key].status["returnCount"] : "-"}</span> / 6
+                        </p>
+                        <p>{lotteryHistoryData[key].status["returnStatus"] ? lotteryHistoryData[key].status["returnStatus"] : "대기중"}</p>
+                      </div>
+                    );
+                  })}
                 </div>
-                {Object.keys(lotteryHistoryData).map((key, index) => {
-                  console.log(lotteryHistoryData[key]);
-                  return (
-                    <div className="grid-row" key={index}>
-                      <p>{lotteryHistoryData[key].drwNo}</p>
-                      <div className="mynum">
-                        {lotteryHistoryData[key].myDrwNo.map((num, index) => {
-                          return (
-                            <div className="ball" key={index} style={{ background: `#${LotteryBallColor(num)}` }}>
-                              <p>{num}</p>
-                            </div>
-                          );
-                        })}
-                      </div>
-                      <div className="mynum">
-                        {lotteryHistoryData[key].drwNoWin
-                          ? lotteryHistoryData[key].drwNoWin.map((num, index) => {
-                              if (index === 6) {
-                                return <FaPlus size={10} key={index} />;
-                              } else {
-                                return (
-                                  <div className="ball" key={index} style={{ background: `#${LotteryBallColor(num)}` }}>
-                                    <p>{num}</p>
-                                  </div>
-                                );
-                              }
-                            })
-                          : "-"}
-                      </div>
-                      <p className="win-rate">
-                        <span>{lotteryHistoryData[key].status["returnCount"]}</span> / 6
-                      </p>
-                      <p>{lotteryHistoryData[key].status["returnStatus"]}</p>
-                    </div>
-                  );
-                })}
               </S.LotteryHistoryBox>
-              <S.LotteryGenerateButton>
+              <S.LotteryGenerateButton
+                onClick={() => {
+                  handleGenerateClick();
+                }}
+              >
                 <p>번호 생성</p>
               </S.LotteryGenerateButton>
             </S.Row>
