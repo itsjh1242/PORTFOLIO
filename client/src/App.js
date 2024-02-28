@@ -10,6 +10,7 @@ import WorkAll from "./views/portfolio/WorkAll";
 // Weather Picking Page
 const WeatherPicker = lazy(() => import("./views/weatherPicker/Main"));
 const Lottery = lazy(() => import("./views/lottery/Main"));
+const Streaming = lazy(() => import("./views/streaming/Main"));
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Portfolio />} />
             <Route path="/workall/:category" element={<WorkAll />} />
             <Route path="/weatherpicker" element={<WeatherPicker />} />
+            <Route path="/streaming" element={<Streaming />} />
             <Route path="/lottery" element={<Lottery />} />
           </Routes>
         </React.Suspense>

@@ -58,6 +58,18 @@ export const ProjectData = [
     link: ["https://github.com/itsjh1242/Arduino_Attendance_Management", ""],
     key: "202305",
   },
+  {
+    pid: "pj-05",
+    category: "project",
+    category_kr: "프로젝트",
+    title: "Socket 통신을 활용한 실시간 채팅 서비스",
+    year: "2024.02",
+    desc: "React-Redux와 Socket통신에 대한 이해도를 높이고자 진행한 프로젝트입니다. 본 프로젝트에서 개발된 메신저는 친구 맺기를 한 사용자와 실시간 양방향 통신을 할 수 있습니다.",
+    tag: ["실시간 양방향 통신", "메신저", "Redux 공부", "Socket 공부", "Scss 공부"],
+    use: ["React", "Redux", "Node", "MySQL", "Sass"],
+    link: ["https://github.com/itsjh1242/messenger-prime", ""],
+    key: "202402",
+  },
 ];
 
 export const DesignData = [

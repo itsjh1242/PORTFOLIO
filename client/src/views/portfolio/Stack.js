@@ -4,7 +4,7 @@ import React from "react";
 import * as S from "./Style";
 
 export default function Stack() {
-  const stack = ["React", "Node.js", "AWS", "Flutter", "MySQL", "Python", "Android", "HTML", "CSS", "JavaScript", "Github", "VSCode"];
+  const stack = ["React", "Node.js", "AWS", "Flutter", "MySQL", "Python", "Android", "HTML", "CSS", "JavaScript", "Github", "VSCode", "Redux", "Sass"];
   return (
     <>
       <S.StackFrame>

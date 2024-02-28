@@ -8,7 +8,6 @@ import * as S from "./Style";
 // Icon
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { FaPlus } from "react-icons/fa";
-import Background from "../weatherPicker/Background";
 
 const LOTTERY_SEQUENCE = ["drwtNo1", "drwtNo2", "drwtNo3", "drwtNo4", "drwtNo5", "drwtNo6"];
 const BALL_COLOR = { 40: "B0D940", 30: "ABABAB", 20: "FE7272", 10: "68C8F2", 0: "FAC400" };
@@ -50,7 +49,7 @@ export default function Lottery() {
     const getLotteryHistoryData = async () => {
       try {
         const data = await F.GetMyLottery();
-        setLotteryHistoryData(data);
+        setLotteryHistoryData(data.sort((a, b) => b.drwNo - a.drwNo));
       } catch (error) {
         console.log("@@@@getLotteryHistoryData", error);
       }

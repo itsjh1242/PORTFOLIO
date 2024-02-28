@@ -432,7 +432,7 @@ export const WorkAllBodyGrid = styled.div`
     display: flex;
     flex-direction: column;
     width: 350px;
-    height: 350px;
+    height: 320px;
     box-shadow: 0 60px 123px -25px hsla(225, 70%, 10%, 0.42), 0 35px 75px -35px hsla(225, 2%, 62%, 0.08);
 
     & > .img-box {
@@ -456,7 +456,7 @@ export const WorkAllBodyGrid = styled.div`
       display: flex;
       flex-direction: column;
       width: 350px;
-      height: 150px;
+      height: 120px;
 
       & > .text-box-header {
         display: flex;
@@ -484,7 +484,7 @@ export const WorkAllBodyGrid = styled.div`
         justify-content: center;
         align-items: flex-start;
         padding: 0px 12px;
-        height: 38px;
+        height: fit-content;
 
         & > .title {
           font-size: 16px;
@@ -496,9 +496,10 @@ export const WorkAllBodyGrid = styled.div`
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-end;
         padding: 8px 12px;
         gap: 8px;
+        height: 100%;
 
         & > .icon {
           width: 20px;
