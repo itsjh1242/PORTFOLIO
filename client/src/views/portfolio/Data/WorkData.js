@@ -20,7 +20,7 @@ export const ProjectData = [
     ],
     use: ["Python", "MySQL", "HTML"],
     link: ["https://github.com/itsjh1242/DiaryWritingSystem", ""],
-    key: "202306",
+    key: "999999",
   },
   {
     pid: "pj-02",
@@ -83,6 +83,18 @@ export const DesignData = [
     tag: ["Best of the Best", "Idea", "UI/UX", "Prototype", "팀 프로젝트"],
     use: ["Reddot"],
     link: ["", ""],
-    key: "202207",
+    key: "999998",
+  },
+  {
+    pid: "d-02",
+    category: "design",
+    category_kr: "디자인",
+    title: "스트리밍 서비스 웹 디자인",
+    year: "2024.02",
+    desc: "개인 프로젝트 아이디어를 구상하는 도중 '음악 스트리밍 서비스' 웹 디자인이 떠올라 Figma를 활용하여 웹 디자인을 하고, React를 활용하여 개발한 웹 디자인입니다.",
+    tag: ["웹 디자인", "UI/UX", "Figma", "음악 스트리밍"],
+    use: ["React", "CSS"],
+    link: ["", ""],
+    key: "202402",
   },
 ];

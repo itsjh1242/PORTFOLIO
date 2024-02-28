@@ -39,16 +39,36 @@ export const Main = styled.div`
   border: none;
   background-color: transparent;
 
+  @keyframes ani {
+    0% {
+      transform: translateY(-50%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes ani-opacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   & > .name {
     font-family: Roboto;
     font-size: 120px;
     font-weight: bold;
     color: #fff;
+    animation: ani 0.5s;
   }
   & > .song {
     font-family: Roboto;
     font-size: 48px;
     color: #fff;
+    animation: ani 0.6s;
   }
   & > .desc {
     width: 450px;
@@ -56,6 +76,7 @@ export const Main = styled.div`
     font-size: 20px;
     color: #aaaaaa;
     text-align: justify;
+    animation: ani 0.7s;
   }
   & > .img {
     position: absolute;
@@ -65,11 +86,16 @@ export const Main = styled.div`
     width: 500px;
     height: 700px;
 
+    animation: ani-opacity 0.7s;
+
     & > img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+  }
+  & > svg {
+    cursor: pointer;
   }
 `;
 
@@ -78,7 +104,7 @@ export const Menu = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 24px;
 
   width: 800px;
   height: 150px;
@@ -101,9 +127,31 @@ export const Circle = styled.div`
   background: radial-gradient(circle at bottom left, #f58529 20%, #c42d91);
 
   overflow: hidden;
-  opacity: ${(props) => (props.position === "center" ? "1" : "0.5")};
+  opacity: ${(props) => (props.position === "center" ? "1" : "0.3")};
+  animation: ${(props) => (props.position === "center" ? "size-up 0.5s" : "size-down 0.5s")};
 
   cursor: pointer;
+
+  @keyframes size-up {
+    0% {
+      width: 120px;
+      height: 120px;
+    }
+    100% {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  @keyframes size-down {
+    0% {
+      width: 150px;
+      height: 150px;
+    }
+    100% {
+      width: 120px;
+      height: 120px;
+    }
+  }
 
   & > img {
     width: 100%;
