@@ -49,7 +49,7 @@ export default function Lottery() {
     const getLotteryHistoryData = async () => {
       try {
         const data = await F.GetMyLottery();
-        setLotteryHistoryData(data.sort((a, b) => b.drwNo - a.drwNo));
+        setLotteryHistoryData(data.sort((a, b) => b.date - a.date));
       } catch (error) {
         console.log("@@@@getLotteryHistoryData", error);
       }
