@@ -59,6 +59,18 @@ export const ProjectData = [
     link: ["https://github.com/itsjh1242/messenger-prime", ""],
     key: "202402",
   },
+  {
+    pid: "pj-06",
+    category: "project",
+    category_kr: "프로젝트",
+    title: "Github API를 활용한 사용자 정보 분석",
+    year: "2024.03",
+    desc: "Github 두 사용자의 레포지토리 정보를 분석하여 성실함을 점수화하여 나타내고, 데이터 분석을 하기 위해 설정한 기준마다의 분석을 사용자에게 보여주는 서비스입니다. 프로젝트에 사용할 수 있는 API를 둘러보다가 Github API를 발견함과 동시에 깃헙배틀이라는 아이디어가 떠올라서, 하루는 아이디어 구체화 및 UI 설계를 하였고, 하루는 React, React-redux를 활용하여 개발을 완료하였습니다.",
+    tag: ["개인 프로젝트", "데이터 분석", "Github API"],
+    use: ["React", "Redux", "Sass"],
+    link: ["https://github.com/itsjh1242/github_battle", "https://itsjh1242.github.io/github_battle/"],
+    key: "202403",
+  },
 ];
 
 export const DesignData = [
