@@ -56,7 +56,7 @@ const Streaming = () => {
         <div className="gradient" />
         <S.Main key={current}>
           <div className="img">
-            <img src={`/streaming/${artist[current]}.png`} alt="" />
+            <img src={`/PORTFOLIO/streaming/${artist[current]}.png`} alt="" />
           </div>
           <p className="name">{artist[current]}</p>
           <p className="song">{song[current]}</p>
@@ -67,7 +67,7 @@ const Streaming = () => {
           {artist.map((item, index) => {
             return (
               <S.Circle key={index} position={item === artist[current] ? "center" : "side"} onClick={() => handleMenuItem(index)}>
-                <img src={`/streaming/${item}_bg.png`} alt="" />
+                <img src={`/PORTFOLIO/streaming/${item}_bg.png`} alt="" />
               </S.Circle>
             );
           })}
