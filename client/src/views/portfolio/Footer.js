@@ -14,17 +14,17 @@ const Footer = ({ contactRef }) => {
         <S.Contact>
           <div className="icon">
             <a href="https://github.com/itsjh1242" target="_blank" rel="noopener noreferrer">
-              <img src="/portfolio/Github.png" alt="github" />
+              <img src="/PORTFOLIO/portfolio/Github.png" alt="" />
             </a>
           </div>
           <div className="icon">
             <a href="mailto:itsjh@kakao.com" target="_blank" rel="noopener noreferrer">
-              <img src="/portfolio/Email.png" alt="github" />
+              <img src="/PORTFOLIO/portfolio/Email.png" alt="" />
             </a>
           </div>
           <div className="icon">
             <a href="https://jundev717.tistory.com/" target="_blank" rel="noopener noreferrer">
-              <img src="/portfolio/Blog.png" alt="github" />
+              <img src="/PORTFOLIO/portfolio/Blog.png" alt="" />
             </a>
           </div>
           <p>Kakao ID: itsjh</p>

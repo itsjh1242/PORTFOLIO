@@ -186,7 +186,7 @@ export function WorkAllBodyGrid({ data, setHandleCursorIn, sethandleImageClick, 
                 {item.use.map((use_item, use_index) => {
                   return (
                     <div className="icon" key={use_index}>
-                      <img src={`/portfolio/stack/${use_item}.png`} alt={use_item} />
+                      <img src={`/portfolio/stack/${use_item}.svg`} alt={use_item} />
                     </div>
                   );
                 })}
@@ -194,7 +194,7 @@ export function WorkAllBodyGrid({ data, setHandleCursorIn, sethandleImageClick, 
               <div className="link">
                 {item.link[0] === "" ? null : (
                   <Link to={item.link[0]} target="_blank">
-                    <img src="/portfolio/stack/Github.png" alt="github" />
+                    <img src="/portfolio/stack/Github.svg" alt="github" />
                   </Link>
                 )}
                 {item.link[1] === "" ? null : (
@@ -244,7 +244,7 @@ export function WorkAllBodyList({ data, setHandleCursorIn, sethandleImageClick, 
                 {item.use.map((use_item, use_index) => {
                   return (
                     <div className="icon" key={use_index}>
-                      <img src={`/portfolio/stack/${use_item}.png`} alt={use_item} />
+                      <img src={`/portfolio/stack/${use_item}.svg`} alt={use_item} />
                     </div>
                   );
                 })}
@@ -258,7 +258,7 @@ export function WorkAllBodyList({ data, setHandleCursorIn, sethandleImageClick, 
               <div className="link">
                 {item.link[0] === "" ? null : (
                   <Link to={item.link[0]} target="_blank">
-                    <img src="/portfolio/stack/Github.png" alt="github" />
+                    <img src="/portfolio/stack/Github.svg" alt="github" />
                   </Link>
                 )}
                 {item.link[1] === "" ? null : (
@@ -280,7 +280,7 @@ export function WorkAllBodyList({ data, setHandleCursorIn, sethandleImageClick, 
                 {item.use.map((use_item, use_index) => {
                   return (
                     <div className="icon" key={use_index}>
-                      <img src={`/portfolio/stack/${use_item}.png`} alt={use_item} />
+                      <img src={`/portfolio/stack/${use_item}.svg`} alt={use_item} />
                     </div>
                   );
                 })}
@@ -294,7 +294,7 @@ export function WorkAllBodyList({ data, setHandleCursorIn, sethandleImageClick, 
               <div className="link">
                 {item.link[0] === "" ? null : (
                   <Link to={item.link[0]} target="_blank">
-                    <img src="/portfolio/stack/Github.png" alt="github" />
+                    <img src="/portfolio/stack/Github.svg" alt="github" />
                   </Link>
                 )}
                 {item.link[1] === "" ? null : (

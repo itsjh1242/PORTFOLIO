@@ -96,8 +96,6 @@ const Work = ({ workRef }) => {
         </div>
       </S.WorkMain>
       <S.WorkHeader>
-        <p className="quote">You don't have to be great to start, but you have to start to be great.</p>
-        <p className="quote-small">"Stumbling is a mistake, staying down is a failure."</p>
         <div className="view-all-button">
           <p>
             <Link to="/workall/default">View All Works</Link>
@@ -106,6 +104,8 @@ const Work = ({ workRef }) => {
             <Link to="/workall/default">View All Works</Link>
           </p>
         </div>
+        <p className="quote">You don't have to be great to start, but you have to start to be great.</p>
+        <p className="quote-small">"Stumbling is a mistake, staying down is a failure."</p>
       </S.WorkHeader>
     </S.WorkFrame>
   );
