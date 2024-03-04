@@ -80,11 +80,11 @@ export default function WorkAll() {
                 <p>KimJunHyeon</p>
               </div>
             </Link>
-            <p>All Projects</p>
+            <p>All Works</p>
           </div>
           <div className="right">
             <p>Kim Jun Hyeon's Works</p>
-            <p>이곳에서 모든 프로젝트를 보실 수 있습니다</p>
+            <p>이곳에서 모든 작품을 보실 수 있습니다</p>
           </div>
         </S.WorkAllHeader>
         <S.WorkCategory>
@@ -181,6 +181,7 @@ export function WorkAllBodyGrid({ data, setHandleCursorIn, sethandleImageClick, 
               <div className="text-box-body">
                 <p className="title">{item.title}</p>
               </div>
+
               <div className="text-box-footer">
                 {item.use.map((use_item, use_index) => {
                   return (
@@ -189,6 +190,18 @@ export function WorkAllBodyGrid({ data, setHandleCursorIn, sethandleImageClick, 
                     </div>
                   );
                 })}
+              </div>
+              <div className="link">
+                {item.link[0] === "" ? null : (
+                  <Link to={item.link[0]} target="_blank">
+                    <img src="/portfolio/stack/Github.png" alt="github" />
+                  </Link>
+                )}
+                {item.link[1] === "" ? null : (
+                  <Link to={item.link[1]} target="_blank">
+                    <FaLink size={30} />
+                  </Link>
+                )}
               </div>
             </div>
           </div>

@@ -50,8 +50,6 @@ const About = ({ aboutRef }) => {
         <p>
           <span>Motto</span>
           <br />
-          코드를 짜는 일이라면, 무엇이든 좋아합니다
-          <br />
           저에게 코드는 언어이고, 웹은 캔버스입니다
         </p>
         <p>

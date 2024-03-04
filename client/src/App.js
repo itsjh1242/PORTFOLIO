@@ -1,5 +1,5 @@
 import React, { lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Views
 // Portfolio
@@ -15,7 +15,7 @@ const Streaming = lazy(() => import("./views/streaming/Main"));
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <React.Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<Portfolio />} />
@@ -25,7 +25,7 @@ function App() {
             <Route path="/lottery" element={<Lottery />} />
           </Routes>
         </React.Suspense>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }

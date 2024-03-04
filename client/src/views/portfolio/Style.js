@@ -303,6 +303,13 @@ export const WorkFrame = styled.div`
   width: 100vw;
   max-width: 1000px;
   height: 100%;
+
+  & > .worktitle {
+    font-family: "Pretendard-Medium";
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
 `;
 
 export const WorkHeader = styled.div`
@@ -553,11 +560,9 @@ export const DesignedBy = styled.div`
 // Experience Section
 
 export const ExperienceTitle = styled.p`
-  font-family: "Prentendard-Medium";
+  font-family: "Pretendard-Medium";
   font-size: 60px;
-  color: #000000;
   text-align: center;
-  
 `;
 
 export const ExperienceFrame = styled.div`

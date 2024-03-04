@@ -131,6 +131,19 @@ export const WorkItemLeft = styled.div`
   padding: 20px;
   gap: 8px;
 
+  @keyframes left-right {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  animation: left-right 0.7s linear;
+
   & > .img-box {
     width: 560px;
     height: 320px;
@@ -170,7 +183,7 @@ export const WorkItemLeft = styled.div`
       font-size: 16px;
       font-family: "Pretendard-Regular";
       line-height: 1.5;
-      text-align: right;
+      text-align: justify;
       word-break: keep-all;
       color: #8a8a8a;
     }
@@ -229,9 +242,21 @@ export const WorkItemLeft = styled.div`
         height: 25px;
 
         & > img {
+          opacity: 0.5;
           width: 100%;
           height: 100%;
           object-fit: cover;
+          transition: all 0.5s;
+        }
+        & > img:hover {
+          opacity: 1;
+        }
+        & > svg {
+          opacity: 0.5;
+          transition: all 0.5s;
+        }
+        & > svg:hover {
+          opacity: 1;
         }
       }
     }
@@ -248,6 +273,19 @@ export const WorkItemRight = styled.div`
   margin-bottom: 20px;
   padding: 20px;
   gap: 8px;
+
+  @keyframes right-left {
+    0% {
+      opacity: 0;
+      transform: translateX(50%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  animation: right-left 0.7s linear;
 
   & > .img-box {
     width: 560px;
@@ -291,9 +329,10 @@ export const WorkItemRight = styled.div`
       font-size: 16px;
       font-family: "Pretendard-Regular";
       line-height: 1.5;
-      text-align: left;
+      text-align: justify;
       word-break: keep-all;
       color: #8a8a8a;
+      white-space: pre-wrap;
     }
 
     & > .tag {
@@ -350,9 +389,21 @@ export const WorkItemRight = styled.div`
         height: 25px;
 
         & > img {
+          opacity: 0.5;
           width: 100%;
           height: 100%;
           object-fit: cover;
+          transition: all 0.5s;
+        }
+        & > img:hover {
+          opacity: 1;
+        }
+        & > svg {
+          opacity: 0.5;
+          transition: all 0.5s;
+        }
+        & > svg:hover {
+          opacity: 1;
         }
       }
     }
@@ -428,12 +479,23 @@ export const WorkAllBodyGrid = styled.div`
   padding: 20px;
   margin: 0 auto;
 
+  @keyframes slide-up {
+    0% {
+      transform: translateY(20px);
+    }
+    100% {
+      transform: translateY(-0);
+    }
+  }
+
   & > .card {
     display: flex;
     flex-direction: column;
     width: 350px;
-    height: 320px;
+    height: fit-content;
     box-shadow: 0 60px 123px -25px hsla(225, 70%, 10%, 0.42), 0 35px 75px -35px hsla(225, 2%, 62%, 0.08);
+
+    animation: slide-up 0.5s linear;
 
     & > .img-box {
       width: 350px;
@@ -456,7 +518,7 @@ export const WorkAllBodyGrid = styled.div`
       display: flex;
       flex-direction: column;
       width: 350px;
-      height: 120px;
+      height: fit-content;
 
       & > .text-box-header {
         display: flex;
@@ -476,6 +538,43 @@ export const WorkAllBodyGrid = styled.div`
         & > .year {
           font-size: 12px;
           color: #8a8a8a;
+        }
+      }
+      & > .link {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+
+        padding: 8px 12px;
+
+        & > a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          width: 25px;
+          height: 25px;
+
+          & > img {
+            opacity: 0.5;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+          }
+          & > img:hover {
+            opacity: 1;
+          }
+          & > svg {
+            opacity: 0.5;
+            transition: all 0.5s;
+          }
+          & > svg:hover {
+            opacity: 1;
+          }
         }
       }
       & > .text-box-body {

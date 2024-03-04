@@ -26,6 +26,7 @@ const Work = ({ workRef }) => {
   });
   return (
     <S.WorkFrame ref={workRef}>
+      <p className="worktitle">Works</p>
       <S.WorkMain>
         <div className="item1" id="main_item">
           <img src="./portfolio/showroom1.png" alt="" />
