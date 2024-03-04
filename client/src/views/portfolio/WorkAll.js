@@ -135,7 +135,7 @@ export default function WorkAll() {
       <S.WorkAllDetailBackground $visible={handleImageClick} ref={background}>
         <S.WorkAllDetailFrame ref={popupRef} $visible={handleImageClick}>
           <div className="detail-img-box">
-            <img src={`/portfolio/workall/${handlePopupImageSrc}-detail.png`} alt="" />
+            <img src={`/PORTFOLIO/portfolio/workall/${handlePopupImageSrc}-detail.png`} alt="" />
           </div>
         </S.WorkAllDetailFrame>
       </S.WorkAllDetailBackground>
@@ -163,7 +163,7 @@ export function WorkAllBodyGrid({ data, setHandleCursorIn, sethandleImageClick, 
               }}
             >
               <img
-                src={`/portfolio/workall/${item.pid}.png`}
+                src={`/PORTFOLIO/portfolio/workall/${item.pid}.png`}
                 alt=""
                 onMouseEnter={() => {
                   setHandleCursorIn(true);
@@ -186,7 +186,7 @@ export function WorkAllBodyGrid({ data, setHandleCursorIn, sethandleImageClick, 
                 {item.use.map((use_item, use_index) => {
                   return (
                     <div className="icon" key={use_index}>
-                      <img src={`/portfolio/stack/${use_item}.svg`} alt={use_item} />
+                      <img src={`/PORTFOLIO/portfolio/stack/${use_item}.svg`} alt={use_item} />
                     </div>
                   );
                 })}
@@ -194,7 +194,7 @@ export function WorkAllBodyGrid({ data, setHandleCursorIn, sethandleImageClick, 
               <div className="link">
                 {item.link[0] === "" ? null : (
                   <Link to={item.link[0]} target="_blank">
-                    <img src="/portfolio/stack/Github.svg" alt="github" />
+                    <img src="/PORTFOLIO/portfolio/stack/Github.svg" alt="github" />
                   </Link>
                 )}
                 {item.link[1] === "" ? null : (
@@ -225,7 +225,7 @@ export function WorkAllBodyList({ data, setHandleCursorIn, sethandleImageClick, 
               }}
             >
               <img
-                src={`/portfolio/workall/${item.pid}.png`}
+                src={`/PORTFOLIO/portfolio/workall/${item.pid}.png`}
                 alt=""
                 onMouseEnter={() => {
                   setHandleCursorIn(true);
@@ -244,7 +244,7 @@ export function WorkAllBodyList({ data, setHandleCursorIn, sethandleImageClick, 
                 {item.use.map((use_item, use_index) => {
                   return (
                     <div className="icon" key={use_index}>
-                      <img src={`/portfolio/stack/${use_item}.svg`} alt={use_item} />
+                      <img src={`/PORTFOLIO/portfolio/stack/${use_item}.svg`} alt={use_item} />
                     </div>
                   );
                 })}
@@ -258,7 +258,7 @@ export function WorkAllBodyList({ data, setHandleCursorIn, sethandleImageClick, 
               <div className="link">
                 {item.link[0] === "" ? null : (
                   <Link to={item.link[0]} target="_blank">
-                    <img src="/portfolio/stack/Github.svg" alt="github" />
+                    <img src="/PORTFOLIO/portfolio/stack/Github.svg" alt="github" />
                   </Link>
                 )}
                 {item.link[1] === "" ? null : (
@@ -280,7 +280,7 @@ export function WorkAllBodyList({ data, setHandleCursorIn, sethandleImageClick, 
                 {item.use.map((use_item, use_index) => {
                   return (
                     <div className="icon" key={use_index}>
-                      <img src={`/portfolio/stack/${use_item}.svg`} alt={use_item} />
+                      <img src={`/PORTFOLIO/portfolio/stack/${use_item}.svg`} alt={use_item} />
                     </div>
                   );
                 })}
@@ -294,7 +294,7 @@ export function WorkAllBodyList({ data, setHandleCursorIn, sethandleImageClick, 
               <div className="link">
                 {item.link[0] === "" ? null : (
                   <Link to={item.link[0]} target="_blank">
-                    <img src="/portfolio/stack/Github.svg" alt="github" />
+                    <img src="/PORTFOLIO/portfolio/stack/Github.svg" alt="github" />
                   </Link>
                 )}
                 {item.link[1] === "" ? null : (
@@ -312,7 +312,7 @@ export function WorkAllBodyList({ data, setHandleCursorIn, sethandleImageClick, 
               }}
             >
               <img
-                src={`/portfolio/workall/${item.pid}.png`}
+                src={`/PORTFOLIO/portfolio/workall/${item.pid}.png`}
                 alt=""
                 onMouseEnter={() => {
                   setHandleCursorIn(true);

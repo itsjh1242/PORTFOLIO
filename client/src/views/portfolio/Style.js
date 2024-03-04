@@ -317,7 +317,7 @@ export const WorkHeader = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 50px;
   gap: 10px;
   width: 100vw;
   max-width: 1000px;
@@ -344,7 +344,6 @@ export const WorkHeader = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 20px;
     cursor: pointer;
     border: 1px solid #aaaaaa;
     padding: 10px 20px;
