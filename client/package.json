@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://itsjh1242.github.io/PORTFOLIO/",
+  "homepage": "https://itsjh1242.github.io/PORTFOLIO",
   "dependencies": {
     "@react-three/fiber": "^8.15.15",
     "@testing-library/jest-dom": "^5.17.0",
