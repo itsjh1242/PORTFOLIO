@@ -18,7 +18,7 @@ const Streaming = () => {
   const [current, setCurrent] = useState(1);
   const [isPlaying, setisPlaying] = useState(false);
   const [audioSrc, setAudioSrc] = useState(song[current]);
-  const [audio, setAudio] = useState(new Audio(`/streaming/${audioSrc}.mp3`));
+  const [audio, setAudio] = useState(new Audio(`/PORTFOLIO/streaming/${audioSrc}.mp3`));
 
   useEffect(() => {
     //  Artist가 변경될 때마다 Audio 재설정
