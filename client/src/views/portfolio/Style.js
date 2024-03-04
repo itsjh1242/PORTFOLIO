@@ -563,6 +563,7 @@ export const ExperienceTitle = styled.p`
   font-family: "Pretendard-Medium";
   font-size: 60px;
   text-align: center;
+  margin-bottom: 20px;
 `;
 
 export const ExperienceFrame = styled.div`

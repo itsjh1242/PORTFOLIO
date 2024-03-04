@@ -11,7 +11,7 @@ export default function Stack() {
         <S.StackSlide>
           <S.StackSlideItem>
             {stack.map((item, index) => {
-              const imagePath = item === "Node.js" ? `./portfolio/stack/Node.png` : `./portfolio/stack/${item}.png`;
+              const imagePath = item === "Node.js" ? `./portfolio/stack/Node.svg` : `./portfolio/stack/${item}.svg`;
               return (
                 <div key={index}>
                   <img src={imagePath} alt=""></img>
@@ -22,7 +22,7 @@ export default function Stack() {
           </S.StackSlideItem>
           <S.StackSlideItem>
             {stack.map((item, index) => {
-              const imagePath = item === "Node.js" ? `./portfolio/stack/Node.png` : `./portfolio/stack/${item}.png`;
+              const imagePath = item === "Node.js" ? `./portfolio/stack/Node.svg` : `./portfolio/stack/${item}.svg`;
               return (
                 <div key={index}>
                   <img src={imagePath} alt=""></img>
