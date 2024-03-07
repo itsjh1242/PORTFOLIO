@@ -18,7 +18,7 @@ const Streaming = () => {
   const [current, setCurrent] = useState(1);
   const [isPlaying, setisPlaying] = useState(false);
   const [audioSrc, setAudioSrc] = useState(song[current]);
-  const [audio, setAudio] = useState(new Audio(`/PORTFOLIO/streaming/${audioSrc}.mp3`));
+  const [audio, setAudio] = useState(new Audio(`/PORTFOLIO/portfolio/streaming/${audioSrc}.mp3`));
 
   useEffect(() => {
     //  Artist가 변경될 때마다 Audio 재설정
@@ -56,7 +56,7 @@ const Streaming = () => {
         <div className="gradient" />
         <S.Main key={current}>
           <div className="img">
-            <img src={`/PORTFOLIO/streaming/${artist[current]}.png`} alt="" />
+            <img src={`/PORTFOLIO/portfolio/streaming/${artist[current]}.png`} alt="" />
           </div>
           <p className="name">{artist[current]}</p>
           <p className="song">{song[current]}</p>
@@ -67,7 +67,7 @@ const Streaming = () => {
           {artist.map((item, index) => {
             return (
               <S.Circle key={index} position={item === artist[current] ? "center" : "side"} onClick={() => handleMenuItem(index)}>
-                <img src={`/PORTFOLIO/streaming/${item}_bg.png`} alt="" />
+                <img src={`/PORTFOLIO/portfolio/streaming/${item}_bg.png`} alt="" />
               </S.Circle>
             );
           })}
