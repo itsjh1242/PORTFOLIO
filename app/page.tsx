@@ -1,3 +1,6 @@
+// Components
+import Main from "./(route)/main";
+
 export default function Home() {
-  return <div></div>;
+  return <Main />;
 }

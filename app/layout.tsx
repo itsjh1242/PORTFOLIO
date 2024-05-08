@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+// Fonts
+import { Nanum_Gothic } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+// Components
+import Nav from "./components/ui/nav";
+
+// Font Interfaces
+const ngkr = Nanum_Gothic({ subsets: ["latin"], weight: ["700"] });
 
 export const metadata: Metadata = {
   title: "김준현",
@@ -16,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={ngkr.className}>
+        <Nav />
+        {children}
+      </body>
     </html>
   );
 }
