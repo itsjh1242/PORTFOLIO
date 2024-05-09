@@ -5,6 +5,7 @@ const config: Config = {
   theme: {
     extend: {
       maxWidth: {
+        "420": "420px",
         "1280": "1280px",
       },
       backgroundImage: {

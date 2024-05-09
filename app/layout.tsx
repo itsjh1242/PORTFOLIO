@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
 // Fonts
-import { Nanum_Gothic } from "next/font/google";
+import { Nanum_Gothic, Noto_Sans_KR } from "next/font/google";
 
 // Components
 import Nav from "./components/ui/nav";
 
 // Font Interfaces
 const ngkr = Nanum_Gothic({ subsets: ["latin"], weight: ["700"] });
+const nskr = Noto_Sans_KR({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "김준현",
@@ -21,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={ngkr.className}>
+      <body className={nskr.className}>
         <Nav />
         {children}
       </body>
