@@ -1,47 +1,93 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, RefObject } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import profile_image from "@/public/profile-image.png";
 
+// UI Components
+import Nav from "../components/ui/nav";
+import Footer from "../components/ui/footer";
+import Badge from "../components/ui/badge";
+import CustomButton from "../components/ui/button";
+
 // Icons
-import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
+import { VscChevronLeft, VscChevronRight, VscChevronDown, VscChevronUp } from "react-icons/vsc";
+import { FaLocationDot } from "react-icons/fa6";
+import { FiExternalLink } from "react-icons/fi";
 
 // Data Import
+import ABOUT_DESC from "../components/AboutDesc";
 import { STACK_LIST, STACK_BADGE, STACK_DESC } from "../components/stackDesc";
+import EXP_DESC from "../components/experienceDesc";
+import BANNER_DESC from "../components/WorkBannerDesc";
 
 type mainProps = {};
-export default function Main(props: mainProps) {
+const Main = (props: mainProps) => {
+  const router = useRouter();
+  const mainRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const stackRef = useRef<HTMLDivElement>(null);
+  const workExperienceRef = useRef<HTMLDivElement>(null);
+  const workBannerRef = useRef<HTMLDivElement>(null);
+  const contackRef = useRef<HTMLDivElement>(null);
+  const quickMoveRef = [mainRef, aboutRef, stackRef, workExperienceRef, workBannerRef, contackRef];
+
+  const handleQuickMove = (index: number) => {
+    quickMoveRef[index].current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="flex flex-col w-full h-full">
-      <div className="flex w-full h-svh">
-        {/* Background Profile Image */}
-        <div className="absolute top-0 left-0 w-full h-svh overflow-hidden">
-          <Image
-            src={profile_image}
-            alt="main-profile-image"
-            className="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 sm:scale-90 w-full h-full object-contain"
-          />
-          <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-96 max-sm:-translate-y-80 text-9xl max-sm:text-3xl font-medium -z-10">
-            PORTFOLIO
-          </p>
-        </div>
-        {/* Left Component */}
-        <MainDescComponent title="Designer;" desc="보고 듣는 모든 경험에서 영감을 얻어 저만의 디자인을 다양한 프로젝트에 적용시켰습니다." isRight={false} />
-        {/* Right Component */}
-        <MainDescComponent title={"<Coder />"} desc="깔끔하고 효율적인 코드 작성과 생각하는 것을 좋아하는 주니어 개발자입니다." isRight={true} />
+    <>
+      <Nav handleQuickMove={handleQuickMove} />
+      <div className="flex flex-col w-full h-full">
+        {/* Main Section */}
+        <MainSection sectionRef={mainRef} />
+        {/* About Section */}
+        <AboutSection sectionRef={aboutRef} />
+        {/* Stack Section */}
+        <StackSection sectionRef={stackRef} />
+        {/* Work Experience Section */}
+        <WorkExperienceSection sectionRef={workExperienceRef} />
+        {/* Work Banner */}
+        <WorkBanner sectionRef={workBannerRef} router={router} />
+        {/* Footer */}
+        <Footer sectionRef={contackRef} />
       </div>
-      {/* About Section */}
-      <AboutSection />
-      <StackSection />
+    </>
+  );
+};
+
+interface MainSectionProps {
+  sectionRef: RefObject<HTMLDivElement>;
+}
+const MainSection = (props: MainSectionProps) => {
+  const { sectionRef } = props;
+  return (
+    <div ref={sectionRef} className="flex w-full h-svh">
+      {/* Background Profile Image */}
+      <div className="absolute top-0 left-0 w-full h-svh overflow-hidden">
+        <Image
+          src={profile_image}
+          alt="main-profile-image"
+          className="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 sm:scale-90 w-full h-full object-contain"
+        />
+        <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-96 max-sm:-translate-y-80 text-9xl max-sm:text-3xl font-medium -z-10">
+          PORTFOLIO
+        </p>
+      </div>
+      {/* Left Component */}
+      <MainDescComponent title="Designer;" desc="보고 듣는 모든 경험에서 영감을 얻어 저만의 디자인을 다양한 프로젝트에 적용시켰습니다." isRight={false} />
+      {/* Right Component */}
+      <MainDescComponent title={"<Coder />"} desc="깔끔하고 효율적인 코드 작성과 생각하는 것을 좋아하는 주니어 개발자입니다." isRight={true} />
     </div>
   );
-}
+};
 
-type mainDescComponentProps = {
+interface mainDescComponentProps {
   title: string;
   desc: string;
   isRight: boolean;
-};
+}
 const MainDescComponent = (props: mainDescComponentProps) => {
   const { title, desc, isRight } = props;
   return (
@@ -56,16 +102,23 @@ const MainDescComponent = (props: mainDescComponentProps) => {
   );
 };
 
-type centerTextProps = { context: string };
+interface centerTextProps {
+  context: string;
+}
 const CenterText = (props: centerTextProps) => {
   const { context } = props;
   return (
-    <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 text-9xl text-center text-gray-400 font-medium opacity-50">{context}</p>
+    <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 text-9xl max-sm:text-6xl text-center text-gray-300 font-medium opacity-50">
+      {context}.
+    </p>
   );
 };
 
-type aboutSectionProps = {};
+interface aboutSectionProps {
+  sectionRef: RefObject<HTMLDivElement>;
+}
 const AboutSection = (props: aboutSectionProps) => {
+  const { sectionRef } = props;
   const [progressBar, setProgressBar] = useState(0);
   const introRef = useRef<HTMLDivElement>(null);
   const mottoRef = useRef<HTMLDivElement>(null);
@@ -92,7 +145,7 @@ const AboutSection = (props: aboutSectionProps) => {
   }, [progressBar]);
 
   return (
-    <div className="relative w-full max-w-screen h-full p-20">
+    <div ref={sectionRef} className="relative w-full max-w-screen h-full p-20">
       <div className="flex flex-col justify-start items-center w-full h-full">
         {/* Progress Bar */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-4/5 border border-transparent">
@@ -101,91 +154,45 @@ const AboutSection = (props: aboutSectionProps) => {
         {/* Center Text */}
         <CenterText context="About Me" />
         {/* Components */}
-        <div ref={introRef} className="opacity-0 transition-all duration-1000">
-          <AboutSectionText
-            header="intro"
-            content={["안녕하세요, 주니어 개발자 김준현입니다.", "동서대학교 컴퓨터공학부에서 소프트웨어공학을 전공했습니다."]}
-            isRight={true}
-          />
-          <AboutSectionText
-            header=""
-            content={[
-              "소프트웨어 공학과 데이터베이스 구축을 집중적으로 깊이있게 공부할 수 있었고,",
-              "API 구축을 통해 사용자와 시스템간의 상호작용이 가능한 서비스 기반의 다양한 웹/앱 개발을 했습니다.",
-            ]}
-            isRight={true}
-          />
-        </div>
-        <div ref={mottoRef} className="opacity-0 transition-all duration-1000">
-          <AboutSectionText
-            header="motto"
-            content={[
-              "높은 완성도의 서비스 기반의 프로젝트를 개발하는 것은 효율적이고 클린한 코드를 적는 것 뿐만 아니라",
-              "나타내고자하는 핵심 내용을 직관적이고 유연성있게 표현하는 것도 중요한 가치로 생각하고 있습니다.",
-            ]}
-            isRight={false}
-          />
-          <AboutSectionText
-            header=""
-            content={[
-              "제게 코드는 붓과 물감이고, 웹/앱은 캔버스입니다.",
-              "평소에 보고 듣는 모든 경험을 디자인 요소로 가공하여 다양한 프로젝트에 녹여냈습니다.",
-            ]}
-            isRight={false}
-          />
-        </div>
-        <div ref={labRef} className="opacity-0 transition-all duration-1000">
-          <AboutSectionText
-            header="Lab"
-            content={[
-              "학부생 때, UbSE(Ubiquitous SW Engineering) 연구실에서 AI+X 연구원으로 활동하며",
-              "개발 역량을 키우기 위해 선후배들과의 멘토링에 집중했고, 다양한 프로젝트와 공모전 경험을 쌓을 수 있었습니다.",
-            ]}
-            isRight={true}
-          />
-          <AboutSectionText
-            header=""
-            content={[
-              "특히, 주간 업무 보고 세미나를 하면서 한 주간 수행한 개인 공부 및 프로젝트 진행상황 등을 보고하는 경험을 통해",
-              "업무 수행 능력을 자가진단하고 자기 객관화하며 나를 성장시켰습니다.",
-            ]}
-            isRight={true}
-          />
-          <AboutSectionText
-            header=""
-            content={[
-              "또한, 팀 프로젝트에서 팀원 상호간의 배려를 통한 원활한 의사소통이",
-              "정해진 시간 내에 프로젝트를 완성시킬 수 있는 중요한 부분이라는 것을 깨달았습니다.",
-            ]}
-            isRight={true}
-          />
-        </div>
-        <div ref={strengthRef} className="opacity-0 transition-all duration-1000">
-          <AboutSectionText
-            header="strength"
-            content={[
-              "성공과 실패는 다른 것 같으면서도 동일한 의미라고 생각합니다.",
-              "저에게 있어서 실패란 도전하지 않는 것입니다.",
-              "긍정적인 사고를 통해 동료와 함께 시너지를 발휘하는 것을 좋아합니다.",
-            ]}
-            isRight={false}
-          />
-          <AboutSectionText
-            header=""
-            content={["끊임없이 생각하며 지치지 않는 열정으로 상승불패하며", "함께 하고싶은 동료 개발자가 되겠습니다."]}
-            isRight={false}
-          />
-        </div>
+        {Object.keys(ABOUT_DESC).map((about_key, index) => {
+          const componentRef = [introRef, mottoRef, labRef, strengthRef];
+          return (
+            <AboutSectionTextWrapper
+              key={index}
+              wrapperRef={componentRef[index]}
+              child={
+                <AboutSectionText
+                  header={ABOUT_DESC[about_key]?.header || ""}
+                  content={ABOUT_DESC[about_key].content}
+                  isRight={ABOUT_DESC[about_key].isRight}
+                />
+              }
+            />
+          );
+        })}
       </div>
     </div>
   );
 };
 
-type aboutSectionTextProps = {
+interface aboutSectionTextWrapperProps {
+  wrapperRef: RefObject<HTMLDivElement>;
+  child: React.ReactNode;
+}
+const AboutSectionTextWrapper = (props: aboutSectionTextWrapperProps) => {
+  const { wrapperRef, child } = props;
+  return (
+    <div ref={wrapperRef} className="opacity-0 transition-all duration-1000">
+      {child}
+    </div>
+  );
+};
+
+interface aboutSectionTextProps {
   header: string;
   content: string[];
   isRight: boolean;
-};
+}
 const AboutSectionText = (props: aboutSectionTextProps) => {
   const { header, content, isRight } = props;
   return (
@@ -193,15 +200,18 @@ const AboutSectionText = (props: aboutSectionTextProps) => {
       <p className="font-medium text-lg max-sm:text-sm">{header ? `${isRight ? "<" + header + " />" : header + ";"}` : null}</p>
       {content.map((paragraph, index) => (
         <p key={index} className="max-sm:text-xs break-keep">
-          {paragraph}
+          {paragraph === "" ? <br /> : paragraph}
         </p>
       ))}
     </div>
   );
 };
 
-type stackSectionProps = {};
+interface stackSectionProps {
+  sectionRef: RefObject<HTMLDivElement>;
+}
 const StackSection = (props: stackSectionProps) => {
+  const { sectionRef } = props;
   const [stackSelectorIndex, setStackSelectorIndex] = useState(0);
   const handleStackSelector = (direction: string) => {
     var index;
@@ -214,13 +224,13 @@ const StackSection = (props: stackSectionProps) => {
     }
   };
   return (
-    <div className="relative w-full max-w-screen h-full pt-20 pb-20 overflow-hidden">
+    <div ref={sectionRef} className="relative  w-full max-w-screen h-full pt-20 pb-20 overflow-hidden">
       {/* Center Text */}
-      <CenterText context="Stacks" />
+      <CenterText context="Stack" />
       {/* Stack Carousel */}
-      <div className="flex max-sm:flex-col w-full h-full">
+      <div className="flex justify-center items-center max-sm:flex-col w-full h-full">
         {/* Stack Selector */}
-        <div className="flex justify-center items-center w-1/2 max-sm:w-full h-96">
+        <div className="flex justify-center items-center w-1/2 sm:w-1/3 max-sm:w-full h-96">
           <div className="flex justify-center items-center gap-3">
             <div className="cursor-pointer">
               <VscChevronLeft
@@ -244,17 +254,23 @@ const StackSection = (props: stackSectionProps) => {
           </div>
         </div>
         {/* Stack Desc */}
-        <div className="flex flex-col justify-start items-start w-1/2 max-sm:w-full h-96 max-sm:h-full p-3">
+        <div className="flex flex-col justify-start items-start w-1/2 sm:w-1/3 max-sm:w-full h-96 max-sm:h-full p-3">
           {/* Stack Name */}
-          <p className="text-3xl font-medium">{STACK_DESC[STACK_LIST[stackSelectorIndex]].title}</p>
+          <p className="text-3xl max-sm:text-2xl font-medium">{STACK_DESC[STACK_LIST[stackSelectorIndex]].title}</p>
           {/* Stack Badge */}
           <div className="flex flex-row flex-wrap gap-3 mt-3 mb-6">
             {Object.keys(STACK_BADGE).map((badge, index) => {
               if (STACK_DESC[STACK_LIST[stackSelectorIndex]].level > index) {
                 return (
-                  <p key={index} className="px-2 py-1 text-white bg-blue-600 rounded-lg max-sm:text-xs">
-                    {STACK_BADGE[Number(badge)]}
-                  </p>
+                  <Badge
+                    icon={null}
+                    iconSize={null}
+                    key={index}
+                    bgColor="bg-blue-600"
+                    fontSize="text-sm"
+                    fontColor="text-white"
+                    context={STACK_BADGE[Number(badge)]}
+                  />
                 );
               }
             })}
@@ -264,8 +280,8 @@ const StackSection = (props: stackSectionProps) => {
             {STACK_DESC[STACK_LIST[stackSelectorIndex]].points.map((context, index) => {
               return (
                 <div key={index} className="flex flex-col">
-                  <p className="text-xl font-medium">{context[0]}</p>
-                  <p>{context[1]}</p>
+                  <p className="text-lg max-sm:text-base font-medium">{context[0]}</p>
+                  <p className="max-sm:text-xs">{context[1]}</p>
                 </div>
               );
             })}
@@ -275,3 +291,194 @@ const StackSection = (props: stackSectionProps) => {
     </div>
   );
 };
+
+interface workExperienceProps {
+  sectionRef: RefObject<HTMLDivElement>;
+}
+const WorkExperienceSection = (props: workExperienceProps) => {
+  const { sectionRef } = props;
+  const [accordian, setAccordian] = useState(new Array(Object.keys(EXP_DESC).length).fill(false));
+  const handleAccordian = (index: number) => {
+    const updatedAccordian = [...accordian];
+    updatedAccordian[index] = !updatedAccordian[index];
+    setAccordian(updatedAccordian);
+  };
+  return (
+    <div ref={sectionRef} className="relative flex flex-col gap-3 justify-center items-center w-full max-w-screen h-full p-20 max-sm:p-3 max-sm:mb-20">
+      {/* Center Text */}
+      <CenterText context="Work Experience" />
+      {Object.keys(EXP_DESC).map((item, index) => {
+        return (
+          <WorkExperienceAccordion
+            key={index}
+            title={item}
+            period={EXP_DESC[item].period}
+            summary={EXP_DESC[item].summary}
+            location={EXP_DESC[item].location}
+            task={EXP_DESC[item].task}
+            url={EXP_DESC[item].url}
+            keyword={EXP_DESC[item].keyword}
+            accordian={accordian}
+            accordianIndex={index}
+            handleAccordian={handleAccordian}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
+interface workExperienceAccordionProps {
+  title: string;
+  period: string;
+  summary: string;
+  location: string;
+  task: { [key: string]: { title: string; content: string[] } };
+  url: string[];
+  keyword: string[];
+  accordian: boolean[];
+  accordianIndex: number;
+  handleAccordian: (index: number) => void;
+}
+const WorkExperienceAccordion = (props: workExperienceAccordionProps) => {
+  const { title, period, summary, location, task, url, keyword, accordian, accordianIndex, handleAccordian } = props;
+  return (
+    <div
+      className={`flex flex-col w-2/3 max-sm:w-full max-sm:min-h-14 border px-3 py-1 rounded shadow-sm bg-white overflow-hidden transition-all duration-1000 ${
+        accordian[accordianIndex] ? "max-h-screen" : "max-h-16"
+      }`}
+    >
+      {/* Display */}
+      <div className="flex justify-between items-center mb-6">
+        {/* Title, Summary */}
+        <div className={`flex flex-col break-keep max-sm:w-4/5 transition-all duration-700 ${accordian[accordianIndex] ? "text-black" : "text-gray-400"}`}>
+          <p className="text-lg max-sm:text-sm font-medium">{title}</p>
+          <p className="max-sm:text-xs">{summary}</p>
+        </div>
+        {/* Period */}
+        <div className="flex max-sm:flex-col gap-3 max-sm:gap-1">
+          <Badge icon={null} iconSize="1em" bgColor="bg-slate-600" fontSize="text-sm" fontColor="text-white" context={period} />
+          <div
+            className="flex justify-center items-center cursor-pointer"
+            onClick={() => {
+              handleAccordian(accordianIndex);
+            }}
+          >
+            {accordian[accordianIndex] ? <VscChevronUp size={20} /> : <VscChevronDown size={20} />}
+          </div>
+        </div>
+      </div>
+      {/* Selective Display */}
+      <div className="flex flex-col">
+        {/* Location, Url */}
+        <div className="flex gap-3 mb-3">
+          <Badge icon={FaLocationDot} iconSize="1em" bgColor="bg-blue-600" fontSize="text-sm" fontColor="text-white" context={location} />
+          <a href={url[1]} target="_blank">
+            <Badge icon={FiExternalLink} iconSize="1em" bgColor="bg-blue-600" fontSize="text-sm" fontColor="text-white" context={url[0]} />
+          </a>
+        </div>
+        {Object.keys(task).map((task_key, index) => {
+          return (
+            <div key={index} className="flex flex-col gap-1 w-full mb-3">
+              {/* Task Title */}
+              <p className="text-lg max-sm:text-base font-medium">{task[task_key].title}</p>
+              {/* Task Content */}
+              {task[task_key].content.map((content_item, index) => {
+                return (
+                  <div key={index} className="">
+                    <p className="break-keep max-sm:text-xs">· {content_item}</p>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+        {/* Keyword */}
+        <div className="flex flex-wrap gap-3 my-3">
+          <p className="font-medium">키워드</p>
+          {keyword.map((keyword_item, index) => {
+            return <Badge key={index} icon={null} iconSize={null} bgColor="bg-blue-600" fontColor="text-white" fontSize="text-sm" context={keyword_item} />;
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+interface workBannerProps {
+  sectionRef: RefObject<HTMLDivElement>;
+  router: ReturnType<typeof useRouter>;
+}
+const WorkBanner = (props: workBannerProps) => {
+  const { sectionRef, router } = props;
+  const [bannerKey] = useState(Object.keys(BANNER_DESC));
+  const [bannerIndex, setBannerIndex] = useState(0);
+  const handleBannerIndex = (direction: string) => {
+    let index;
+    if (direction === "left") {
+      index = bannerIndex - 1;
+      setBannerIndex(index < 0 ? bannerKey.length - 1 : index);
+    } else {
+      index = (bannerIndex + 1) % bannerKey.length;
+      setBannerIndex(index);
+    }
+  };
+
+  return (
+    <div ref={sectionRef} className="relative flex flex-col w-full max-w-screen h-full p-20 max-sm:p-3">
+      {/* Center Text */}
+      <CenterText context="Work Banner" />
+      <div className="flex justify-center items-center">
+        <div
+          className="cursor-pointer"
+          onClick={() => {
+            handleBannerIndex("left");
+          }}
+        >
+          <VscChevronLeft size={50} />
+        </div>
+        <div className="flex max-sm:flex-col gap-3 border w-2/3 max-sm:w-full h-full max-sm:h-full p-3 rounded shadow-sm">
+          {/* Title & Summary */}
+          <div className="flex flex-col justify-between items-start w-2/3 max-sm:w-full">
+            <div>
+              <p className="text-lg max-sm:text-sm font-medium">{BANNER_DESC[bannerKey[bannerIndex]].title}</p>
+              <p className="max-sm:text-xs">{BANNER_DESC[bannerKey[bannerIndex]].summary}</p>
+            </div>
+            {/* Keyword */}
+            <div className="flex flex-wrap gap-3 my-3">
+              <p className="font-medium">키워드</p>
+              {BANNER_DESC[bannerKey[bannerIndex]].keyword.map((keyword_item, index) => {
+                return <Badge key={index} icon={null} iconSize={null} bgColor="bg-blue-600" fontColor="text-white" fontSize="text-sm" context={keyword_item} />;
+              })}
+            </div>
+          </div>
+          <div className="w-1/3 max-sm:w-full">
+            <div className="flex justify-start items-start w-full h-full">
+              <Image src={`/banner/${bannerKey[bannerIndex]}.png`} alt="" width={400} height={400} />
+            </div>
+          </div>
+        </div>
+        <div
+          className="cursor-pointer"
+          onClick={() => {
+            handleBannerIndex("right");
+          }}
+        >
+          <VscChevronRight size={50} />
+        </div>
+      </div>
+      <div className="flex justify-center items-center mt-3">
+        <CustomButton
+          type="secondary"
+          context="프로젝트 더보기"
+          action={() => {
+            router.push("/work");
+          }}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default Main;
+export { MainSection, AboutSection, StackSection, WorkExperienceSection, WorkBanner };

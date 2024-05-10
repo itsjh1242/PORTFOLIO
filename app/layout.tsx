@@ -3,8 +3,8 @@ import "./globals.css";
 // Fonts
 import { Nanum_Gothic, Noto_Sans_KR } from "next/font/google";
 
-// Components
-import Nav from "./components/ui/nav";
+
+
 
 // Font Interfaces
 const ngkr = Nanum_Gothic({ subsets: ["latin"], weight: ["700"] });
@@ -23,8 +23,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={nskr.className}>
-        <Nav />
         {children}
+        
       </body>
     </html>
   );

@@ -34,6 +34,10 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+p {
+  word-break: keep-all;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
