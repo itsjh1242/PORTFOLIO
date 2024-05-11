@@ -71,7 +71,7 @@ const MainSection = (props: MainSectionProps) => {
           alt="main-profile-image"
           className="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 sm:scale-90 w-full h-full object-contain"
         />
-        <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-96 max-sm:-translate-y-80 text-9xl max-sm:text-3xl font-medium -z-10">
+        <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-64 max-sm:-translate-y-80 text-9xl max-sm:text-3xl font-medium -z-10">
           PORTFOLIO
         </p>
       </div>
@@ -124,6 +124,7 @@ const AboutSection = (props: aboutSectionProps) => {
   const mottoRef = useRef<HTMLDivElement>(null);
   const labRef = useRef<HTMLDivElement>(null);
   const strengthRef = useRef<HTMLDivElement>(null);
+  const componentRef = [introRef, mottoRef, labRef, strengthRef];
 
   useEffect(() => {
     let observer: IntersectionObserver;
@@ -146,7 +147,7 @@ const AboutSection = (props: aboutSectionProps) => {
 
   return (
     <div ref={sectionRef} className="relative w-full max-w-screen h-full p-20">
-      <div className="flex flex-col justify-start items-center w-full h-full">
+      <div className="flex flex-row flex-wrap justify-start items-center w-full max-w-screen h-full">
         {/* Progress Bar */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-4/5 border border-transparent">
           <div className="relative top-0 left-0 border border-black transition-all duration-1000" style={{ height: `${progressBar}%` }} />
@@ -154,12 +155,13 @@ const AboutSection = (props: aboutSectionProps) => {
         {/* Center Text */}
         <CenterText context="About Me" />
         {/* Components */}
+        <div className="w-1/2" />
         {Object.keys(ABOUT_DESC).map((about_key, index) => {
-          const componentRef = [introRef, mottoRef, labRef, strengthRef];
           return (
             <AboutSectionTextWrapper
-              key={index}
               wrapperRef={componentRef[index]}
+              key={index}
+              item_key={index}
               child={
                 <AboutSectionText
                   header={ABOUT_DESC[about_key]?.header || ""}
@@ -176,15 +178,25 @@ const AboutSection = (props: aboutSectionProps) => {
 };
 
 interface aboutSectionTextWrapperProps {
+  item_key: number;
   wrapperRef: RefObject<HTMLDivElement>;
   child: React.ReactNode;
 }
 const AboutSectionTextWrapper = (props: aboutSectionTextWrapperProps) => {
-  const { wrapperRef, child } = props;
+  const { item_key, wrapperRef, child } = props;
+
   return (
-    <div ref={wrapperRef} className="opacity-0 transition-all duration-1000">
-      {child}
-    </div>
+    <>
+      <div ref={wrapperRef} className="w-1/2 opacity-0 transition-all duration-1000">
+        {child}
+      </div>
+      {item_key !== 0 && item_key % 2 === 1 ? (
+        <>
+          <div className="w-1/2" />
+          <div className="w-1/2" />
+        </>
+      ) : null}
+    </>
   );
 };
 
@@ -196,7 +208,7 @@ interface aboutSectionTextProps {
 const AboutSectionText = (props: aboutSectionTextProps) => {
   const { header, content, isRight } = props;
   return (
-    <div className={`flex flex-col p-3 max-sm:p-3 max-sm:w-44 ${isRight ? "translate-x-1/2 text-left" : "-translate-x-1/2 text-right"}`}>
+    <div className={`flex flex-col p-3 ${isRight ? "text-left" : "text-right"}`}>
       <p className="font-medium text-lg max-sm:text-sm">{header ? `${isRight ? "<" + header + " />" : header + ";"}` : null}</p>
       {content.map((paragraph, index) => (
         <p key={index} className="max-sm:text-xs break-keep">
