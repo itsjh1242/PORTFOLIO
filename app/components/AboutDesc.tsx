@@ -1,7 +1,7 @@
-interface AboutDescProps {
+export interface AboutDescInterface {
   [key: string]: { header: string | undefined; content: string[]; isRight: boolean };
 }
-const ABOUT_DESC: AboutDescProps = {
+export const ABOUT_DESC: AboutDescInterface = {
   intro: {
     header: "intro",
     content: [
@@ -50,5 +50,3 @@ const ABOUT_DESC: AboutDescProps = {
     isRight: false,
   },
 };
-
-export default ABOUT_DESC;

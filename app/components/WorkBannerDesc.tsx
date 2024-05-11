@@ -1,4 +1,4 @@
-interface WorkBannerProps {
+export interface WorkBannerDescInterface {
   [key: string]: {
     title: string;
     summary: string;
@@ -6,7 +6,7 @@ interface WorkBannerProps {
   };
 }
 
-const BANNER_DESC: WorkBannerProps = {
+export const BANNER_DESC: WorkBannerDescInterface = {
   chatbot: {
     title: "긍정적 감정 유발을 위한 AI챗봇 기반 일기 작성 시스템",
     summary:
@@ -27,4 +27,3 @@ const BANNER_DESC: WorkBannerProps = {
   },
 };
 
-export default BANNER_DESC;

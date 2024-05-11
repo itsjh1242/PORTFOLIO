@@ -1,4 +1,4 @@
-interface ExpDescProps {
+export interface ExpDescInterface {
   [key: string]: {
     period: string;
     summary: string;
@@ -8,7 +8,8 @@ interface ExpDescProps {
     keyword: string[];
   };
 }
-const EXP_DESC: ExpDescProps = {
+
+export const EXP_DESC: ExpDescInterface = {
   "AI+X 융합연구원": {
     period: "2023.03~12",
     summary: "학부생을 중심으로 운영되는 융합기술 연구소에서 1년간 연구원으로 활동했습니다.",
@@ -52,5 +53,3 @@ const EXP_DESC: ExpDescProps = {
     keyword: ["동서대학교 산학협력단", "테니스 대진표 자동화 프로젝트", "Flutter"],
   },
 };
-
-export default EXP_DESC;

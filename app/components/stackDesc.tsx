@@ -1,29 +1,11 @@
-export const STACK_LIST: string[] = [
-  "React",
-  "Next",
-  "Node",
-  "JavaScript",
-  "ts",
-  "HTML",
-  "CSS",
-  "MySQL",
-  "Python",
-  "Flutter",
-  "Android",
-  "Arduino",
-  "AWS",
-  "Github",
-];
-export const STACK_BADGE: { [key: number]: string } = { 1: "기본적인 이해도를 갖추고 있어요", 2: "프로젝트 경험이 있어요", 3: "능숙하게 사용할 수 있어요" };
-interface StackDescription {
-  title: string;
-  level: number;
-  points: string[][];
+export interface StackDescInterface {
+  [key: string]: { title: string; level: number; points: string[][] };
 }
-interface StackDescriptions {
-  [key: string]: StackDescription;
+export interface StackBadgeInterface {
+  [key: number]: string;
 }
-export const STACK_DESC: StackDescriptions = {
+
+export const STACK_DESC: StackDescInterface = {
   React: {
     title: "React(리액트)",
     level: 3,
@@ -190,3 +172,22 @@ export const STACK_DESC: StackDescriptions = {
     ],
   },
 };
+
+export const STACK_BADGE: StackBadgeInterface = { 1: "기본적인 이해도를 갖추고 있어요", 2: "프로젝트 경험이 있어요", 3: "능숙하게 사용할 수 있어요" };
+
+export const STACK_LIST: string[] = [
+  "React",
+  "Next",
+  "Node",
+  "JavaScript",
+  "ts",
+  "HTML",
+  "CSS",
+  "MySQL",
+  "Python",
+  "Flutter",
+  "Android",
+  "Arduino",
+  "AWS",
+  "Github",
+];
