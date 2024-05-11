@@ -1,4 +1,4 @@
-interface WorkAllDescProps {
+export interface WorkAllDescInterface {
   [key: string]: {
     title: string;
     pid: string;
@@ -6,11 +6,11 @@ interface WorkAllDescProps {
     stacks: string[];
     fontColor: string;
     url: string;
-    focus: boolean;
+    focus?: boolean | null;
   };
 }
 
-const WorkAllDesc: WorkAllDescProps = {
+export const WorkAllDesc: WorkAllDescInterface = {
   "긍정적 감정 유발을 위한 AI챗봇 기반 일기작성 시스템": {
     title: "긍정적 감정 유발을 위한 AI챗봇 기반 일기작성 시스템",
     pid: "ai_chatbot",
@@ -84,5 +84,3 @@ const WorkAllDesc: WorkAllDescProps = {
     focus: false,
   },
 };
-
-export default WorkAllDesc;

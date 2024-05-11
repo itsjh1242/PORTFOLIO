@@ -14,12 +14,12 @@ import CustomButton from "../button";
 // Icons
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 
-interface workBannerProps {
+interface workBannerInterface {
   script: { banner_desc: WorkBannerDescInterface };
   sectionRef: RefObject<HTMLDivElement>;
 }
 
-const WorkBannerSection = (props: workBannerProps) => {
+const WorkBannerSection = (props: workBannerInterface) => {
   const { script, sectionRef } = props;
   const banner_desc = script.banner_desc;
   const router = useRouter();

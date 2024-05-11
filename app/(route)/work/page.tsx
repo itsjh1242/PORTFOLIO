@@ -7,10 +7,18 @@ import { VscChevronLeft } from "react-icons/vsc";
 import CustomButton from "@/app/components/ui/button";
 
 // Data Import
-import WorkAllDesc from "@/app/components/WorkAllDesc";
+import { WorkAllDesc } from "@/app/components/WorkAllDesc";
 
-interface WorkAllProps {}
-const WorkAll = (props: WorkAllProps) => {
+export interface UnitWrapperInterface {
+  pid: string;
+  title: string;
+  summary: string;
+  stacks: string[];
+  fontColor: string;
+  url: string;
+}
+
+const WorkAll = () => {
   const router = useRouter();
   return (
     <div className="flex flex-col justify-center items-center w-full h-full pt-6 max-sm:p-3">
@@ -61,8 +69,8 @@ const WorkAll = (props: WorkAllProps) => {
             return (
               <UnitWrapper
                 key={index}
-                pid={item.pid}
                 title={item.title}
+                pid={item.pid}
                 summary={item.summary}
                 stacks={item.stacks}
                 fontColor={item.fontColor}
@@ -76,15 +84,7 @@ const WorkAll = (props: WorkAllProps) => {
   );
 };
 
-interface WorkAllDescProps {
-  pid: string;
-  title: string;
-  summary: string;
-  stacks: string[];
-  fontColor: string;
-  url: string;
-}
-const UnitWrapperFocus = (props: WorkAllDescProps) => {
+const UnitWrapperFocus = (props: UnitWrapperInterface) => {
   const { pid, title, summary, stacks, fontColor, url } = props;
   return (
     <div
@@ -107,7 +107,7 @@ const UnitWrapperFocus = (props: WorkAllDescProps) => {
   );
 };
 
-const UnitWrapper = (props: WorkAllDescProps) => {
+const UnitWrapper = (props: UnitWrapperInterface) => {
   const { pid, title, summary, stacks, fontColor, url } = props;
   return (
     <div
