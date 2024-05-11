@@ -9,7 +9,7 @@ const Footer = (props: FooterProps) => {
   const { sectionRef } = props;
   return (
     <div ref={sectionRef} className="flex justify-center items-center w-full h-20 border-t">
-      <div className="flex justify-between items-center w-2/3 max-sm:w-full h-full max-sm:px-2 max-sm:text-xs text-gray-600">
+      <div className="flex justify-between items-center w-2/3 max-sm:w-full h-full max-sm:px-2 max-sm:text-xs text-gray-800">
         {/* Left */}
         <div className="flex flex-col">
           <p>@2024 Junhyeon Kim.</p>

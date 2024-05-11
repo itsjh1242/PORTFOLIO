@@ -224,7 +224,7 @@ const StackSection = (props: stackSectionProps) => {
     }
   };
   return (
-    <div ref={sectionRef} className="relative  w-full max-w-screen h-full pt-20 pb-20 overflow-hidden">
+    <div ref={sectionRef} className="relative w-full max-w-screen h-full max-sm:min-h-sm-apple pt-20 pb-20 overflow-hidden">
       {/* Center Text */}
       <CenterText context="Stack" />
       {/* Stack Carousel */}
@@ -254,7 +254,7 @@ const StackSection = (props: stackSectionProps) => {
           </div>
         </div>
         {/* Stack Desc */}
-        <div className="flex flex-col justify-start items-start w-1/2 sm:w-1/3 max-sm:w-full h-96 max-sm:h-full p-3">
+        <div className="flex flex-col justify-start items-start w-1/2 sm:w-1/3 max-sm:w-full h-full p-3">
           {/* Stack Name */}
           <p className="text-3xl max-sm:text-2xl font-medium">{STACK_DESC[STACK_LIST[stackSelectorIndex]].title}</p>
           {/* Stack Badge */}
@@ -304,7 +304,10 @@ const WorkExperienceSection = (props: workExperienceProps) => {
     setAccordian(updatedAccordian);
   };
   return (
-    <div ref={sectionRef} className="relative flex flex-col gap-3 justify-center items-center w-full max-w-screen h-full p-20 max-sm:p-3 max-sm:mb-20">
+    <div
+      ref={sectionRef}
+      className="relative flex flex-col gap-3 justify-center items-center w-full max-w-screen h-full sm:min-h-sm-apple p-20 max-sm:p-3 max-sm:mb-20"
+    >
       {/* Center Text */}
       <CenterText context="Work Experience" />
       {Object.keys(EXP_DESC).map((item, index) => {
@@ -425,7 +428,7 @@ const WorkBanner = (props: workBannerProps) => {
   };
 
   return (
-    <div ref={sectionRef} className="relative flex flex-col w-full max-w-screen h-full p-20 max-sm:p-3">
+    <div ref={sectionRef} className="relative flex flex-col w-full max-w-screen h-full max-sm:min-h-sm-apple p-20 max-sm:p-3">
       {/* Center Text */}
       <CenterText context="Work Banner" />
       <div className="flex justify-center items-center">

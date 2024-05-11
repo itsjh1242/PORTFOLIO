@@ -16,6 +16,9 @@ const config: Config = {
         "420": "420px",
         "1280": "1280px",
       },
+      minHeight: {
+        "sm-apple": "500px",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
