@@ -23,9 +23,9 @@ const Landing = (props: LandingInterface) => {
         </p>
       </div>
       {/* Left Component */}
-      <LandingDesc title="Designer;" desc="보고 듣는 모든 경험에서 영감을 얻어 저만의 디자인을 다양한 프로젝트에 적용시켰습니다." isRight={false} />
+      <LandingDesc title="designer" desc="보고 듣는 모든 경험에서 영감을 얻어 저만의 디자인을 다양한 프로젝트에 적용시켰습니다." isRight={false} />
       {/* Right Component */}
-      <LandingDesc title={"<Coder />"} desc="깔끔하고 효율적인 코드 작성과 생각하는 것을 좋아하는 주니어 개발자입니다." isRight={true} />
+      <LandingDesc title={"<coder />"} desc="깔끔하고 효율적인 코드 작성과 생각하는 것을 좋아하는 주니어 개발자입니다." isRight={true} />
     </div>
   );
 };

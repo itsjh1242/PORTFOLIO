@@ -108,7 +108,7 @@ const AboutSectionText = (props: AboutSectionTextProps) => {
   const { header, content, isRight } = props;
   return (
     <div className={`flex flex-col p-3 ${isRight ? "text-left" : "text-right"}`}>
-      <p className="font-medium text-lg max-sm:text-sm">{header ? `${isRight ? "<" + header + " />" : header + ";"}` : null}</p>
+      <p className="font-medium text-lg max-sm:text-sm">{header ? `${isRight ? "<" + header + " />" : header + ""}` : null}</p>
       {content.map((paragraph, index) => (
         <p key={index} className="max-sm:text-xs break-keep">
           {paragraph === "" ? <br /> : paragraph}

@@ -2,10 +2,20 @@
 import { RefObject } from "react";
 import Image from "next/image";
 
-interface FooterProps {
+// UI Components
+
+interface FooterInterface {
   sectionRef: RefObject<HTMLDivElement>;
 }
-const Footer = (props: FooterProps) => {
+interface ImageHolderInterface {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  url: string;
+}
+
+const Footer = (props: FooterInterface) => {
   const { sectionRef } = props;
   return (
     <div ref={sectionRef} className="flex justify-center items-center w-full h-20 border-t">
@@ -31,14 +41,7 @@ const Footer = (props: FooterProps) => {
   );
 };
 
-interface ImageHolderProps {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-  url: string;
-}
-const ImageHolder = (props: ImageHolderProps) => {
+const ImageHolder = (props: ImageHolderInterface) => {
   const { src, alt, width, height, url } = props;
 
   const handleLocation = () => {
@@ -55,4 +58,5 @@ const ImageHolder = (props: ImageHolderProps) => {
     </div>
   );
 };
+
 export default Footer;
