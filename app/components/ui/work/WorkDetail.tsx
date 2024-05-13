@@ -78,7 +78,13 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
           {/* 요약 부분 */}
           <Wrapper.HalfWidthWrapper className="flex flex-col max-sm:w-full">
             <p className="font-bold">요약</p>
-            <p>{data.detail.long_summary}</p>
+            {data.detail.long_summary.map((summary, index) => {
+              return (
+                <p key={index} className="mb-2">
+                  {summary}
+                </p>
+              );
+            })}
           </Wrapper.HalfWidthWrapper>
         </Wrapper.FlexRow>
       </Wrapper.MaxWidth>
@@ -93,18 +99,18 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
               <td className="pb-3">{ui[ui_route[uicurrentUIIndex]].route}</td>
             </tr>
             <tr className="align-top text-left">
-              <th className="pr-3">UI 명칭</th>
+              <th className="pr-3">명칭</th>
               <td className="pb-3">{ui[ui_route[uicurrentUIIndex]].ui_name}</td>
             </tr>
             <tr className="align-top text-left">
-              <th className="pr-3">UI 설명</th>
+              <th className="pr-3">설명</th>
               <td className="pb-3">{ui[ui_route[uicurrentUIIndex]].ui_desc}</td>
             </tr>
             <tr className="align-top text-left">
-              <th className="pr-3">UI 기능</th>
+              <th className="pr-3">기능</th>
               <td className="pb-3">
                 {ui[ui_route[uicurrentUIIndex]].ui_func.map((ui_func_item, index) => {
-                  return <p key={index}>{ui_func_item === "" ? "-" : "·" + ui_func_item}</p>;
+                  return <p key={index}>{ui_func_item === "" ? "-" : "· " + ui_func_item}</p>;
                 })}
               </td>
             </tr>
@@ -121,9 +127,13 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
             <VscChevronLeft size={50} />
           </div>
           <div>
-            <Image src={`/workall/${data.pid}/${ui_route[uicurrentUIIndex]}.png`} alt={data.pid} width={900} height={580} />
+            <Image
+              src={ui[ui_route[uicurrentUIIndex]].ui ? `/workall/${data.pid}/${ui_route[uicurrentUIIndex]}.png` : ""}
+              alt={data.pid}
+              width={900}
+              height={580}
+            />
           </div>
-
           <div
             className="cursor-pointer"
             onClick={() => {
