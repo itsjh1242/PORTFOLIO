@@ -47,10 +47,10 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
   };
 
   return (
-    <Wrapper.Center className="flex-col max-sm:text-xs break-keep">
+    <Wrapper.Center className="flex-col max-sm:w-full max-sm:text-xs break-keep">
       {/* 대표 이미지 */}
       <Wrapper.MaxWidth className="w-fit rounded-b-3xl max-sm:rounded-3xl max-sm:mt-3 mb-12 overflow-hidden">
-        <Image src={`/workall/${data.pid}/${data.pid}.png`} alt="" width={920} height={580} />
+        <Image src={`/workall/${data.pid}/${data.pid}.jpeg`} alt="" width={920} height={580} />
       </Wrapper.MaxWidth>
       <Wrapper.MaxWidth>
         <Wrapper.TitleText>{data.title}</Wrapper.TitleText>
@@ -77,7 +77,7 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
           </Wrapper.HalfWidthWrapper>
           {/* 요약 부분 */}
           <Wrapper.HalfWidthWrapper className="flex flex-col max-sm:w-full">
-            <p className="font-bold">요약</p>
+            <p className="font-bold">개요</p>
             {data.detail.long_summary.map((summary, index) => {
               return (
                 <p key={index} className="mb-2">
@@ -126,9 +126,9 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
           >
             <VscChevronLeft size={50} />
           </div>
-          <div>
+          <div className="w-2/3">
             <Image
-              src={ui[ui_route[uicurrentUIIndex]].ui ? `/workall/${data.pid}/${ui_route[uicurrentUIIndex]}.png` : ""}
+              src={ui[ui_route[uicurrentUIIndex]].ui ? `/workall/${data.pid}/${ui_route[uicurrentUIIndex]}.jpeg` : ""}
               alt={data.pid}
               width={900}
               height={580}
@@ -153,7 +153,11 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
             <div key={index} className="mb-3">
               <p className="text-2xl max-sm:text-base font-medium">{trouble_key}</p>
               {data.detail.trouble[trouble_key].map((trouble_item, index) => {
-                return <p key={index}>·{trouble_item}</p>;
+                return (
+                  <p key={index} className="mb-3">
+                    ·{trouble_item}
+                  </p>
+                );
               })}
             </div>
           );
@@ -163,7 +167,13 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
       <Wrapper.MaxWidth className="flex flex-col justify-center items-start mt-6">
         <Wrapper.TitleText>회고</Wrapper.TitleText>
         <HorizontalDivider />
-        <p>{data.detail.review}</p>
+        {data.detail.review.map((review_item, index) => {
+          return (
+            <p key={index} className="mb-3">
+              {review_item}
+            </p>
+          );
+        })}
       </Wrapper.MaxWidth>
       {/* 링크 */}
       <Wrapper.MaxWidth className="flex flex-col justify-center items-start my-6">
