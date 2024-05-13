@@ -12,7 +12,7 @@ interface badgeProps {
 const Badge = (props: badgeProps) => {
   const { icon, bgColor, fontColor, fontSize, context } = props;
   return (
-    <div className={`flex justify-center items-center gap-1 px-2 py-1 rounded-lg ${bgColor} ${fontColor} ${fontSize}`}>
+    <div className={`flex justify-center items-center gap-1 px-2 py-1 rounded-3xl ${bgColor} ${fontColor} ${fontSize}`}>
       {icon && <div className="flex justify-center items-center">{React.createElement(icon, { size: "1em" })}</div>}
       <p className="max-sm:text-xs">{context}</p>
     </div>

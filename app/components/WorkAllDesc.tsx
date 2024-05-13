@@ -6,6 +6,19 @@ export interface WorkAllDescInterface {
     stacks: string[];
     fontColor: string;
     focus?: boolean | null;
+    detail: {
+      header: {
+        [key: string]: { title: string; content: string[] };
+      };
+      long_summary: string;
+      ui: {
+        [key: string]: { route: string; ui_name: string; ui_desc: string; ui_func: string[] };
+      };
+      trouble: { [key: string]: string[] };
+      review: string;
+      github: string;
+      demo: string;
+    };
   };
 }
 
@@ -17,6 +30,28 @@ export const WorkAllDesc: WorkAllDescInterface = {
     stacks: ["python", "mysql", "html"],
     fontColor: "text-white",
     focus: true,
+    detail: {
+      header: {
+        category: { title: "카테고리", content: ["개인 프로젝트", "웹 개발"] },
+        period: { title: "기간", content: ["2023년 3월 ~ 6월"] },
+        hc: { title: "인원", content: ["1명 (풀스택)"] },
+        fe: { title: "프론트엔드", content: ["HTML", "CSS", "JQuery"] },
+        be: { title: "백엔드", content: ["Flask"] },
+        db: { title: "데이터베이스", content: ["MySQL"] },
+        scm: { title: "형상관리 도구", content: ["Github"] },
+        deploy: { title: "배포 도구", content: ["-"] },
+        refer: { title: "관련 활동", content: ["2024 한국전자통신학회 논문 게재", "2023 한국 컴퓨터정보학회 우수논문상", "특허 출원(10-2023-0178771)"] },
+      },
+      long_summary: "현대 사회에서 증가하는 스트레스와 감정적인 건강 문제에 대응하여 감정 표현과 자기 성찰을 위한 일기 작성을 간편하게 도와주는 시스템입니다. ",
+      ui: {
+        base: { route: "/", ui_name: "메인 화면", ui_desc: "UI 설명", ui_func: ["-"] },
+        chat: { route: "/chat", ui_name: "챗봇과의 채팅 화면", ui_desc: "UI 설명", ui_func: ["기능1", "기능2"] },
+      },
+      trouble: { trouble1: ["해결방안"], trouble2: ["해결방안"] },
+      review: "ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ",
+      github: "https://github.com/itsjh1242/diary-writing-system/tree/main",
+      demo: "",
+    },
   },
   reddot_hair_catalog: {
     pid: "reddot_hair_catalog",
@@ -25,6 +60,28 @@ export const WorkAllDesc: WorkAllDescInterface = {
     stacks: ["reddot"],
     fontColor: "text-white",
     focus: true,
+    detail: {
+      header: {
+        category: { title: "카테고리", content: ["개인 프로젝트", "웹 개발"] },
+        period: { title: "기간", content: ["2023년 3월 ~ 6월"] },
+        hc: { title: "인원", content: ["1명 (풀스택)"] },
+        fe: { title: "프론트엔드", content: ["HTML", "CSS", "JQuery"] },
+        be: { title: "백엔드", content: ["Flask"] },
+        db: { title: "데이터베이스", content: ["MySQL"] },
+        scm: { title: "형상관리 도구", content: ["Github"] },
+        deploy: { title: "배포 도구", content: ["-"] },
+        refer: { title: "관련 활동", content: ["2024 한국전자통신학회 논문 게재", "2023 한국 컴퓨터정보학회 우수논문상", "특허 출원(10-2023-0178771)"] },
+      },
+      long_summary: "현대 사회에서 증가하는 스트레스와 감정적인 건강 문제에 대응하여 감정 표현과 자기 성찰을 위한 일기 작성을 간편하게 도와주는 시스템입니다. ",
+      ui: {
+        base: { route: "/", ui_name: "메인 화면", ui_desc: "UI 설명", ui_func: ["-"] },
+        chat: { route: "/chat", ui_name: "챗봇과의 채팅 화면", ui_desc: "UI 설명", ui_func: ["기능1", "기능2"] },
+      },
+      trouble: { trouble1: ["해결방안"], trouble2: ["해결방안"] },
+      review: "ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ",
+      github: "https://github.com/itsjh1242/diary-writing-system/tree/main",
+      demo: "",
+    },
   },
   attendance: {
     pid: "attendance",
@@ -33,6 +90,28 @@ export const WorkAllDesc: WorkAllDescInterface = {
     stacks: ["arduino", "c++", "mysql", "node"],
     fontColor: "text-black",
     focus: true,
+    detail: {
+      header: {
+        category: { title: "카테고리", content: ["개인 프로젝트", "웹 개발"] },
+        period: { title: "기간", content: ["2023년 3월 ~ 6월"] },
+        hc: { title: "인원", content: ["1명 (풀스택)"] },
+        fe: { title: "프론트엔드", content: ["HTML", "CSS", "JQuery"] },
+        be: { title: "백엔드", content: ["Flask"] },
+        db: { title: "데이터베이스", content: ["MySQL"] },
+        scm: { title: "형상관리 도구", content: ["Github"] },
+        deploy: { title: "배포 도구", content: ["-"] },
+        refer: { title: "관련 활동", content: ["2024 한국전자통신학회 논문 게재", "2023 한국 컴퓨터정보학회 우수논문상", "특허 출원(10-2023-0178771)"] },
+      },
+      long_summary: "현대 사회에서 증가하는 스트레스와 감정적인 건강 문제에 대응하여 감정 표현과 자기 성찰을 위한 일기 작성을 간편하게 도와주는 시스템입니다. ",
+      ui: {
+        base: { route: "/", ui_name: "메인 화면", ui_desc: "UI 설명", ui_func: ["-"] },
+        chat: { route: "/chat", ui_name: "챗봇과의 채팅 화면", ui_desc: "UI 설명", ui_func: ["기능1", "기능2"] },
+      },
+      trouble: { trouble1: ["해결방안"], trouble2: ["해결방안"] },
+      review: "ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ",
+      github: "https://github.com/itsjh1242/diary-writing-system/tree/main",
+      demo: "",
+    },
   },
   motion: {
     pid: "motion",
@@ -41,6 +120,28 @@ export const WorkAllDesc: WorkAllDescInterface = {
     stacks: ["flutter", "node", "mysql", "aws"],
     fontColor: "text-black",
     focus: false,
+    detail: {
+      header: {
+        category: { title: "카테고리", content: ["개인 프로젝트", "웹 개발"] },
+        period: { title: "기간", content: ["2023년 3월 ~ 6월"] },
+        hc: { title: "인원", content: ["1명 (풀스택)"] },
+        fe: { title: "프론트엔드", content: ["HTML", "CSS", "JQuery"] },
+        be: { title: "백엔드", content: ["Flask"] },
+        db: { title: "데이터베이스", content: ["MySQL"] },
+        scm: { title: "형상관리 도구", content: ["Github"] },
+        deploy: { title: "배포 도구", content: ["-"] },
+        refer: { title: "관련 활동", content: ["2024 한국전자통신학회 논문 게재", "2023 한국 컴퓨터정보학회 우수논문상", "특허 출원(10-2023-0178771)"] },
+      },
+      long_summary: "현대 사회에서 증가하는 스트레스와 감정적인 건강 문제에 대응하여 감정 표현과 자기 성찰을 위한 일기 작성을 간편하게 도와주는 시스템입니다. ",
+      ui: {
+        base: { route: "/", ui_name: "메인 화면", ui_desc: "UI 설명", ui_func: ["-"] },
+        chat: { route: "/chat", ui_name: "챗봇과의 채팅 화면", ui_desc: "UI 설명", ui_func: ["기능1", "기능2"] },
+      },
+      trouble: { trouble1: ["해결방안"], trouble2: ["해결방안"] },
+      review: "ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ",
+      github: "https://github.com/itsjh1242/diary-writing-system/tree/main",
+      demo: "",
+    },
   },
   github_battle: {
     pid: "github_battle",
@@ -49,6 +150,28 @@ export const WorkAllDesc: WorkAllDescInterface = {
     stacks: ["react", "redux", "sass"],
     fontColor: "text-white",
     focus: false,
+    detail: {
+      header: {
+        category: { title: "카테고리", content: ["개인 프로젝트", "웹 개발"] },
+        period: { title: "기간", content: ["2023년 3월 ~ 6월"] },
+        hc: { title: "인원", content: ["1명 (풀스택)"] },
+        fe: { title: "프론트엔드", content: ["HTML", "CSS", "JQuery"] },
+        be: { title: "백엔드", content: ["Flask"] },
+        db: { title: "데이터베이스", content: ["MySQL"] },
+        scm: { title: "형상관리 도구", content: ["Github"] },
+        deploy: { title: "배포 도구", content: ["-"] },
+        refer: { title: "관련 활동", content: ["2024 한국전자통신학회 논문 게재", "2023 한국 컴퓨터정보학회 우수논문상", "특허 출원(10-2023-0178771)"] },
+      },
+      long_summary: "현대 사회에서 증가하는 스트레스와 감정적인 건강 문제에 대응하여 감정 표현과 자기 성찰을 위한 일기 작성을 간편하게 도와주는 시스템입니다. ",
+      ui: {
+        base: { route: "/", ui_name: "메인 화면", ui_desc: "UI 설명", ui_func: ["-"] },
+        chat: { route: "/chat", ui_name: "챗봇과의 채팅 화면", ui_desc: "UI 설명", ui_func: ["기능1", "기능2"] },
+      },
+      trouble: { trouble1: ["해결방안"], trouble2: ["해결방안"] },
+      review: "ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ",
+      github: "https://github.com/itsjh1242/diary-writing-system/tree/main",
+      demo: "",
+    },
   },
   streaming: {
     pid: "streaming",
@@ -57,6 +180,28 @@ export const WorkAllDesc: WorkAllDescInterface = {
     stacks: ["react", "css"],
     fontColor: "text-white",
     focus: false,
+    detail: {
+      header: {
+        category: { title: "카테고리", content: ["개인 프로젝트", "웹 개발"] },
+        period: { title: "기간", content: ["2023년 3월 ~ 6월"] },
+        hc: { title: "인원", content: ["1명 (풀스택)"] },
+        fe: { title: "프론트엔드", content: ["HTML", "CSS", "JQuery"] },
+        be: { title: "백엔드", content: ["Flask"] },
+        db: { title: "데이터베이스", content: ["MySQL"] },
+        scm: { title: "형상관리 도구", content: ["Github"] },
+        deploy: { title: "배포 도구", content: ["-"] },
+        refer: { title: "관련 활동", content: ["2024 한국전자통신학회 논문 게재", "2023 한국 컴퓨터정보학회 우수논문상", "특허 출원(10-2023-0178771)"] },
+      },
+      long_summary: "현대 사회에서 증가하는 스트레스와 감정적인 건강 문제에 대응하여 감정 표현과 자기 성찰을 위한 일기 작성을 간편하게 도와주는 시스템입니다. ",
+      ui: {
+        base: { route: "/", ui_name: "메인 화면", ui_desc: "UI 설명", ui_func: ["-"] },
+        chat: { route: "/chat", ui_name: "챗봇과의 채팅 화면", ui_desc: "UI 설명", ui_func: ["기능1", "기능2"] },
+      },
+      trouble: { trouble1: ["해결방안"], trouble2: ["해결방안"] },
+      review: "ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ",
+      github: "https://github.com/itsjh1242/diary-writing-system/tree/main",
+      demo: "",
+    },
   },
   weather_search: {
     pid: "weather_search",
@@ -65,6 +210,28 @@ export const WorkAllDesc: WorkAllDescInterface = {
     stacks: ["react", "node", "css"],
     fontColor: "text-black",
     focus: false,
+    detail: {
+      header: {
+        category: { title: "카테고리", content: ["개인 프로젝트", "웹 개발"] },
+        period: { title: "기간", content: ["2023년 3월 ~ 6월"] },
+        hc: { title: "인원", content: ["1명 (풀스택)"] },
+        fe: { title: "프론트엔드", content: ["HTML", "CSS", "JQuery"] },
+        be: { title: "백엔드", content: ["Flask"] },
+        db: { title: "데이터베이스", content: ["MySQL"] },
+        scm: { title: "형상관리 도구", content: ["Github"] },
+        deploy: { title: "배포 도구", content: ["-"] },
+        refer: { title: "관련 활동", content: ["2024 한국전자통신학회 논문 게재", "2023 한국 컴퓨터정보학회 우수논문상", "특허 출원(10-2023-0178771)"] },
+      },
+      long_summary: "현대 사회에서 증가하는 스트레스와 감정적인 건강 문제에 대응하여 감정 표현과 자기 성찰을 위한 일기 작성을 간편하게 도와주는 시스템입니다. ",
+      ui: {
+        base: { route: "/", ui_name: "메인 화면", ui_desc: "UI 설명", ui_func: ["-"] },
+        chat: { route: "/chat", ui_name: "챗봇과의 채팅 화면", ui_desc: "UI 설명", ui_func: ["기능1", "기능2"] },
+      },
+      trouble: { trouble1: ["해결방안"], trouble2: ["해결방안"] },
+      review: "ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ",
+      github: "https://github.com/itsjh1242/diary-writing-system/tree/main",
+      demo: "",
+    },
   },
   realtime_chat: {
     pid: "realtime_chat",
@@ -73,5 +240,27 @@ export const WorkAllDesc: WorkAllDescInterface = {
     stacks: ["react", "redux", "node", "mysql", "sass"],
     fontColor: "text-black",
     focus: false,
+    detail: {
+      header: {
+        category: { title: "카테고리", content: ["개인 프로젝트", "웹 개발"] },
+        period: { title: "기간", content: ["2023년 3월 ~ 6월"] },
+        hc: { title: "인원", content: ["1명 (풀스택)"] },
+        fe: { title: "프론트엔드", content: ["HTML", "CSS", "JQuery"] },
+        be: { title: "백엔드", content: ["Flask"] },
+        db: { title: "데이터베이스", content: ["MySQL"] },
+        scm: { title: "형상관리 도구", content: ["Github"] },
+        deploy: { title: "배포 도구", content: ["-"] },
+        refer: { title: "관련 활동", content: ["2024 한국전자통신학회 논문 게재", "2023 한국 컴퓨터정보학회 우수논문상", "특허 출원(10-2023-0178771)"] },
+      },
+      long_summary: "현대 사회에서 증가하는 스트레스와 감정적인 건강 문제에 대응하여 감정 표현과 자기 성찰을 위한 일기 작성을 간편하게 도와주는 시스템입니다. ",
+      ui: {
+        base: { route: "/", ui_name: "메인 화면", ui_desc: "UI 설명", ui_func: ["-"] },
+        chat: { route: "/chat", ui_name: "챗봇과의 채팅 화면", ui_desc: "UI 설명", ui_func: ["기능1", "기능2"] },
+      },
+      trouble: { trouble1: ["해결방안"], trouble2: ["해결방안"] },
+      review: "ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ",
+      github: "https://github.com/itsjh1242/diary-writing-system/tree/main",
+      demo: "",
+    },
   },
 };

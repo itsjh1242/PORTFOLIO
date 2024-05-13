@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, RefObject } from "react";
+import React, { useState, RefObject, useEffect } from "react";
 import Image from "next/image";
 
 // Interface
@@ -12,12 +12,17 @@ import Badge from "../badge";
 // Icons
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 
-interface StackSectionProps {
+interface StackSectionInterface {
   script: { stack_desc: StackDescInterface; stack_badge: StackBadgeInterface; stack_list: string[] };
   sectionRef: RefObject<HTMLDivElement>;
 }
 
-const StackSection = (props: StackSectionProps) => {
+interface StackContentDescInterface {
+  stack_desc_key: string;
+  context: { [key: string]: string[] };
+}
+
+const StackSection = (props: StackSectionInterface) => {
   const { script, sectionRef } = props;
 
   const stack_desc = script.stack_desc;
@@ -25,6 +30,7 @@ const StackSection = (props: StackSectionProps) => {
   const stack_list = script.stack_list;
 
   const [stackSelectorIndex, setStackSelectorIndex] = useState(0);
+
   const handleStackSelector = (direction: string) => {
     var index;
     if (direction === "left") {
@@ -36,39 +42,29 @@ const StackSection = (props: StackSectionProps) => {
     }
   };
   return (
-    <div ref={sectionRef} className="relative w-full max-w-screen h-full max-sm:min-h-sm-apple pt-20 pb-20 overflow-hidden">
+    <div ref={sectionRef} className="relative flex justify-center items-center w-full max-w-screen h-full max-sm:min-h-sm-apple pt-20 pb-20">
       {/* Center Text */}
       <CenterText context="Stack" />
       {/* Stack Carousel */}
-      <div className="flex justify-center items-center max-sm:flex-col w-full h-full">
+      <div className="flex justify-center items-center w-2/3 sm:gap-3">
         {/* Stack Selector */}
-        <div className="flex justify-center items-center w-1/2 sm:w-1/3 max-sm:w-full h-96">
-          <div className="flex justify-center items-center gap-3">
-            <div className="cursor-pointer">
-              <VscChevronLeft
-                size={40}
-                onClick={() => {
-                  handleStackSelector("left");
-                }}
-              />
-            </div>
-            <div className="pointer-events-none">
-              <Image src={`/stack/${stack_list[stackSelectorIndex]}.svg`} alt="" width={150} height={150} />
-            </div>
-            <div className="cursor-pointer">
-              <VscChevronRight
-                size={40}
-                onClick={() => {
-                  handleStackSelector("right");
-                }}
-              />
-            </div>
-          </div>
+        <div className="cursor-pointer">
+          <VscChevronLeft
+            size={40}
+            onClick={() => {
+              handleStackSelector("left");
+            }}
+          />
         </div>
-        {/* Stack Desc */}
-        <div className="flex flex-col justify-start items-start w-1/2 sm:w-1/3 max-sm:w-full h-full p-3">
+        {/* Stack Content */}
+        <div className="flex flex-col justify-center items-start max-sm:w-full h-full p-3">
           {/* Stack Name */}
-          <p className="text-3xl max-sm:text-2xl font-medium">{stack_desc[stack_list[stackSelectorIndex]].title}</p>
+          <div className="flex gap-3">
+            <div className="flex justify-center items-center">
+              <Image src={`/stack/${stack_list[stackSelectorIndex]}.svg`} alt="" width={40} height={40} />
+            </div>
+            <p className="text-3xl max-sm:text-2xl font-medium">{stack_desc[stack_list[stackSelectorIndex]].title}</p>
+          </div>
           {/* Stack Badge */}
           <div className="flex flex-row flex-wrap gap-3 mt-3 mb-6">
             {Object.keys(stack_badge).map((badge, index) => {
@@ -88,17 +84,38 @@ const StackSection = (props: StackSectionProps) => {
             })}
           </div>
           {/* Stack Desc */}
-          <div className="flex flex-col flex-wrap gap-3 pr-10 break-keep">
-            {stack_desc[stack_list[stackSelectorIndex]].points.map((context, index) => {
-              return (
-                <div key={index} className="flex flex-col">
-                  <p className="text-lg max-sm:text-base font-medium">{context[0]}</p>
-                  <p className="max-sm:text-xs">{context[1]}</p>
-                </div>
-              );
+          <div className="flex flex-col flex-wrap gap-3  break-keep">
+            {Object.keys(stack_desc[stack_list[stackSelectorIndex]].points).map((stack_desc_key, index) => {
+              return <StackContentDesc key={index} stack_desc_key={stack_desc_key} context={stack_desc[stack_list[stackSelectorIndex]].points} />;
             })}
           </div>
         </div>
+        <div className="cursor-pointer">
+          <VscChevronRight
+            size={40}
+            onClick={() => {
+              handleStackSelector("right");
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const StackContentDesc = (props: StackContentDescInterface) => {
+  const { stack_desc_key, context } = props;
+  return (
+    <div className="flex flex-col">
+      <p className="text-lg max-sm:text-base font-medium">{stack_desc_key}</p>
+      <div className="flex flex-col">
+        {context[stack_desc_key].map((desc_item, index) => {
+          return (
+            <p key={index} className="max-sm:text-xs">
+              {desc_item}
+            </p>
+          );
+        })}
       </div>
     </div>
   );

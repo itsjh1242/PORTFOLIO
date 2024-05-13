@@ -42,7 +42,7 @@ const PrimaryRoundedButton = (props: CustomButtonPartInterface) => {
   );
 };
 
-const SecondaryButton = (props: CustomButtonProp) => {
+const SecondaryButton = (props: CustomButtonPartInterface) => {
   const { context, action } = props;
   return (
     <div
