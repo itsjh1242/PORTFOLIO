@@ -1,13 +1,13 @@
-interface CustomButtonProps {
+interface CustomButtonInterface {
   type: string;
   context: string;
   action?: ((...args: any[]) => void) | null;
 }
-interface CustomButtonProp {
+interface CustomButtonPartInterface {
   context: string;
   action?: ((...args: any[]) => void) | null;
 }
-const CustomButton = (props: CustomButtonProps) => {
+const CustomButton = (props: CustomButtonInterface) => {
   const { type, context, action } = props;
   if (type === "primary") {
     return <PrimaryButton context={context} action={action} />;
@@ -18,7 +18,7 @@ const CustomButton = (props: CustomButtonProps) => {
   }
 };
 
-const PrimaryButton = (props: CustomButtonProp) => {
+const PrimaryButton = (props: CustomButtonPartInterface) => {
   const { context, action } = props;
   return (
     <div
@@ -30,7 +30,7 @@ const PrimaryButton = (props: CustomButtonProp) => {
   );
 };
 
-const PrimaryRoundedButton = (props: CustomButtonProp) => {
+const PrimaryRoundedButton = (props: CustomButtonPartInterface) => {
   const { context, action } = props;
   return (
     <div

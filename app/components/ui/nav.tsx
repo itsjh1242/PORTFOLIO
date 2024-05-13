@@ -1,9 +1,15 @@
 "use client";
-interface NavProps {
+interface NavInterface {
   handleQuickMove: (index: number) => void;
 }
 
-export default function Nav(props: NavProps) {
+interface NavItemInterface {
+  index: number;
+  context: string;
+  handleQuickMove: (index: number) => void;
+}
+
+export default function Nav(props: NavInterface) {
   const { handleQuickMove } = props;
   return (
     <div className="fixed top-0 left-0 flex justify-between items-center p-6 max-sm:p-3 w-full h-full max-h-16 z-20">
@@ -23,12 +29,7 @@ export default function Nav(props: NavProps) {
   );
 }
 
-interface NavItemProps {
-  index: number;
-  context: string;
-  handleQuickMove: (index: number) => void;
-}
-const NavItem = (props: NavItemProps) => {
+const NavItem = (props: NavItemInterface) => {
   const { index, context, handleQuickMove } = props;
   return (
     <a onClick={() => handleQuickMove(index)} className="p-3 max-sm:p-0 text-gray-500 hover:text-black hover:scale-110 transition cursor-pointer">

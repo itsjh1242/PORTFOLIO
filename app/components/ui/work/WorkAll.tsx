@@ -15,7 +15,6 @@ export interface UnitWrapperInterface {
   summary: string;
   stacks: string[];
   fontColor: string;
-  url: string;
 }
 
 export const WorkAllPage = () => {
@@ -48,17 +47,7 @@ export const WorkAllPage = () => {
       {Object.keys(WorkAllDesc).map((work_key, index) => {
         const item = WorkAllDesc[work_key];
         if (item.focus) {
-          return (
-            <UnitWrapperFocus
-              key={index}
-              pid={item.pid}
-              title={work_key}
-              summary={item.summary}
-              stacks={item.stacks}
-              fontColor={item.fontColor}
-              url={item.url}
-            />
-          );
+          return <UnitWrapperFocus key={index} pid={item.pid} title={item.title} summary={item.summary} stacks={item.stacks} fontColor={item.fontColor} />;
         }
       })}
       {/* 나머지 프로젝트 */}
@@ -66,17 +55,7 @@ export const WorkAllPage = () => {
         {Object.keys(WorkAllDesc).map((work_key, index) => {
           const item = WorkAllDesc[work_key];
           if (!item.focus) {
-            return (
-              <UnitWrapper
-                key={index}
-                title={item.title}
-                pid={item.pid}
-                summary={item.summary}
-                stacks={item.stacks}
-                fontColor={item.fontColor}
-                url={item.url}
-              />
-            );
+            return <UnitWrapper key={index} title={item.title} pid={item.pid} summary={item.summary} stacks={item.stacks} fontColor={item.fontColor} />;
           }
         })}
       </div>
@@ -85,7 +64,8 @@ export const WorkAllPage = () => {
 };
 
 const UnitWrapperFocus = (props: UnitWrapperInterface) => {
-  const { pid, title, summary, stacks, fontColor, url } = props;
+  const { pid, title, summary, stacks, fontColor } = props;
+  const router = useRouter();
   return (
     <div
       className={`flex flex-col justify-start items-center gap-6 w-screen h-apple max-sm:h-sm-apple pt-12 mb-3 bg-no-repeat ${fontColor}`}
@@ -102,13 +82,20 @@ const UnitWrapperFocus = (props: UnitWrapperInterface) => {
           );
         })}
       </div>
-      <CustomButton type="primary-rounded" context="자세히 보기" />
+      <CustomButton
+        type="primary-rounded"
+        context="자세히 보기"
+        action={() => {
+          router.push("/work/work-detail/" + pid);
+        }}
+      />
     </div>
   );
 };
 
 const UnitWrapper = (props: UnitWrapperInterface) => {
-  const { pid, title, summary, stacks, fontColor, url } = props;
+  const { pid, title, summary, stacks, fontColor } = props;
+  const router = useRouter();
   return (
     <div
       className={`flex flex-col justify-start items-center gap-3 w-49% max-sm:w-full h-apple-grid max-sm:h-sm-apple pt-12 bg-no-repeat shadow-md hover:shadow-lg transition bg-cover max-sm:bg-center ${fontColor}`}
@@ -125,7 +112,13 @@ const UnitWrapper = (props: UnitWrapperInterface) => {
           );
         })}
       </div>
-      <CustomButton type="primary-rounded" context="자세히 보기" />
+      <CustomButton
+        type="primary-rounded"
+        context="자세히 보기"
+        action={() => {
+          router.push("/work/work-detail/" + pid);
+        }}
+      />
     </div>
   );
 };
