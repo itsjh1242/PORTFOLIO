@@ -42,9 +42,8 @@ export const STACK_DESC: StackDescInterface = {
     level: 3,
     points: {
       "서버 개발": [
-        "Node.js를 사용하여 서버 사이드 개발을 수행한 경험이 있습니다.",
-        "Express와 함께 사용하여 RESTful API를 설계하고 구현했습니다.",
-        " ejs를 활용한 프론트를 구현하는데 있어서도 능숙합니다.",
+        "Node.js를 사용하여 서버 사이드 개발을 수행한 경험이 있습니다. Express와 함께 사용하여 RESTful API를 설계하고 구현했습니다.",
+        "ejs를 활용한 프론트를 구현하는데 있어서도 능숙합니다.",
       ],
       "실시간 웹 소켓 통신": ["Socket.IO를 활용하여 웹 소켓을 구현하고 실시간으로 데이터를 주고받는 서비스를 개발한 경험이 있습니다."],
       "비동기 프로그래밍": ["Node.js의 비동기 특성을 활용하여 서버를 개발하고, Callback, Promise, async/await 등의 패턴을 사용하여 코드를 작성할 수 있습니다."],

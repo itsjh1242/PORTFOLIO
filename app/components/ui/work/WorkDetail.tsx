@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 // UI Components
@@ -22,7 +21,6 @@ export interface WorkDetailInterface {
 export const WorkDetailPage = (props: WorkDetailInterface) => {
   const { params } = props;
   const data = WorkAllDesc[params.identifier];
-  const router = useRouter();
 
   const [uicurrentUIIndex, setUIUIIndex] = useState(0);
   const ui = data.detail.ui;
@@ -145,24 +143,27 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
         </Wrapper.FlexRow>
       </Wrapper.MaxWidth>
       {/* 트러블 슈팅 */}
-      <Wrapper.MaxWidth className="flex flex-col justify-center items-start mt-6">
-        <Wrapper.TitleText>트러블 슈팅</Wrapper.TitleText>
-        <HorizontalDivider />
-        {Object.keys(data.detail.trouble).map((trouble_key, index) => {
-          return (
-            <div key={index} className="mb-3">
-              <p className="text-2xl max-sm:text-base font-medium">{trouble_key}</p>
-              {data.detail.trouble[trouble_key].map((trouble_item, index) => {
-                return (
-                  <p key={index} className="mb-3">
-                    ·{trouble_item}
-                  </p>
-                );
-              })}
-            </div>
-          );
-        })}
-      </Wrapper.MaxWidth>
+      {Object.keys(data.detail.trouble).length && (
+        <Wrapper.MaxWidth className="flex flex-col justify-center items-start mt-6">
+          <Wrapper.TitleText>트러블 슈팅</Wrapper.TitleText>
+          <HorizontalDivider />
+          {Object.keys(data.detail.trouble).map((trouble_key, index) => {
+            return (
+              <div key={index} className="mb-3">
+                <p className="text-2xl max-sm:text-base font-medium">{trouble_key}</p>
+                {data.detail.trouble[trouble_key].map((trouble_item, index) => {
+                  return (
+                    <p key={index} className="mb-3">
+                      ·{trouble_item}
+                    </p>
+                  );
+                })}
+              </div>
+            );
+          })}
+        </Wrapper.MaxWidth>
+      )}
+
       {/* 회고 */}
       <Wrapper.MaxWidth className="flex flex-col justify-center items-start mt-6">
         <Wrapper.TitleText>회고</Wrapper.TitleText>

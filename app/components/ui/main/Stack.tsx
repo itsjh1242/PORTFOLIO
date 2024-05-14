@@ -57,7 +57,7 @@ const StackSection = (props: StackSectionInterface) => {
           />
         </div>
         {/* Stack Content */}
-        <div className="flex flex-col justify-center items-start max-sm:w-full h-full p-3">
+        <div className="flex flex-col justify-center items-start w-full max-sm:w-full h-full p-3">
           {/* Stack Name */}
           <div className="flex gap-3">
             <div className="flex justify-center items-center">
