@@ -86,7 +86,7 @@ const UnitWrapperFocus = (props: UnitWrapperInterface) => {
         type="primary-rounded"
         context="자세히 보기"
         action={() => {
-          router.push("/work/work-detail/" + pid);
+          router.push("/portfolio/work/work-detail/" + pid);
         }}
       />
     </div>
