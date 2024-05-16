@@ -10,7 +10,7 @@ import Badge from "../badge";
 import { WorkAllDesc } from "../../WorkAllDesc";
 
 // Icons
-import { VscChevronLeft, VscChevronRight, VscCode, VscBracketDot } from "react-icons/vsc";
+import { VscChevronLeft, VscChevronRight, VscCode, VscBracketDot, VscCircle, VscCircleFilled } from "react-icons/vsc";
 
 export interface WorkDetailInterface {
   params: {
@@ -23,17 +23,19 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
   const data = WorkAllDesc[params.identifier];
 
   const [uicurrentUIIndex, setUIUIIndex] = useState(0);
-  const ui = data.detail.ui;
-  const ui_route = Object.keys(data.detail.ui);
+  const func = data.detail.func;
+  const func_index = Object.keys(data.detail.func);
 
   const handleBannerIndex = (direction: string) => {
     let index;
     if (direction === "left") {
       index = uicurrentUIIndex - 1;
-      setUIUIIndex(index < 0 ? ui_route.length - 1 : index);
-    } else {
-      index = (uicurrentUIIndex + 1) % ui_route.length;
+      setUIUIIndex(index < 0 ? func_index.length - 1 : index);
+    } else if (direction === "right") {
+      index = (uicurrentUIIndex + 1) % func_index.length;
       setUIUIIndex(index);
+    } else {
+      setUIUIIndex(parseInt(direction));
     }
   };
 
@@ -48,7 +50,7 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
     <Wrapper.Center className="flex-col max-sm:w-full max-sm:text-xs break-keep">
       {/* 대표 이미지 */}
       <Wrapper.MaxWidth className="w-fit rounded-b-3xl max-sm:rounded-3xl max-sm:mt-3 mb-12 overflow-hidden">
-        <Image src={`/workall/${data.pid}/${data.pid}.jpeg`} alt="" width={920} height={580} />
+        <Image src={`/workall/${data.pid}/${data.pid}.png`} alt="" width={920} height={580} />
       </Wrapper.MaxWidth>
       <Wrapper.MaxWidth>
         <Wrapper.TitleText>{data.title}</Wrapper.TitleText>
@@ -86,64 +88,73 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
           </Wrapper.HalfWidthWrapper>
         </Wrapper.FlexRow>
       </Wrapper.MaxWidth>
-      {/* UI 및 구현 기능 */}
+      {/* 구현 기능 */}
       <Wrapper.MaxWidth className="flex flex-col justify-center items-start mt-6">
-        <Wrapper.TitleText>UI 및 구현기능</Wrapper.TitleText>
+        <Wrapper.TitleText>구현 기능</Wrapper.TitleText>
         <HorizontalDivider />
         <table>
           <tbody>
             <tr className="align-top text-left">
-              <th className="pr-3">라우트 주소</th>
-              <td className="pb-3">{ui[ui_route[uicurrentUIIndex]].route}</td>
-            </tr>
-            <tr className="align-top text-left">
               <th className="pr-3">명칭</th>
-              <td className="pb-3">{ui[ui_route[uicurrentUIIndex]].ui_name}</td>
+              <td className="pb-3">{func[func_index[uicurrentUIIndex]].name}</td>
             </tr>
             <tr className="align-top text-left">
               <th className="pr-3">설명</th>
-              <td className="pb-3">{ui[ui_route[uicurrentUIIndex]].ui_desc}</td>
+              <td className="pb-3">{func[func_index[uicurrentUIIndex]].desc}</td>
             </tr>
             <tr className="align-top text-left">
               <th className="pr-3">기능</th>
               <td className="pb-3">
-                {ui[ui_route[uicurrentUIIndex]].ui_func.map((ui_func_item, index) => {
-                  return <p key={index}>{ui_func_item === "" ? "-" : "· " + ui_func_item}</p>;
+                {func[func_index[uicurrentUIIndex]].func.map((func_item, index) => {
+                  return <p key={index}>{func_item === "" ? "-" : "· " + func_item}</p>;
                 })}
               </td>
             </tr>
           </tbody>
         </table>
         {/* UI Image */}
-        <Wrapper.FlexRow className="justify-center items-center gap-6 max-sm:gap-1">
+        <div className="relative">
           <div
-            className="cursor-pointer"
+            className="absolute top-1/2 -left-10 max-sm:left-0 cursor-pointer"
             onClick={() => {
               handleBannerIndex("left");
             }}
           >
             <VscChevronLeft size={50} />
           </div>
-          <div className="w-2/3">
-            <Image
-              src={ui[ui_route[uicurrentUIIndex]].ui ? `/workall/${data.pid}/${ui_route[uicurrentUIIndex]}.jpeg` : ""}
-              alt={data.pid}
-              width={900}
-              height={580}
-            />
-          </div>
+          <Image
+            src={func[func_index[uicurrentUIIndex]].ui ? `/workall/${data.pid}/${func_index[uicurrentUIIndex]}.png` : ""}
+            alt={data.pid}
+            width={1200}
+            height={580}
+          />
           <div
-            className="cursor-pointer"
+            className="absolute top-1/2 -right-10 max-sm:right-0 cursor-pointer"
             onClick={() => {
               handleBannerIndex("right");
             }}
           >
             <VscChevronRight size={50} />
           </div>
-        </Wrapper.FlexRow>
+        </div>
+        <div className="flex justify-center items-center w-full h-fit">
+          {func_index.map((func_item, index) => {
+            return (
+              <div
+                key={index}
+                className="cursor-pointer"
+                onClick={() => {
+                  handleBannerIndex(index.toString());
+                }}
+              >
+                {index === uicurrentUIIndex ? <VscCircleFilled size={20} /> : <VscCircle size={20} />}
+              </div>
+            );
+          })}
+        </div>
       </Wrapper.MaxWidth>
       {/* 트러블 슈팅 */}
-      {Object.keys(data.detail.trouble).length && (
+      {Object.keys(data.detail.trouble).length !== 0 ? (
         <Wrapper.MaxWidth className="flex flex-col justify-center items-start mt-6">
           <Wrapper.TitleText>트러블 슈팅</Wrapper.TitleText>
           <HorizontalDivider />
@@ -162,8 +173,7 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
             );
           })}
         </Wrapper.MaxWidth>
-      )}
-
+      ) : null}
       {/* 회고 */}
       <Wrapper.MaxWidth className="flex flex-col justify-center items-start mt-6">
         <Wrapper.TitleText>회고</Wrapper.TitleText>

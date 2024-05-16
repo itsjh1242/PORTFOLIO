@@ -8,6 +8,7 @@ import { AboutDescInterface } from "../../AboutDesc";
 import CenterText from "../centerText";
 
 interface AboutSectionProps {
+  prefix: string;
   script: { about_dsec: AboutDescInterface };
   sectionRef: RefObject<HTMLDivElement>;
 }
@@ -33,38 +34,40 @@ const AboutSection = (props: AboutSectionProps) => {
   const mottoRef = useRef<HTMLDivElement>(null);
   const labRef = useRef<HTMLDivElement>(null);
   const strengthRef = useRef<HTMLDivElement>(null);
-  const componentRef = [introRef, mottoRef, labRef, strengthRef];
+  const certificateRef = useRef<HTMLDivElement>(null);
+  const componentRef = React.useMemo(() => [introRef, mottoRef, labRef, strengthRef, certificateRef], []);
 
   useEffect(() => {
     let observer: IntersectionObserver;
+    const progressBarPerHeight = 100 / componentRef.length;
     observer = new IntersectionObserver(
       ([e]) => {
         const target = e.target as HTMLElement;
         if (e.isIntersecting) {
           target.style.opacity = "1";
-          setProgressBar(progressBar + 25);
+          setProgressBar(progressBar + progressBarPerHeight);
         }
       },
       { threshold: 0.5 }
     );
-    [introRef, mottoRef, labRef, strengthRef].map((ref, index) => {
-      if (ref.current && progressBar === index * 25) {
+    componentRef.map((ref, index) => {
+      if (ref.current && progressBar === index * progressBarPerHeight) {
         observer.observe(ref.current as Element);
       }
     });
-  }, [progressBar]);
+  }, [componentRef, progressBar]);
 
   return (
-    <div ref={sectionRef} className="relative w-full max-w-screen h-full p-20">
+    <div ref={sectionRef} className="relative w-full max-w-screen h-full p-20 max-sm:p-1">
       <div className="flex flex-row flex-wrap justify-start items-center w-full max-w-screen h-full">
         {/* Progress Bar */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-4/5 border border-transparent">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full border border-transparent py-10 max-sm:py-5">
           <div className="relative top-0 left-0 border border-black transition-all duration-1000" style={{ height: `${progressBar}%` }} />
         </div>
         {/* Center Text */}
         <CenterText context="About Me" />
         {/* Components */}
-        <div className="w-1/2" />
+        <div className="w-1/2 max-sm:w-1/2" />
         {Object.keys(about_desc).map((about_key, index) => {
           return (
             <AboutSectionTextWrapper
@@ -88,7 +91,6 @@ const AboutSection = (props: AboutSectionProps) => {
 
 const AboutSectionTextWrapper = (props: AboutSectionTextWrapperProps) => {
   const { item_key, wrapperRef, child } = props;
-
   return (
     <>
       <div ref={wrapperRef} className="w-1/2 opacity-0 transition-all duration-1000">

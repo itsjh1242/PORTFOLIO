@@ -5,6 +5,7 @@ import Image from "next/image";
 // UI Components
 
 interface FooterInterface {
+  prefix: string;
   sectionRef: RefObject<HTMLDivElement>;
 }
 interface ImageHolderInterface {

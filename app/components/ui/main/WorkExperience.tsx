@@ -14,6 +14,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FiExternalLink } from "react-icons/fi";
 
 interface workExperienceProps {
+  prefix: string;
   script: { exp_desc: ExpDescInterface };
   sectionRef: RefObject<HTMLDivElement>;
 }

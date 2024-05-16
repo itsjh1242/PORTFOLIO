@@ -1,6 +1,8 @@
 "use client";
 import React, { useRef } from "react";
 
+import { prefix } from "./components/ContextAPI";
+
 // UI Section
 import Nav from "./components/ui/nav";
 import Landing from "./components/ui/main/Landing";
@@ -34,17 +36,17 @@ const Home = () => {
       <Nav handleQuickMove={handleQuickMove} />
       <div className="flex flex-col w-full h-full">
         {/* Landing Section */}
-        <Landing sectionRef={mainRef} />
+        <Landing sectionRef={mainRef} prefix={prefix} />
         {/* About Section */}
-        <AboutSection script={{ about_dsec: ABOUT_DESC }} sectionRef={aboutRef} />
+        <AboutSection script={{ about_dsec: ABOUT_DESC }} sectionRef={aboutRef} prefix={prefix} />
         {/* Stack Section */}
-        <StackSection script={{ stack_desc: STACK_DESC, stack_badge: STACK_BADGE, stack_list: STACK_LIST }} sectionRef={stackRef} />
+        <StackSection script={{ stack_desc: STACK_DESC, stack_badge: STACK_BADGE, stack_list: STACK_LIST }} sectionRef={stackRef} prefix={prefix} />
         {/* Work Experience Section */}
-        <WorkExperienceSection script={{ exp_desc: EXP_DESC }} sectionRef={workExperienceRef} />
+        <WorkExperienceSection script={{ exp_desc: EXP_DESC }} sectionRef={workExperienceRef} prefix={prefix} />
         {/* Work Banner */}
-        <WorkBannerSection script={{ banner_desc: BANNER_DESC }} sectionRef={workBannerRef} />
+        <WorkBannerSection script={{ banner_desc: BANNER_DESC }} sectionRef={workBannerRef} prefix={prefix} />
         {/* Footer */}
-        <Footer sectionRef={contackRef} />
+        <Footer sectionRef={contackRef} prefix={prefix} />
       </div>
     </>
   );

@@ -98,8 +98,8 @@ const UnitWrapper = (props: UnitWrapperInterface) => {
   const router = useRouter();
   return (
     <div
-      className={`flex flex-col justify-start items-center gap-3 w-49% max-sm:w-full h-apple-grid max-sm:h-sm-apple pt-12 bg-no-repeat shadow-md hover:shadow-lg transition bg-cover max-sm:bg-center ${fontColor}`}
-      style={{ backgroundImage: `url(/workall/${pid}/${pid}.jpeg)` }}
+      className={`flex flex-col justify-start items-center gap-3 w-49% max-sm:w-full h-apple-grid max-sm:h-sm-apple pt-12 transition bg-cover bg-no-repeat max-sm:bg-center ${fontColor}`}
+      style={{ backgroundImage: `url(/workall/${pid}/${pid}_unit.png)` }}
     >
       <p className="text-3xl max-sm:text-xl font-medium text-center">{title}</p>
       <p className="text-xl max-sm:text-lg font-light">{summary}</p>

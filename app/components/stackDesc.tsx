@@ -76,6 +76,7 @@ export const STACK_DESC: StackDescInterface = {
     title: "CSS(Cascading Style Sheets)",
     level: 3,
     points: {
+      "Tailwind CSS": ["Tailwind CSS를 능숙하게 사용할 수 있습니다."],
       "레이아웃 디자인": ["CSS를 사용하여 웹 페이지의 레이아웃을 디자인하는데 능숙합니다.", "Grid와 Flex를 상황에 따라 적절히 사용할 수 있습니다."],
       스타일링: ["CSS 기본 문법에 대한 이해도를 가지고 있으며, 디지털 정부서비스 UI/UX 가이드라인 등의 디자인 표준을 참고하여 웹 페이지를 구현할 수 있습니다."],
       애니메이션: ["CSS를 사용하여 다양한 애니메이션 효과를 구현한 경험이 있습니다."],
@@ -158,6 +159,7 @@ export const STACK_DESC: StackDescInterface = {
     title: "Github",
     level: 3,
     points: {
+      형상관리: ["프로젝트 진행 시 Github을 사용하여 형상관리하는 것에 능숙합니다."],
       "프로젝트 관리": ["Git을 사용하여 전반적으로 프로젝트를 관리하며, 브랜치를 나누고 합치는 협업을 한 경험이 있습니다."],
       "Github을 통한 배포": ["Github-pages를 사용하여 웹 애플리케이션을 배포한 경험이 있습니다."],
     },

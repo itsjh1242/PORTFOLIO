@@ -15,6 +15,7 @@ import CustomButton from "../button";
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 
 interface workBannerInterface {
+  prefix: string;
   script: { banner_desc: WorkBannerDescInterface };
   sectionRef: RefObject<HTMLDivElement>;
 }
@@ -58,7 +59,7 @@ const WorkBannerSection = (props: workBannerInterface) => {
                 <p className="max-sm:text-xs">{banner_desc[bannerKey[bannerIndex]].summary}</p>
               </div>
             </div>
-            <div className="w-1/3 max-sm:w-full">
+            <div className="w-1/3 max-sm:hidden">
               <div className="flex justify-start items-start w-full h-full">
                 <Image src={`/banner/${bannerKey[bannerIndex]}.png`} alt="" width={400} height={400} />
               </div>
@@ -84,7 +85,7 @@ const WorkBannerSection = (props: workBannerInterface) => {
       <div className="flex justify-center items-center mt-3">
         <CustomButton
           type="secondary"
-          context="프로젝트 더보기"
+          context="프로젝트 보기"
           action={() => {
             router.push("/work");
           }}

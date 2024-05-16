@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+
 // Fonts
 import { Nanum_Gothic, Noto_Sans_KR } from "next/font/google";
-
-
-
 
 // Font Interfaces
 const ngkr = Nanum_Gothic({ subsets: ["latin"], weight: ["700"] });
@@ -22,10 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={nskr.className}>
-        {children}
-        
-      </body>
+      <body className={nskr.className}>{children}</body>
     </html>
   );
 }

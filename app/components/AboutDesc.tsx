@@ -49,4 +49,9 @@ export const ABOUT_DESC: AboutDescInterface = {
     ],
     isRight: false,
   },
+  certificate: {
+    header: "정보처리기사",
+    content: ["2024년 4월 취득"],
+    isRight: true,
+  },
 };

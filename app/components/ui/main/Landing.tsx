@@ -4,6 +4,7 @@ import Image from "next/image";
 import profile_image from "@/public/profile-image.png";
 
 interface LandingInterface {
+  prefix: string;
   sectionRef: RefObject<HTMLDivElement>;
 }
 

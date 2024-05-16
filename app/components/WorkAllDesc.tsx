@@ -11,8 +11,8 @@ export interface WorkAllDescInterface {
         [key: string]: { title: string; content: string[] };
       };
       long_summary: string[];
-      ui: {
-        [key: string]: { ui: boolean; route: string; ui_name: string; ui_desc: string; ui_func: string[] };
+      func: {
+        [key: string]: { ui: boolean; name: string; desc: string; func: string[] };
       };
       trouble: { [key: string]: string[] };
       review: string[];
@@ -51,42 +51,37 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "KoBERT 모델 데이터셋으로 활용된 '웰니스 대화 데이터셋'은 실제 세브란스 상담 데이터 뭉치로, 359가지의 카테고리의 감정 클래스로 구성되어 있습니다.",
         "감정 분석 모델과 일기 생성 알고리즘을 활용하여 사용자가 텍스트를 입력하면 분류된 7가지의 감정 카테고리를 기준으로 감정을 추출하고, 챗봇은 해당 감정을 고려하여 답변을 생성합니다. 또한, GPT-3 Turbo 모델이 연산을 수행할 수 있게 대화 데이터를 전처리하여 일기를 생성하는 방식을 제안하였습니다.",
       ],
-      ui: {
-        base: { ui: true, route: "/", ui_name: "메인 화면", ui_desc: "랜딩 화면입니다.", ui_func: [""] },
+      func: {
+        base: { ui: true, name: "메인 화면", desc: "랜딩 화면입니다.", func: [""] },
         chat: {
           ui: true,
-          route: "/chat",
-          ui_name: "채팅 화면",
-          ui_desc: "사용자와 챗봇이 대화를 주고받을 수 있는 화면입니다.",
-          ui_func: ["테스트 데이터 생성", "테스트 데이터 초기화", "채팅"],
+          name: "채팅 화면",
+          desc: "사용자와 챗봇이 대화를 주고받을 수 있는 화면입니다.",
+          func: ["테스트 데이터 생성", "테스트 데이터 초기화", "채팅"],
         },
         "diary-list": {
           ui: true,
-          route: "/diary-list",
-          ui_name: "일기 목록 화면",
-          ui_desc: "생성한 일기의 목록을 보여주는 화면입니다.",
-          ui_func: ["채팅 데이터 기반 일기 생성"],
+          name: "일기 목록 화면",
+          desc: "생성한 일기의 목록을 보여주는 화면입니다.",
+          func: ["채팅 데이터 기반 일기 생성"],
         },
         "diary-detail": {
           ui: true,
-          route: "/diary-list/detail/[pid]",
-          ui_name: "일기 상세 화면(감정 분포도)",
-          ui_desc: "생성한 일기의 감정 분포도를 보여주는 화면입니다.",
-          ui_func: [""],
+          name: "일기 상세 화면(감정 분포도)",
+          desc: "생성한 일기의 감정 분포도를 보여주는 화면입니다.",
+          func: [""],
         },
         "diary-detail-foryou": {
           ui: true,
-          route: "/diary-list/detail/[pid]",
-          ui_name: "일기 상세 화면(당신에게 해주고 싶은 말)",
-          ui_desc: "생성한 일기를 기반으로 사용자에게 전하는 따뜻한 말을 보여주는 화면입니다.",
-          ui_func: [""],
+          name: "일기 상세 화면(당신에게 해주고 싶은 말)",
+          desc: "생성한 일기를 기반으로 사용자에게 전하는 따뜻한 말을 보여주는 화면입니다.",
+          func: [""],
         },
         "diary-detail-quote": {
           ui: true,
-          route: "/diary-list/detail/[pid]",
-          ui_name: "일기 상세 화면(누군가 나에게 해주는 말)",
-          ui_desc: "생성한 일기를 기반으로 사용자에게 전하는 유명한 명언을 보여주는 화면입니다.",
-          ui_func: [""],
+          name: "일기 상세 화면(누군가 나에게 해주는 말)",
+          desc: "생성한 일기를 기반으로 사용자에게 전하는 유명한 명언을 보여주는 화면입니다.",
+          func: [""],
         },
       },
       trouble: {
@@ -138,8 +133,8 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "본 디자인은 앞을 보지 못하는 시각장애인들을 고려하여, 촉각을 활용해 만질 수 있는 헤어 카탈로그를 만들면 어떨까?하는 생각에서 시작되었습니다.",
         "본 3D 카탈로그는 유행하는 헤어 디자인을 3D 프린터를 이용해 입체적으로 제작하고, 해당 모형을 카탈로그에 접목시켜 촉각으로 확인할 수 있습니다.",
       ],
-      ui: {
-        reddot_hair_catalog: { ui: true, route: "-", ui_name: "디자인 판넬", ui_desc: "본 디자인 작품을 나타낸 판넬입니다.", ui_func: [""] },
+      func: {
+        base: { ui: true, name: "디자인 판넬", desc: "본 디자인 작품을 나타낸 판넬입니다.", func: [""] },
       },
       trouble: {
         "아이디어 의견 충돌": [
@@ -190,20 +185,18 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "처음에는 Node.js를 사용하여 근태 관리 웹 페이지를 개발할 생각이었습니다. 하지만, 이 방식을 사용하게 되면 입/퇴실을 본인이 했는지 안했는지 확인할 수 없는 문제가 있었습니다.",
         "이를 악용할 가능성이 있기 때문에 이를 중요하게 생각하여 지문 인식 센서를 사용했습니다.",
       ],
-      ui: {
+      func: {
         base: {
           ui: true,
-          route: "/",
-          ui_name: "메인 화면",
-          ui_desc: "사용자의 출석 현황과 공지사항 확인 및 유고결석을 신청할 수 있는 랜딩 화면입니다.",
-          ui_func: [""],
+          name: "메인 화면",
+          desc: "사용자의 출석 현황과 공지사항 확인 및 유고결석을 신청할 수 있는 랜딩 화면입니다.",
+          func: [""],
         },
         admin: {
           ui: true,
-          route: "/admin",
-          ui_name: "관리자 화면",
-          ui_desc: "관리자 권한이 있는 사용자가 연구실 인원들의 출결을 조회, 관리할 수 있는 화면입니다.",
-          ui_func: ["출결 수정", "공지사항 관리", "유고결석 관리", "사용자 관리"],
+          name: "관리자 화면",
+          desc: "관리자 권한이 있는 사용자가 연구실 인원들의 출결을 조회, 관리할 수 있는 화면입니다.",
+          func: ["출결 수정", "공지사항 관리", "유고결석 관리", "사용자 관리"],
         },
       },
       trouble: {
@@ -249,36 +242,32 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "사용자가 모션 인식 기반의 이중암호 인증을 사용하고자 할 때에는, 사용자가 등록한 정수형 숫자 6개 암호와 각 암호마다의 모션 x, y, z 값이 일치해야합니다.",
         "본 프로젝트는 동서대학교의 AI+X 융합 연구로 진행습니다.",
       ],
-      ui: {
-        system: { ui: true, route: "-", ui_name: "시스템 구성도", ui_desc: "본 프로젝트의 전반적인 기능에 대한 시스템 구성도입니다.", ui_func: [""] },
-        main: { ui: true, route: "-", ui_name: "메인 화면", ui_desc: "프로젝트의 메인 화면입니다.", ui_func: [""] },
+      func: {
+        system: { ui: true, name: "시스템 구성도", desc: "본 프로젝트의 전반적인 기능에 대한 시스템 구성도입니다.", func: [""] },
+        main: { ui: true, name: "메인 화면", desc: "프로젝트의 메인 화면입니다.", func: [""] },
         add_number_password: {
           ui: true,
-          route: "-",
-          ui_name: "숫자암호 등록 화면",
-          ui_desc: "6개의 숫자 암호를 등록하는 화면입니다.",
-          ui_func: ["숫자 암호 등록"],
+          name: "숫자암호 등록 화면",
+          desc: "6개의 숫자 암호를 등록하는 화면입니다.",
+          func: ["숫자 암호 등록"],
         },
         add_motion_password: {
           ui: true,
-          route: "-",
-          ui_name: "모션암호 등록 화면",
-          ui_desc: "6개의 모션 암호를 등록하는 화면입니다.",
-          ui_func: ["모션 암호 등록"],
+          name: "모션암호 등록 화면",
+          desc: "6개의 모션 암호를 등록하는 화면입니다.",
+          func: ["모션 암호 등록"],
         },
         add_motion_password_success: {
           ui: true,
-          route: "-",
-          ui_name: "모션암호 등록 성공 화면",
-          ui_desc: "자이로센서에서 반환된 값이 지정된 범위 내에 위치할 때 성공 메시지를 보내는 화면입니다.",
-          ui_func: [""],
+          name: "모션암호 등록 성공 화면",
+          desc: "자이로센서에서 반환된 값이 지정된 범위 내에 위치할 때 성공 메시지를 보내는 화면입니다.",
+          func: [""],
         },
         testing: {
           ui: true,
-          route: "-",
-          ui_name: "이중 암호 테스트 메인 화면",
-          ui_desc: "저장된 이중 암호를 테스트하기 위해서 Toss사의 송금 화면을 참고하여 개발된 화면입니다.",
-          ui_func: [""],
+          name: "이중 암호 테스트 메인 화면",
+          desc: "저장된 이중 암호를 테스트하기 위해서 Toss사의 송금 화면을 참고하여 개발된 화면입니다.",
+          func: [""],
         },
       },
       trouble: {
@@ -323,63 +312,55 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "프로젝트에 사용할 수 있는 API를 둘러보다가 Github API를 발견함과 동시에 깃헙배틀이라는 아이디어가 떠올라서, 아이디어 구체화 및 UI 설계를 하였고, React와 React-redux를 사용했습니다.",
         "본 프로젝트에서는 Github API를 통해 얻은 사용자의 전반적인 활동에 대한 데이터를 분석하여 0점부터 100점까지 점수로 수치화하여 보여주는 서비스를 목표로 개발했습니다.",
       ],
-      ui: {
-        base: { ui: true, route: "/", ui_name: "메인 화면", ui_desc: "프로젝트 랜딩 화면입니다.", ui_func: [""] },
+      func: {
+        base: { ui: true, name: "메인 화면", desc: "프로젝트 랜딩 화면입니다.", func: [""] },
         analysis: {
           ui: true,
-          route: "/analysis",
-          ui_name: "분석 점수 화면",
-          ui_desc: "두 사용자의 Github 정보를 기반으로 분석한 점수를 나타내는 화면입니다.",
-          ui_func: ["사용자 점수 총합 계산 및 부여"],
+          name: "분석 점수 화면",
+          desc: "두 사용자의 Github 정보를 기반으로 분석한 점수를 나타내는 화면입니다.",
+          func: ["사용자 점수 총합 계산 및 부여"],
         },
         created_at: {
           ui: true,
-          route: "/analysis/detail/:user",
-          ui_name: "분석 상세 화면 - created_at",
-          ui_desc: "두 사용자의 Github 가입일을 기반으로 점수를 비교하는 화면입니다.",
-          ui_func: ["Github 가입일 비교 분석"],
+          name: "분석 상세 화면 - created_at",
+          desc: "두 사용자의 Github 가입일을 기반으로 점수를 비교하는 화면입니다.",
+          func: ["Github 가입일 비교 분석"],
         },
         follower: {
           ui: true,
-          route: "/analysis/detail/:user",
-          ui_name: "분석 상세 화면 - follower/following",
-          ui_desc: "두 사용자의 Github 팔로워/팔로우 수를 기반으로 점수를 비교하는 화면입니다.",
-          ui_func: ["Github 팔로워/팔로잉 개수 비교 분석"],
+          name: "분석 상세 화면 - follower/following",
+          desc: "두 사용자의 Github 팔로워/팔로우 수를 기반으로 점수를 비교하는 화면입니다.",
+          func: ["Github 팔로워/팔로잉 개수 비교 분석"],
         },
         repo: {
           ui: true,
-          route: "/analysis/detail/:user",
-          ui_name: "분석 상세 화면- repo",
-          ui_desc: "두 사용자의 Github 레포지토리 수를 기반으로 점수를 비교하는 화면입니다.",
-          ui_func: ["Github 레포지토리 개수 비교 분석"],
+          name: "분석 상세 화면- repo",
+          desc: "두 사용자의 Github 레포지토리 수를 기반으로 점수를 비교하는 화면입니다.",
+          func: ["Github 레포지토리 개수 비교 분석"],
         },
         info: {
           ui: true,
-          route: "/analysis/detail/:user",
-          ui_name: "분석 상세 화면 - information",
-          ui_desc: "두 사용자의 Github 기본정보를 기반으로 점수를 비교하는 화면입니다.",
-          ui_func: ["Github 기본정보 개수 비교 분석"],
+          name: "분석 상세 화면 - information",
+          desc: "두 사용자의 Github 기본정보를 기반으로 점수를 비교하는 화면입니다.",
+          func: ["Github 기본정보 개수 비교 분석"],
         },
         recent_push: {
           ui: true,
-          route: "/analysis/detail/:user",
-          ui_name: "분석 상세 화면 - recent_push",
-          ui_desc: "두 사용자의 Github 최근 Push를 기반으로 점수를 비교하는 화면입니다.",
-          ui_func: ["Github 최근 Push 비교 분석"],
+          name: "분석 상세 화면 - recent_push",
+          desc: "두 사용자의 Github 최근 Push를 기반으로 점수를 비교하는 화면입니다.",
+          func: ["Github 최근 Push 비교 분석"],
         },
         total_push: {
           ui: true,
-          route: "/analysis/detail/:user",
-          ui_name: "분석 상세 화면 - total_push",
-          ui_desc: "두 사용자의 Github 총 Push를 기반으로 점수를 비교하는 화면입니다.",
-          ui_func: ["Github 총 Push 비교 분석"],
+          name: "분석 상세 화면 - total_push",
+          desc: "두 사용자의 Github 총 Push를 기반으로 점수를 비교하는 화면입니다.",
+          func: ["Github 총 Push 비교 분석"],
         },
         result: {
           ui: true,
-          route: "/analysis/detail/:user",
-          ui_name: "분석 상세 화면 - result",
-          ui_desc: "두 사용자의 Github을 기반으로 점수를 비교한 결과 화면입니다.",
-          ui_func: ["Github 비교 분석 결과"],
+          name: "분석 상세 화면 - result",
+          desc: "두 사용자의 Github을 기반으로 점수를 비교한 결과 화면입니다.",
+          func: ["Github 비교 분석 결과"],
         },
       },
       trouble: {
@@ -425,8 +406,8 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "본 디자인에서 강조할 부분과 아닌 부분을 폰트 크기/색상으로 구분하여 확실한 강조 포인트를 살리고자 했습니다.",
         "실제 음악 스트리밍 서비스를 하는 웹/앱은 사용자 편의성을 고려하여 개발되었지만, 여기서는 디자인만을 위한 웹개발을 했습니다.",
       ],
-      ui: {
-        base: { ui: true, route: "/", ui_name: "메인 화면", ui_desc: "프로젝트 랜딩 화면입니다.", ui_func: [""] },
+      func: {
+        base: { ui: true, name: "메인 화면", desc: "프로젝트 랜딩 화면입니다.", func: [""] },
       },
       trouble: {
         "Chrome 브라우저 Audio 자동재생 차단": [
@@ -467,21 +448,19 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "날씨와 관련한 데이터를 제공하는 OpenWeatherAPI와 한영 번역 기능을 제공하는 Naver Papago API를 활용하여 결합하여 날씨 정보를 한국어로 제공해주는 미니 프로젝트입니다.",
         "한국뿐만 아니라 전 세계의 지역명을 입력하여 해당 지역의 날씨 관련 정보를 확인할 수 있으며, 날씨에 따라 오전/오후, 맑음/비 카테고리로 분류하여 해당하는 배경으로 변경되도록 하였습니다.",
       ],
-      ui: {
-        system: { ui: true, route: "-", ui_name: "시스템 구성도", ui_desc: "본 프로젝트의 전반적인 기능에 대한 시스템 구성도입니다.", ui_func: [""] },
+      func: {
+        system: { ui: true, name: "시스템 구성도", desc: "본 프로젝트의 전반적인 기능에 대한 시스템 구성도입니다.", func: [""] },
         base: {
           ui: true,
-          route: "/",
-          ui_name: "메인 화면",
-          ui_desc: "지역명을 입력하여 날씨를 검색할 수 있는 메인 화면입니다.",
-          ui_func: ["지역명으로 날씨 검색"],
+          name: "메인 화면",
+          desc: "지역명을 입력하여 날씨를 검색할 수 있는 메인 화면입니다.",
+          func: ["지역명으로 날씨 검색"],
         },
         modal: {
           ui: true,
-          route: "/",
-          ui_name: "검색 이후 모달 화면",
-          ui_desc: "검색한 지역의 날씨 정보를 보여주는 모달 화면입니다.",
-          ui_func: [""],
+          name: "검색 이후 모달 화면",
+          desc: "검색한 지역의 날씨 정보를 보여주는 모달 화면입니다.",
+          func: [""],
         },
       },
       trouble: {},
@@ -518,14 +497,13 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "React-Redux와 Socket통신에 대한 이해도를 높이고자 진행한 프로젝트입니다.",
         "본 프로젝트에는 메신저를 친구 맺기를 한 사용자와 실시간 양방향 통신을 중점으로 개발했습니다.",
       ],
-      ui: {
-        base: { ui: true, route: "/", ui_name: "메인 화면", ui_desc: "프로젝트 랜딩 화면입니다.", ui_func: ["로그인"] },
+      func: {
+        base: { ui: true, name: "메인 화면", desc: "프로젝트 랜딩 화면입니다.", func: ["로그인"] },
         chat_room: {
           ui: true,
-          route: "/chat",
-          ui_name: "채팅방 화면",
-          ui_desc: "로그인 한 사용자가 접속한 채팅방 화면입니다.",
-          ui_func: ["채팅", "친구 추가", "친구 수락"],
+          name: "채팅방 화면",
+          desc: "로그인 한 사용자가 접속한 채팅방 화면입니다.",
+          func: ["채팅", "친구 추가", "친구 수락"],
         },
       },
       trouble: {

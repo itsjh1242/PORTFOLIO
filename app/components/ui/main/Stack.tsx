@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, RefObject, useEffect } from "react";
+import React, { useState, RefObject } from "react";
 import Image from "next/image";
 
 // Interface
@@ -13,6 +13,7 @@ import Badge from "../badge";
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 
 interface StackSectionInterface {
+  prefix: string;
   script: { stack_desc: StackDescInterface; stack_badge: StackBadgeInterface; stack_list: string[] };
   sectionRef: RefObject<HTMLDivElement>;
 }
@@ -41,12 +42,13 @@ const StackSection = (props: StackSectionInterface) => {
       setStackSelectorIndex(index);
     }
   };
+
   return (
-    <div ref={sectionRef} className="relative flex justify-center items-center w-full max-w-screen h-full max-sm:min-h-sm-apple pt-20 pb-20">
+    <div ref={sectionRef} className="relative flex justify-center items-center w-full max-w-screen h-apple max-sm:min-h-sm-apple py-20 max-sm:py-10">
       {/* Center Text */}
       <CenterText context="Stack" />
       {/* Stack Carousel */}
-      <div className="flex justify-center items-center w-2/3 sm:gap-3">
+      <div className="flex justify-center items-center w-2/3 max-sm:w-full sm:gap-3">
         {/* Stack Selector */}
         <div className="cursor-pointer">
           <VscChevronLeft
