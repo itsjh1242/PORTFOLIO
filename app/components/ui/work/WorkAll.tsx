@@ -8,6 +8,7 @@ import CustomButton from "@/app/components/ui/button";
 
 // Data Import
 import { WorkAllDesc } from "@/app/components/WorkAllDesc";
+import { prefix } from "../../ContextAPI";
 
 export interface UnitWrapperInterface {
   pid: string;
@@ -69,7 +70,7 @@ const UnitWrapperFocus = (props: UnitWrapperInterface) => {
   return (
     <div
       className={`flex flex-col justify-start items-center gap-6 w-screen h-apple max-sm:h-sm-apple pt-12 mb-3 bg-no-repeat ${fontColor}`}
-      style={{ backgroundImage: `url(/workall_preview/${pid}.png)` }}
+      style={{ backgroundImage: `url(${prefix}/workall_preview/${pid}.png)` }}
     >
       <p className="text-4xl max-sm:text-2xl font-bold text-center">{title}</p>
       <p className="text-2xl max-sm:text-lg font-light">{summary}</p>
@@ -99,7 +100,7 @@ const UnitWrapper = (props: UnitWrapperInterface) => {
   return (
     <div
       className={`flex flex-col justify-start items-center gap-3 w-49% max-sm:w-full h-apple-grid max-sm:h-sm-apple pt-12 transition bg-cover bg-no-repeat max-sm:bg-center ${fontColor}`}
-      style={{ backgroundImage: `url(/workall/${pid}/${pid}_unit.png)` }}
+      style={{ backgroundImage: `url(${prefix}/workall/${pid}/${pid}_unit.png)` }}
     >
       <p className="text-3xl max-sm:text-xl font-medium text-center">{title}</p>
       <p className="text-xl max-sm:text-lg font-light">{summary}</p>
@@ -116,7 +117,7 @@ const UnitWrapper = (props: UnitWrapperInterface) => {
         type="primary-rounded"
         context="자세히 보기"
         action={() => {
-          router.push("/work/work-detail/" + pid);
+          router.push(prefix + "/work/work-detail/" + pid);
         }}
       />
     </div>

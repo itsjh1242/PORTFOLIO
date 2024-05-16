@@ -1,8 +1,6 @@
 "use client";
 import React, { RefObject } from "react";
 import Image from "next/image";
-import { prefix } from "../../ContextAPI";
-import profile_image from "@/public/profile-image.png";
 
 interface LandingInterface {
   prefix: string;
@@ -16,7 +14,7 @@ const Landing = (props: LandingInterface) => {
       {/* Background Profile Image */}
       <div className="absolute top-0 left-0 w-full h-svh overflow-hidden">
         <Image
-          src={`${prefix}/profile-image.png`}
+          src={`/profile-image.png`}
           alt="main-profile-image"
           className="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 sm:scale-90 w-full h-full object-contain"
         />

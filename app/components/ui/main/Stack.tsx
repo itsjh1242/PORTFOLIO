@@ -14,7 +14,7 @@ import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 
 interface StackSectionInterface {
   prefix: string;
-  script: { stack_desc: StackDescInterface; stack_badge: StackBadgeInterface; stack_list: string[] };
+  script: { stack_desc: StackDescInterface; stack_badge: StackBadgeInterface };
   sectionRef: RefObject<HTMLDivElement>;
 }
 
@@ -28,7 +28,7 @@ const StackSection = (props: StackSectionInterface) => {
 
   const stack_desc = script.stack_desc;
   const stack_badge = script.stack_badge;
-  const stack_list = script.stack_list;
+  const stack_list = Object.keys(stack_desc);
 
   const [stackSelectorIndex, setStackSelectorIndex] = useState(0);
 

@@ -1,6 +1,7 @@
 "use client";
 import { RefObject } from "react";
 import Image from "next/image";
+import { prefix } from "../ContextAPI";
 
 // UI Components
 
@@ -28,9 +29,9 @@ const Footer = (props: FooterInterface) => {
         </div>
         {/* Center */}
         <div className="flex gap-2 max-sm:w-1/4">
-          <ImageHolder src="/Github.png" alt="github" width={40} height={40} url="https://github.com/itsjh1242" />
-          <ImageHolder src="/Blog.png" alt="github" width={40} height={40} url="https://jundev717.tistory.com/" />
-          <ImageHolder src="/Email.png" alt="github" width={40} height={40} url="mailto:itsjh@kakao.com" />
+          <ImageHolder src={`/Github.png`} alt="github" width={40} height={40} url="https://github.com/itsjh1242" />
+          <ImageHolder src={`/Blog.png`} alt="github" width={40} height={40} url="https://jundev717.tistory.com/" />
+          <ImageHolder src={`/Email.png`} alt="github" width={40} height={40} url="mailto:itsjh@kakao.com" />
         </div>
         {/* Right */}
         <div className="flex flex-col items-end">

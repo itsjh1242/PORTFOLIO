@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    loader: "custom",
+    loaderFile: "./app/components/loader.js",
+  },
   output: "export",
   reactStrictMode: true,
   assetPrefix: process.env.NODE_ENV === "production" ? "https://itsjh1242.github.io/portfolio/" : "",

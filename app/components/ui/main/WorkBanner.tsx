@@ -13,6 +13,7 @@ import CustomButton from "../button";
 
 // Icons
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
+import { prefix } from "../../ContextAPI";
 
 interface workBannerInterface {
   prefix: string;

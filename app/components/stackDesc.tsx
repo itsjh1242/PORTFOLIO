@@ -6,7 +6,7 @@ export interface StackBadgeInterface {
 }
 
 export const STACK_DESC: StackDescInterface = {
-  React: {
+  react: {
     title: "React(리액트)",
     level: 3,
     points: {
@@ -24,7 +24,7 @@ export const STACK_DESC: StackDescInterface = {
       ],
     },
   },
-  Next: {
+  next: {
     title: "Next.js",
     level: 3,
     points: {
@@ -37,7 +37,7 @@ export const STACK_DESC: StackDescInterface = {
       ],
     },
   },
-  Node: {
+  node: {
     title: "Node.js",
     level: 3,
     points: {
@@ -50,7 +50,7 @@ export const STACK_DESC: StackDescInterface = {
       "배포 경험": ["npm을 사용하여 패키지를 관리하고, AWS와 PM2를 사용하여 서비스를 배포한 경험이 있습니다."],
     },
   },
-  JavaScript: {
+  javascript: {
     title: "JavaScript(자바스크립트)",
     level: 3,
     points: {
@@ -63,7 +63,7 @@ export const STACK_DESC: StackDescInterface = {
       "웹 애니메이션": ["JavaScript를 사용하여 웹 페이지에 동적인 애니메이션을 구현하는 것을 좋아합니다."],
     },
   },
-  HTML: {
+  html: {
     title: "HTML5",
     level: 3,
     points: {
@@ -72,7 +72,7 @@ export const STACK_DESC: StackDescInterface = {
       "검색엔진 최적화": ["문법에 맞는 HTML을 작성하고자 하며, 메타 태그 등을 활용하여 검색엔진 최적화를 수행한 경험이 있습니다."],
     },
   },
-  CSS: {
+  css: {
     title: "CSS(Cascading Style Sheets)",
     level: 3,
     points: {
@@ -92,7 +92,7 @@ export const STACK_DESC: StackDescInterface = {
       "타입스크립트 이해": ["TypeScript에 대한 이해도를 가지고 있으며, 코드의 가독성과 유지보수성 향상에 대해 신경을 써서 코딩합니다."],
     },
   },
-  Flutter: {
+  flutter: {
     title: "Flutter(플러터)",
     level: 2,
     points: {
@@ -103,7 +103,7 @@ export const STACK_DESC: StackDescInterface = {
       "위젯에 대한 이해도": ["Flutter의 다양한 위젯을 활용하여 UI/UX를 디자인하고 구현한 경험이 있습니다."],
     },
   },
-  MySQL: {
+  mysql: {
     title: "MySQL",
     level: 3,
     points: {
@@ -114,7 +114,7 @@ export const STACK_DESC: StackDescInterface = {
       "쿼리 작성 및 최적화": ["피할 수 없는 상황에서의 다중 JOIN으로 인한 복잡한 쿼리를 작성하고 실행하여 데이터 전달을 수행한 경험이 있습니다."],
     },
   },
-  Python: {
+  python: {
     title: "Python",
     level: 3,
     points: {
@@ -129,7 +129,7 @@ export const STACK_DESC: StackDescInterface = {
       ],
     },
   },
-  Android: {
+  android: {
     title: "Android(안드로이드)",
     level: 2,
     points: {
@@ -140,7 +140,7 @@ export const STACK_DESC: StackDescInterface = {
       ],
     },
   },
-  Arduino: {
+  arduino: {
     title: "Arduino(아두이노)",
     level: 2,
     points: {
@@ -148,14 +148,14 @@ export const STACK_DESC: StackDescInterface = {
       "데이터 통신": ["Wi-Fi와 블루투스를 활용하여 데이터를 전송한 경험이 있습니다."],
     },
   },
-  AWS: {
+  aws: {
     title: "AWS",
     level: 2,
     points: {
       "EC2 인스턴스 관리": ["Amazon EC2를 사용하여 웹 애플리케이션의 서버를 관리하고, EC2 인스턴스 구성, 탄력적 IP 등의 경험이 있습니다."],
     },
   },
-  Github: {
+  github: {
     title: "Github",
     level: 3,
     points: {
@@ -167,20 +167,3 @@ export const STACK_DESC: StackDescInterface = {
 };
 
 export const STACK_BADGE: StackBadgeInterface = { 1: "기본적인 이해도를 갖추고 있어요", 2: "프로젝트 경험이 있어요", 3: "능숙하게 사용할 수 있어요" };
-
-export const STACK_LIST: string[] = [
-  "React",
-  "Next",
-  "Node",
-  "JavaScript",
-  "ts",
-  "HTML",
-  "CSS",
-  "MySQL",
-  "Python",
-  "Flutter",
-  "Android",
-  "Arduino",
-  "AWS",
-  "Github",
-];

@@ -14,7 +14,7 @@ import Footer from "./components/ui/footer";
 
 // Data Import
 import { ABOUT_DESC } from "./components/AboutDesc";
-import { STACK_LIST, STACK_BADGE, STACK_DESC } from "./components/StackDesc";
+import { STACK_BADGE, STACK_DESC } from "./components/StackDesc";
 import { EXP_DESC } from "./components/WorkExperienceDesc";
 import { BANNER_DESC } from "./components/WorkBannerDesc";
 
@@ -40,7 +40,7 @@ const Home = () => {
         {/* About Section */}
         <AboutSection script={{ about_dsec: ABOUT_DESC }} sectionRef={aboutRef} prefix={prefix} />
         {/* Stack Section */}
-        <StackSection script={{ stack_desc: STACK_DESC, stack_badge: STACK_BADGE, stack_list: STACK_LIST }} sectionRef={stackRef} prefix={prefix} />
+        <StackSection script={{ stack_desc: STACK_DESC, stack_badge: STACK_BADGE }} sectionRef={stackRef} prefix={prefix} />
         {/* Work Experience Section */}
         <WorkExperienceSection script={{ exp_desc: EXP_DESC }} sectionRef={workExperienceRef} prefix={prefix} />
         {/* Work Banner */}
