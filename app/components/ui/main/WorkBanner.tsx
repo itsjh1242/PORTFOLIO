@@ -87,7 +87,7 @@ const WorkBannerSection = (props: workBannerInterface) => {
           type="secondary"
           context="프로젝트 보기"
           action={() => {
-            router.push("/work");
+            router.push("/portfolio/work");
           }}
         />
       </div>
