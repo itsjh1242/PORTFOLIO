@@ -1,22 +1,22 @@
 "use client";
 import React, { useRef } from "react";
 
-import { prefix } from "./components/ContextAPI";
+import { prefix } from "../lib/prefix";
 
 // UI Section
-import Nav from "./components/ui/nav";
+import Nav from "./components/ui/Nav";
 import Landing from "./components/ui/main/Landing";
 import AboutSection from "./components/ui/main/About";
 import StackSection from "./components/ui/main/Stack";
 import WorkExperienceSection from "./components/ui/main/WorkExperience";
 import WorkBannerSection from "./components/ui/main/WorkBanner";
-import Footer from "./components/ui/footer";
+import Footer from "./components/ui/main/Footer";
 
 // Data Import
-import { ABOUT_DESC } from "./components/AboutDesc";
-import { STACK_BADGE, STACK_DESC } from "./components/StackDesc";
-import { EXP_DESC } from "./components/WorkExperienceDesc";
-import { BANNER_DESC } from "./components/WorkBannerDesc";
+import { ABOUT_DESC } from "./db/AboutDesc";
+import { STACK_BADGE, STACK_DESC } from "./db/StackDesc";
+import { EXP_DESC } from "./db/WorkExperienceDesc";
+import { BANNER_DESC } from "./db/WorkBannerDesc";
 
 const Home = () => {
   const mainRef = useRef<HTMLDivElement>(null);

@@ -2,11 +2,11 @@
 import React, { useState, RefObject } from "react";
 
 // Interface
-import { ExpDescInterface } from "../../WorkExperienceDesc";
+import { ExpDescInterface } from "../../../db/WorkExperienceDesc";
 
 // UI Components
-import CenterText from "../centerText";
-import Badge from "../badge";
+import CenterText from "../CenterText";
+import Badge from "../Badge";
 
 // Icons
 import { VscChevronDown, VscChevronUp } from "react-icons/vsc";

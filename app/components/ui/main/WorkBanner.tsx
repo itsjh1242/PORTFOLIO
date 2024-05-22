@@ -4,16 +4,16 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 // Interface
-import { WorkBannerDescInterface } from "../../WorkBannerDesc";
+import { WorkBannerDescInterface } from "../../../db/WorkBannerDesc";
 
 // UI Components
-import CenterText from "../centerText";
-import Badge from "../badge";
-import CustomButton from "../button";
+import CenterText from "../CenterText";
+import Badge from "../Badge";
+import CustomButton from "../Button";
 
 // Icons
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
-import { prefix } from "../../ContextAPI";
+import { prefix } from "../../../../lib/prefix";
 
 interface workBannerInterface {
   prefix: string;

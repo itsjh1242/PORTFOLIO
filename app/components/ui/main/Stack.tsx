@@ -3,11 +3,11 @@ import React, { useState, RefObject } from "react";
 import Image from "next/image";
 
 // Interface
-import { StackDescInterface, StackBadgeInterface } from "../../StackDesc";
+import { StackDescInterface, StackBadgeInterface } from "../../../db/StackDesc";
 
 // UI Components
-import CenterText from "../centerText";
-import Badge from "../badge";
+import CenterText from "../CenterText";
+import Badge from "../Badge";
 
 // Icons
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";

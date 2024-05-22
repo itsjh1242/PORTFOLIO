@@ -5,7 +5,6 @@ export interface WorkAllDescInterface {
     summary: string;
     stacks: string[];
     fontColor: string;
-    focus?: boolean | null;
     detail: {
       header: {
         [key: string]: { title: string; content: string[] };
@@ -28,8 +27,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     title: "긍정적 감정 유발을 위한 AI챗봇 기반 일기작성 시스템",
     summary: "챗봇과의 대화를 통한 감정분석 및 일기작성",
     stacks: ["python", "mysql", "html"],
-    fontColor: "text-white",
-    focus: true,
+    fontColor: "text-black",
     detail: {
       header: {
         category: { title: "카테고리", content: ["개인 프로젝트 (졸업 작품)", "웹 애플리케이션 개발"] },
@@ -115,8 +113,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     title: "Touchable Hair Catalog for Blind",
     summary: "시각장애인을 위한 만질 수 있는 3D 헤어 카탈로그",
     stacks: ["reddot"],
-    fontColor: "text-white",
-    focus: true,
+    fontColor: "text-black",
     detail: {
       header: {
         category: { title: "카테고리", content: ["제품 디자인", "Design Award"] },
@@ -163,7 +160,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     summary: "연구실 입퇴실을 효율적으로 관리하기 위한 시스템",
     stacks: ["arduino", "c++", "mysql", "node"],
     fontColor: "text-black",
-    focus: true,
+
     detail: {
       header: {
         category: { title: "카테고리", content: ["팀 프로젝트", "웹 애플리케이션 개발"] },
@@ -221,7 +218,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     summary: "행동패턴 기반 암호 인증",
     stacks: ["flutter", "node", "mysql", "aws"],
     fontColor: "text-black",
-    focus: false,
+
     detail: {
       header: {
         category: { title: "카테고리", content: ["팀 프로젝트", "애플리케이션 개발"] },
@@ -293,7 +290,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     summary: "Github API를 활용한 사용자 정보 분석 서비스",
     stacks: ["react", "redux", "sass"],
     fontColor: "text-white",
-    focus: false,
+
     detail: {
       header: {
         category: { title: "카테고리", content: ["개인 프로젝트", "웹 서비스 개발"] },
@@ -387,7 +384,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     summary: "간단하게 디자인하고 개발한 스트리밍 웹 서비스",
     stacks: ["react", "css"],
     fontColor: "text-white",
-    focus: false,
+
     detail: {
       header: {
         category: { title: "카테고리", content: ["개인 프로젝트", "웹 개발"] },
@@ -430,7 +427,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     summary: "Axios활용 및 리액트 공부를 위한 미니 프로젝트",
     stacks: ["react", "node", "css"],
     fontColor: "text-black",
-    focus: false,
+
     detail: {
       header: {
         category: { title: "카테고리", content: ["개인 프로젝트", "웹 애플리케이션 개발"] },
@@ -479,7 +476,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     summary: "Socket 통신을 활용한 실시간 채팅",
     stacks: ["react", "redux", "node", "mysql", "sass"],
     fontColor: "text-black",
-    focus: false,
+
     detail: {
       header: {
         category: { title: "카테고리", content: ["개인 프로젝트", "웹 애플리케이션 개발"] },

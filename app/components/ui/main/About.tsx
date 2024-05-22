@@ -2,10 +2,10 @@
 import React, { useState, useEffect, useRef, RefObject } from "react";
 
 // Interface
-import { AboutDescInterface } from "../../AboutDesc";
+import { AboutDescInterface } from "../../../db/AboutDesc";
 
 // UI Components
-import CenterText from "../centerText";
+import CenterText from "../CenterText";
 
 interface AboutSectionProps {
   prefix: string;

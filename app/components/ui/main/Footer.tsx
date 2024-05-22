@@ -1,7 +1,7 @@
 "use client";
 import { RefObject } from "react";
 import Image from "next/image";
-import { prefix } from "../ContextAPI";
+import { prefix } from "../../../../lib/prefix";
 
 // UI Components
 

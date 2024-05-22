@@ -4,11 +4,11 @@ import { useRouter } from "next/navigation";
 import { VscChevronLeft } from "react-icons/vsc";
 
 // UI Components
-import CustomButton from "@/app/components/ui/button";
+import CustomButton from "@/app/components/ui/Button";
 
 // Data Import
-import { WorkAllDesc } from "@/app/components/WorkAllDesc";
-import { prefix } from "../../ContextAPI";
+import { WorkAllDesc } from "@/app/db/WorkAllDesc";
+import { prefix } from "../../../../lib/prefix";
 
 export interface UnitWrapperInterface {
   pid: string;
@@ -23,7 +23,7 @@ export const WorkAllPage = () => {
   return (
     <div className="flex flex-col justify-center items-center w-full h-full pt-6 max-sm:p-3">
       {/* Container */}
-      <div className="flex w-2/3 max-sm:w-full">
+      <div className="flex w-full max-w-6xl">
         {/* Page Header */}
         <div className="flex justify-between items-end w-full mb-3">
           {/* Left Side */}
@@ -43,53 +43,14 @@ export const WorkAllPage = () => {
           <p className="max-sm:text-xs">이 곳에서 모든 프로젝트를 보실 수 있습니다.</p>
         </div>
       </div>
-      {/* Components, Reference: Apple UI/UX Design Guide */}
-      {/* 대표 프로젝트 */}
-      {Object.keys(WorkAllDesc).map((work_key, index) => {
-        const item = WorkAllDesc[work_key];
-        if (item.focus) {
-          return <UnitWrapperFocus key={index} pid={item.pid} title={item.title} summary={item.summary} stacks={item.stacks} fontColor={item.fontColor} />;
-        }
-      })}
-      {/* 나머지 프로젝트 */}
-      <div className="flex flex-row flex-wrap justify-around items-center max-sm:flex-col gap-3 w-full max-sm:w-screen h-full p-3 max-sm:p-0">
+
+      {/* Projects Grid */}
+      <div className="grid grid-cols-4 gap-6 max-sm:grid-cols-1 p-6 w-full max-w-6xl">
         {Object.keys(WorkAllDesc).map((work_key, index) => {
           const item = WorkAllDesc[work_key];
-          if (!item.focus) {
-            return <UnitWrapper key={index} title={item.title} pid={item.pid} summary={item.summary} stacks={item.stacks} fontColor={item.fontColor} />;
-          }
+          return <UnitWrapper key={index} title={item.title} pid={item.pid} summary={item.summary} stacks={item.stacks} fontColor={item.fontColor} />;
         })}
       </div>
-    </div>
-  );
-};
-
-const UnitWrapperFocus = (props: UnitWrapperInterface) => {
-  const { pid, title, summary, stacks, fontColor } = props;
-  const router = useRouter();
-  return (
-    <div
-      className={`flex flex-col justify-start items-center gap-6 w-screen h-apple max-sm:h-sm-apple pt-12 mb-3 bg-no-repeat ${fontColor}`}
-      style={{ backgroundImage: `url(${prefix}/workall_preview/${pid}.png)` }}
-    >
-      <p className="text-4xl max-sm:text-2xl font-bold text-center">{title}</p>
-      <p className="text-2xl max-sm:text-lg font-light">{summary}</p>
-      <div className="flex justify-center items-center gap-3">
-        {stacks.map((stack_item, index) => {
-          return (
-            <div key={index}>
-              <Image src={`/stack/${stack_item}.svg`} alt={stack_item} width={40} height={40} />
-            </div>
-          );
-        })}
-      </div>
-      <CustomButton
-        type="primary-rounded"
-        context="자세히 보기"
-        action={() => {
-          router.push("/portfolio/work/work-detail/" + pid);
-        }}
-      />
     </div>
   );
 };
@@ -99,27 +60,24 @@ const UnitWrapper = (props: UnitWrapperInterface) => {
   const router = useRouter();
   return (
     <div
-      className={`flex flex-col justify-start items-center gap-3 w-49% max-sm:w-full h-apple-grid max-sm:h-sm-apple pt-12 transition bg-cover bg-no-repeat max-sm:bg-center ${fontColor}`}
-      style={{ backgroundImage: `url(${prefix}/workall/${pid}/${pid}_unit.png)` }}
+      className="flex flex-col cursor-pointer"
+      onClick={() => {
+        router.push(prefix + "/work/work-detail/" + pid);
+      }}
     >
-      <p className="text-3xl max-sm:text-xl font-medium text-center">{title}</p>
-      <p className="text-xl max-sm:text-lg font-light">{summary}</p>
-      <div className="flex justify-center items-center gap-3">
-        {stacks.map((stack_item, index) => {
-          return (
-            <div key={index}>
-              <Image src={`/stack/${stack_item}.svg`} alt={stack_item} width={40} height={40} />
-            </div>
-          );
-        })}
+      <div
+        className={` shadow-lg transition-transform transform hover:scale-105 ${fontColor}`}
+        style={{ width: "259px", height: "259px", backgroundImage: `url(${prefix}/workall/${pid}/${pid}_unit.png)` }}
+      >
+        <Image src={`${prefix}/workall/${pid}/${pid}_unit.png`} alt={title} width={259} height={259} className="rounded-lg" />
       </div>
-      <CustomButton
-        type="primary-rounded"
-        context="자세히 보기"
-        action={() => {
-          router.push(prefix + "/work/work-detail/" + pid);
-        }}
-      />
+      <div className="flex justify-start items-center gap-2 mt-1">
+        {stacks.map((stack_item, index) => (
+          <Image key={index} src={`/stack/${stack_item}.svg`} alt={stack_item} width={20} height={20} />
+        ))}
+      </div>
+      <p className="text-base font-medium  mt-2 max-sm:text-sm truncate">{title}</p>
+      <p className="text-sm font-light text-gray-600 max-sm:text-xs truncate">{summary}</p>
     </div>
   );
 };
