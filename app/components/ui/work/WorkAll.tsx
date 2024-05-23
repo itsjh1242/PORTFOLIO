@@ -64,7 +64,7 @@ const UnitWrapper = (props: UnitWrapperInterface) => {
     >
       <div className={` shadow-lg transition-transform transform hover:scale-105 ${fontColor}`}>
         {/* style={{ width: "259px", height: "259px", backgroundImage: `url(/workall/unit/${pid}_unit.svg)` }} */}
-        <Image src={`workall/${pid}/${pid}_unit.svg`} alt={title} width={259} height={259} />
+        <Image src={`workall/unit/${pid}_unit.svg`} alt={title} width={259} height={259} />
       </div>
       <div className="flex justify-start items-center gap-2 mt-1">
         {stacks.map((stack_item, index) => (
