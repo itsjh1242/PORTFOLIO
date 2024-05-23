@@ -49,9 +49,10 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
   return (
     <Wrapper.Center className="flex-col w-full p-6 max-sm:p-3 text-gray-800">
       {/* 대표 이미지 */}
-      <Wrapper.MaxWidth className="rounded-3xl overflow-hidden mb-8 shadow-lg">
-        <Image src={`workall/${data.pid}/${data.pid}.png`} alt="" width={920} height={580} className="object-cover" />
-      </Wrapper.MaxWidth>
+
+      <div className="rounded-3xl overflow-hidden mb-8 shadow-lg " style={{ width: "930px", height: "580px" }}>
+        <Image src={`workall/${data.pid}/${data.pid}.png`} alt="" width={0} height={0} className="w-full h-full hover:scale-110 transition" />
+      </div>
 
       {/* 프로젝트 제목 */}
       <Wrapper.MaxWidth>
@@ -146,13 +147,32 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
           <Wrapper.TitleText className="text-3xl font-bold mb-4">트러블 슈팅</Wrapper.TitleText>
           <HorizontalDivider />
           {Object.keys(data.detail.trouble).map((trouble_key, index) => (
-            <div key={index} className="mb-4">
-              <p className="text-xl font-medium mb-2">{trouble_key}</p>
-              {data.detail.trouble[trouble_key].map((trouble_item, index) => (
-                <p key={index} className="pl-4">
-                  · {trouble_item}
-                </p>
-              ))}
+            <div key={index} className="flex flex-col gap-4 mb-4">
+              <p className="text-xl font-medium">{trouble_key}</p>
+              <div className="flex flex-col">
+                <p className="text-lg">문제점</p>
+                {data.detail.trouble[trouble_key].problem.map((trouble_item, index) => (
+                  <p key={index} className="pl-4">
+                    · {trouble_item}
+                  </p>
+                ))}
+              </div>
+              <div className="flex flex-col">
+                <p className="text-lg">{data.detail.trouble[trouble_key]?.solve !== null && "해결 방안"}</p>
+                {data.detail.trouble[trouble_key]?.solve?.map((trouble_item, index) => (
+                  <p key={index} className="pl-4">
+                    · {trouble_item}
+                  </p>
+                ))}
+              </div>
+              <div className="flex flex-col">
+                <p className="text-lg">{data.detail.trouble[trouble_key]?.result !== null && "결과"}</p>
+                {data.detail.trouble[trouble_key]?.result?.map((trouble_item, index) => (
+                  <p key={index} className="pl-4">
+                    · {trouble_item}
+                  </p>
+                ))}
+              </div>
             </div>
           ))}
         </Wrapper.MaxWidth>

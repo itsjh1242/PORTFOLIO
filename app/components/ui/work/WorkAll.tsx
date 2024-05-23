@@ -21,7 +21,7 @@ export const WorkAllPage = () => {
       {/* Container */}
       <div className="flex w-full max-w-6xl">
         {/* Page Header */}
-        <div className="flex justify-between items-end w-full mb-3">
+        <div className="flex justify-between items-end w-full mb-3 sm:px-6">
           {/* Left Side */}
           <div className="flex flex-col">
             <div
@@ -36,7 +36,7 @@ export const WorkAllPage = () => {
             <p className="text-3xl font-medium max-sm:text-xl">모든 프로젝트</p>
           </div>
           {/* Right Side */}
-          <p className="max-sm:text-xs">이 곳에서 모든 프로젝트를 보실 수 있습니다.</p>
+          <p className="text-sm max-sm:text-xs text-gray-600">이 곳에서 모든 프로젝트를 보실 수 있습니다.</p>
         </div>
       </div>
 
@@ -56,15 +56,15 @@ const UnitWrapper = (props: UnitWrapperInterface) => {
   const router = useRouter();
   return (
     <div
-      className="flex flex-col cursor-pointer truncate"
+      className="flex flex-col cursor-pointer truncate "
       style={{ width: "259px" }}
       onClick={() => {
         router.push(prefix + "/work/work-detail/" + pid);
       }}
     >
-      <div className={`rounded-md overflow-hidden shadow-lg transition-transform transform`} style={{ width: "259px", height: "259px" }}>
+      <div className={`overflow-hidden shadow-lg transition-transform transform rounded-xl`} style={{ width: "259px", height: "259px" }}>
         {/* style={{ width: "259px", height: "259px", backgroundImage: `url(/workall/unit/${pid}_unit.svg)` }} */}
-        <Image src={`workall/unit/${pid}_unit.svg`} alt={title} width={259} height={259} />
+        <Image src={`workall/unit/${pid}_unit.svg`} alt={title} width={0} height={0} className="w-full h-full hover:scale-110 transition" />
       </div>
       <div className="flex justify-start items-center gap-2 mt-1">
         {stacks.map((stack_item, index) => (
