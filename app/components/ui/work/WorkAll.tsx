@@ -62,7 +62,7 @@ const UnitWrapper = (props: UnitWrapperInterface) => {
         router.push(prefix + "/work/work-detail/" + pid);
       }}
     >
-      <div className={` shadow-lg transition-transform transform hover:scale-105 ${fontColor}`}>
+      <div className={`rounded-md overflow-hidden shadow-lg transition-transform transform ${fontColor}`}>
         {/* style={{ width: "259px", height: "259px", backgroundImage: `url(/workall/unit/${pid}_unit.svg)` }} */}
         <Image src={`workall/unit/${pid}_unit.svg`} alt={title} width={259} height={259} />
       </div>
