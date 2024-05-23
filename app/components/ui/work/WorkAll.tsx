@@ -12,7 +12,6 @@ export interface UnitWrapperInterface {
   title: string;
   summary: string;
   stacks: string[];
-  fontColor: string;
 }
 
 export const WorkAllPage = () => {
@@ -45,7 +44,7 @@ export const WorkAllPage = () => {
       <div className="grid grid-cols-4 gap-6 max-sm:grid-cols-1 p-6 w-full max-w-6xl place-items-center">
         {Object.keys(WorkAllDesc).map((work_key, index) => {
           const item = WorkAllDesc[work_key];
-          return <UnitWrapper key={index} title={item.title} pid={item.pid} summary={item.summary} stacks={item.stacks} fontColor={item.fontColor} />;
+          return <UnitWrapper key={index} title={item.title} pid={item.pid} summary={item.summary} stacks={item.stacks} />;
         })}
       </div>
     </div>
@@ -53,7 +52,7 @@ export const WorkAllPage = () => {
 };
 
 const UnitWrapper = (props: UnitWrapperInterface) => {
-  const { pid, title, summary, stacks, fontColor } = props;
+  const { pid, title, summary, stacks } = props;
   const router = useRouter();
   return (
     <div
@@ -63,7 +62,7 @@ const UnitWrapper = (props: UnitWrapperInterface) => {
         router.push(prefix + "/work/work-detail/" + pid);
       }}
     >
-      <div className={`rounded-md overflow-hidden shadow-lg transition-transform transform ${fontColor}`} style={{ width: "259px", height: "259px" }}>
+      <div className={`rounded-md overflow-hidden shadow-lg transition-transform transform`} style={{ width: "259px", height: "259px" }}>
         {/* style={{ width: "259px", height: "259px", backgroundImage: `url(/workall/unit/${pid}_unit.svg)` }} */}
         <Image src={`workall/unit/${pid}_unit.svg`} alt={title} width={259} height={259} />
       </div>

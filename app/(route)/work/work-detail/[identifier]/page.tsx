@@ -10,6 +10,7 @@ export function generateStaticParams() {
     { identifier: "reddot_hair_catalog" },
     { identifier: "streaming" },
     { identifier: "weather_search" },
+    { identifier: "quiz_me" },
   ];
 }
 

@@ -4,7 +4,7 @@ export interface WorkAllDescInterface {
     title: string;
     summary: string;
     stacks: string[];
-    fontColor: string;
+
     detail: {
       header: {
         [key: string]: { title: string; content: string[] };
@@ -21,13 +21,52 @@ export interface WorkAllDescInterface {
   };
 }
 
+// title: {
+//   pid: "",
+//   title: "",
+//   summary: "",
+//   stacks: [""],
+//   fontColor: "",
+//   detail: {
+//     header: {
+//       category: { title: "카테고리", content: ["개인 프로젝트 (졸업 작품)"] },
+//       period: { title: "기간", content: ["2000년 0 ~ 0월"] },
+//       hc: { title: "인원", content: ["1명"] },
+//       role: { title: "역할", content: [""] },
+//       fe: { title: "프론트엔드", content: [""] },
+//       be: { title: "백엔드", content: [""] },
+//       db: { title: "데이터베이스", content: [""] },
+//       scm: { title: "형상관리", content: [""] },
+//       deploy: { title: "배포", content: ["-"] },
+//       refer: { title: "관련 활동", content: [""] },
+//     },
+//     long_summary: [
+//       "",
+//     ],
+//     func: {
+//       base: { ui: true, name: "메인 화면", desc: "랜딩 화면입니다.", func: [""] },
+//     },
+//     trouble: {
+//       "": [
+//         "",
+
+//       ],
+//     },
+//     review: [
+//       "",
+//     ],
+//     github: "",
+//     demo: "",
+//   },
+// },
+
 export const WorkAllDesc: WorkAllDescInterface = {
   ai_chatbot: {
     pid: "ai_chatbot",
     title: "긍정적 감정 유발을 위한 AI챗봇 기반 일기작성 시스템",
     summary: "챗봇과의 대화를 통한 감정분석 및 일기작성",
     stacks: ["python", "mysql", "html"],
-    fontColor: "text-black",
+
     detail: {
       header: {
         category: { title: "카테고리", content: ["개인 프로젝트 (졸업 작품)", "웹 애플리케이션 개발"] },
@@ -108,12 +147,43 @@ export const WorkAllDesc: WorkAllDescInterface = {
       demo: "",
     },
   },
+  quiz_me: {
+    pid: "quiz_me",
+    title: "퀴즈 미",
+    summary: "퀴즈를 만들어 친구들에게 공유하는 서비스",
+    stacks: ["react", "tw", "next", "firebase"],
+
+    detail: {
+      header: {
+        category: { title: "카테고리", content: ["개인 프로젝트", "웹 애플리케이션 서비스"] },
+        period: { title: "기간", content: ["2024년 5월"] },
+        hc: { title: "인원", content: ["1명"] },
+        role: { title: "역할", content: ["UI 디자인, DB설계, FE개발"] },
+        fe: { title: "프론트엔드", content: ["React", "Tailwind CSS", "Next.js"] },
+        be: { title: "백엔드", content: ["-"] },
+        db: { title: "데이터베이스", content: ["Firebase"] },
+        scm: { title: "형상관리", content: ["Github"] },
+        deploy: { title: "배포", content: ["gh-pages(Github)"] },
+        refer: { title: "관련 활동", content: ["-"] },
+      },
+      long_summary: [""],
+      func: {
+        base: { ui: true, name: "메인 화면", desc: "랜딩 화면입니다.", func: [""] },
+      },
+      trouble: {
+        "": [""],
+      },
+      review: [""],
+      github: "https://github.com/itsjh1242/quiz-me",
+      demo: "https://itsjh1242.github.io/quiz-me/",
+    },
+  },
   reddot_hair_catalog: {
     pid: "reddot_hair_catalog",
     title: "Touchable Hair Catalog for Blind",
     summary: "시각장애인을 위한 만질 수 있는 3D 헤어 카탈로그",
     stacks: ["reddot"],
-    fontColor: "text-black",
+
     detail: {
       header: {
         category: { title: "카테고리", content: ["제품 디자인", "Design Award"] },
@@ -159,7 +229,6 @@ export const WorkAllDesc: WorkAllDescInterface = {
     title: "지문인식 센서를 활용한 연구실 근태 관리 시스템",
     summary: "연구실 입퇴실을 효율적으로 관리하기 위한 시스템",
     stacks: ["arduino", "c++", "mysql", "node"],
-    fontColor: "text-black",
 
     detail: {
       header: {
@@ -217,7 +286,6 @@ export const WorkAllDesc: WorkAllDescInterface = {
     title: "모션인식 기반의 이중 암호 인증방안",
     summary: "행동패턴 기반 암호 인증",
     stacks: ["flutter", "node", "mysql", "aws"],
-    fontColor: "text-black",
 
     detail: {
       header: {
@@ -289,7 +357,6 @@ export const WorkAllDesc: WorkAllDescInterface = {
     title: "Github Battle",
     summary: "Github API를 활용한 사용자 정보 분석 서비스",
     stacks: ["react", "redux", "sass"],
-    fontColor: "text-white",
 
     detail: {
       header: {
@@ -383,7 +450,6 @@ export const WorkAllDesc: WorkAllDescInterface = {
     title: "스트리밍 서비스 웹 디자인",
     summary: "간단하게 디자인하고 개발한 스트리밍 웹 서비스",
     stacks: ["react", "css"],
-    fontColor: "text-white",
 
     detail: {
       header: {
@@ -426,7 +492,6 @@ export const WorkAllDesc: WorkAllDescInterface = {
     title: "한국어 지원 날씨 검색 서비스",
     summary: "Axios활용 및 리액트 공부를 위한 미니 프로젝트",
     stacks: ["react", "node", "css"],
-    fontColor: "text-black",
 
     detail: {
       header: {
@@ -475,7 +540,6 @@ export const WorkAllDesc: WorkAllDescInterface = {
     title: "채팅 웹 애플리케이션",
     summary: "Socket 통신을 활용한 실시간 채팅",
     stacks: ["react", "redux", "node", "mysql", "sass"],
-    fontColor: "text-black",
 
     detail: {
       header: {
