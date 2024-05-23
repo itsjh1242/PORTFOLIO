@@ -50,7 +50,7 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
     <Wrapper.Center className="flex-col w-full p-6 max-sm:p-3 text-gray-800">
       {/* 대표 이미지 */}
       <Wrapper.MaxWidth className="rounded-3xl overflow-hidden mb-8 shadow-lg">
-        <Image src={`/workall/${data.pid}/${data.pid}.png`} alt="" width={920} height={580} className="object-cover" />
+        <Image src={`workall/${data.pid}/${data.pid}.png`} alt="" width={920} height={580} className="object-cover" />
       </Wrapper.MaxWidth>
 
       {/* 프로젝트 제목 */}

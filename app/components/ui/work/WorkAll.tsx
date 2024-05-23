@@ -3,9 +3,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { VscChevronLeft } from "react-icons/vsc";
 
-// UI Components
-import CustomButton from "@/app/components/ui/Button";
-
 // Data Import
 import { WorkAllDesc } from "@/app/db/WorkAllDesc";
 import { prefix } from "../../../../lib/prefix";
@@ -65,15 +62,13 @@ const UnitWrapper = (props: UnitWrapperInterface) => {
         router.push(prefix + "/work/work-detail/" + pid);
       }}
     >
-      <div
-        className={` shadow-lg transition-transform transform hover:scale-105 ${fontColor}`}
-        style={{ width: "259px", height: "259px", backgroundImage: `url(${prefix}/workall/${pid}/${pid}_unit.png)` }}
-      >
-        <Image src={`${prefix}/workall/${pid}/${pid}_unit.png`} alt={title} width={259} height={259} className="rounded-lg" />
+      <div className={` shadow-lg transition-transform transform hover:scale-105 ${fontColor}`}>
+        {/* style={{ width: "259px", height: "259px", backgroundImage: `url(/workall/unit/${pid}_unit.svg)` }} */}
+        <Image src={`workall/${pid}/${pid}_unit.svg`} alt={title} width={259} height={259} />
       </div>
       <div className="flex justify-start items-center gap-2 mt-1">
         {stacks.map((stack_item, index) => (
-          <Image key={index} src={`/stack/${stack_item}.svg`} alt={stack_item} width={20} height={20} />
+          <Image key={index} src={`stack/${stack_item}.svg`} alt={stack_item} width={20} height={20} />
         ))}
       </div>
       <p className="text-base font-medium  mt-2 max-sm:text-sm truncate">{title}</p>
