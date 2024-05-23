@@ -42,7 +42,7 @@ export const WorkAllPage = () => {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-4 gap-6 max-sm:grid-cols-1 p-6 w-full max-w-6xl">
+      <div className="grid grid-cols-4 gap-6 max-sm:grid-cols-1 p-6 w-full max-w-6xl place-items-center">
         {Object.keys(WorkAllDesc).map((work_key, index) => {
           const item = WorkAllDesc[work_key];
           return <UnitWrapper key={index} title={item.title} pid={item.pid} summary={item.summary} stacks={item.stacks} fontColor={item.fontColor} />;
@@ -57,7 +57,8 @@ const UnitWrapper = (props: UnitWrapperInterface) => {
   const router = useRouter();
   return (
     <div
-      className="flex flex-col cursor-pointer"
+      className="flex flex-col cursor-pointer truncate"
+      style={{ width: "259px" }}
       onClick={() => {
         router.push(prefix + "/work/work-detail/" + pid);
       }}
