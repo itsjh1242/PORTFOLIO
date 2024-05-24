@@ -78,7 +78,16 @@ export const WorkAllDesc: WorkAllDescInterface = {
         db: { title: "데이터베이스", content: ["MySQL"] },
         scm: { title: "형상관리", content: ["Github"] },
         deploy: { title: "배포", content: ["-"] },
-        refer: { title: "관련 활동", content: ["2024 한국전자통신학회 논문 게재", "2023 한국 컴퓨터정보학회 우수논문상", "특허 출원(10-2023-0178771)"] },
+        refer: {
+          title: "관련 활동",
+          content: [
+            "2024 한국전자통신학회 논문 게재",
+            "2023 한국 컴퓨터정보학회 우수논문상",
+            "특허 출원(10-2023-0178771)",
+            "부산디지털혁신아카데미(BDIA 2023) 장려상",
+            "동서대학교 쇼미더동서AI 경진대회 입상",
+          ],
+        },
       },
       long_summary: [
         "본 프로젝트는 자연어 처리 분야에서 주목받고 있는 감정 분석 모델인 KoBERT와 GPT-3 Turbo 모델을 활용하여 사용자가 입력한 텍스트에서 감정을 추출하고, 이를 기반으로 긍정적 감정을 유발하는 인공지능 챗봇 기반 일기작성 시스템입니다.",
