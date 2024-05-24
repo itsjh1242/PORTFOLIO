@@ -591,7 +591,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
   },
   weather_search: {
     pid: "weather_search",
-    title: "한국어 지원 날씨 검색 서비스",
+    title: "Naver Papago API를 활용한 날씨 검색 서비스",
     summary: "Axios활용 및 리액트 공부를 위한 미니 프로젝트",
     stacks: ["react", "node", "css"],
 

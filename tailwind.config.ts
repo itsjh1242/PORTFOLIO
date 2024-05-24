@@ -15,11 +15,11 @@ const config = {
     extend: {
       width: {
         "49%": "49%",
+        "930": "930px",
+        "390": "390px",
       },
       height: {
-        "sm-apple": "500px",
-        apple: "692px",
-        "apple-grid": "580px",
+        "580": "580px",
       },
       maxWidth: {
         "420": "420px",

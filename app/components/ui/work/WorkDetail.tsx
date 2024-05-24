@@ -50,8 +50,8 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
     <Wrapper.Center className="flex-col w-full p-6 max-sm:p-3 text-gray-800">
       {/* 대표 이미지 */}
 
-      <div className="rounded-3xl overflow-hidden mb-8 shadow-lg " style={{ width: "930px", height: "580px" }}>
-        <Image src={`workall/${data.pid}/${data.pid}.png`} alt="" width={0} height={0} className="w-full h-full hover:scale-110 transition" />
+      <div className="w-930 h-580 max-sm:w-390 flex justify-center items-center rounded-3xl overflow-hidden mb-8">
+        <Image src={`workall/detail_main/${data.pid}_detail_main.png`} alt="" width={0} height={0} className="w-full h-full hover:scale-110 transition" />
       </div>
 
       {/* 프로젝트 제목 */}
