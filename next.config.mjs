@@ -2,7 +2,7 @@
 const nextConfig = {
   images: {
     loader: "custom",
-    loaderFile: "./lib/loader.js",
+    loaderFile: "./lib/loader.ts",
   },
   output: "export",
   reactStrictMode: true,

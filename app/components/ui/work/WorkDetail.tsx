@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { useIsMobile } from "@/lib/isMobile";
 
 // UI Components
 import * as Wrapper from "../Wrapper";
@@ -21,6 +22,8 @@ export interface WorkDetailInterface {
 export const WorkDetailPage = (props: WorkDetailInterface) => {
   const { params } = props;
   const data = WorkAllDesc[params.identifier];
+
+  const isMobile = useIsMobile();
 
   const [uicurrentUIIndex, setUIUIIndex] = useState(0);
   const func = data.detail.func;
@@ -51,7 +54,11 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
       {/* 대표 이미지 */}
 
       <div className="w-930 h-580 max-sm:w-390 max-sm:h-64 sm:rounded-3xl overflow-hidden mb-8">
-        <Image src={`workall/detail_main/${data.pid}_detail_main.svg`} alt={data.pid} width={930} height={580} />
+        {isMobile ? (
+          <Image src={`workall/detail_main/${data.pid}_detail_main_mobile.svg`} alt={data.pid} width={390} height={580} />
+        ) : (
+          <Image src={`workall/detail_main/${data.pid}_detail_main.svg`} alt={data.pid} width={930} height={580} />
+        )}
       </div>
 
       {/* 프로젝트 제목 */}
