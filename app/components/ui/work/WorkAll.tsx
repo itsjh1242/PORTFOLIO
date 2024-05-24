@@ -63,7 +63,6 @@ const UnitWrapper = (props: UnitWrapperInterface) => {
       }}
     >
       <div className={`overflow-hidden shadow-lg transition-transform transform rounded-xl`} style={{ width: "259px", height: "259px" }}>
-        {/* style={{ width: "259px", height: "259px", backgroundImage: `url(/workall/unit/${pid}_unit.svg)` }} */}
         <Image src={`workall/unit/${pid}_unit.svg`} alt={title} width={0} height={0} className="w-full h-full hover:scale-110 transition" />
       </div>
       <div className="flex justify-start items-center gap-2 mt-1">

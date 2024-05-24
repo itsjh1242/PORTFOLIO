@@ -16,6 +16,7 @@ const Landing = (props: LandingInterface) => {
         <Image
           src={`/profile-image.png`}
           alt="main-profile-image"
+          fill
           className="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 sm:scale-90 w-full h-full object-contain"
         />
         <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-64 max-sm:-translate-y-80 text-9xl max-sm:text-3xl font-medium -z-10">
