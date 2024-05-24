@@ -180,7 +180,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "React Router를 활용하여 동적 라우팅을 구현하고, Firebase를 통해 데이터를 관리하며, Tailwind CSS로 스타일링을 적용하여 심플하고 직관적인 UI를 개발했습니다.",
       ],
       func: {
-        base: { ui: true, name: "메인 화면", desc: "랜딩 화면입니다.", func: [""] },
+        base: { ui: true, name: "메인 화면", desc: "랜딩 화면입니다.", func: null },
         login: { ui: true, name: "로그인 화면", desc: "사용자 로그인 화면입니다.", func: ["Firebase Auth를 활용한 로그인 기능"] },
         not_user: {
           ui: true,
