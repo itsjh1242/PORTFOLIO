@@ -53,7 +53,7 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
     <Wrapper.Center className="flex-col w-full p-6 max-sm:p-3 text-gray-800">
       {/* 대표 이미지 */}
 
-      <div className="w-930 h-580 max-sm:w-390 max-sm:h-64 sm:rounded-3xl overflow-hidden mb-8">
+      <div className="w-930 h-580 max-sm:w-390 sm:rounded-3xl overflow-hidden mb-8">
         {isMobile ? (
           <Image src={`workall/detail_main/${data.pid}_detail_main_mobile.svg`} alt={data.pid} width={390} height={580} />
         ) : (
