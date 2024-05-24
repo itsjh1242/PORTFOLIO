@@ -112,14 +112,16 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
               <th className="pr-2 pb-2 font-medium">설명</th>
               <td className="pb-2">{func[func_index[uicurrentUIIndex]].desc}</td>
             </tr>
-            <tr className="align-top">
-              <th className="pr-2 pb-2 font-medium">기능</th>
-              <td className="pb-2">
-                {func[func_index[uicurrentUIIndex]].func.map((func_item, index) => (
-                  <p key={index}>{func_item === "" ? "-" : "· " + func_item}</p>
-                ))}
-              </td>
-            </tr>
+            {func[func_index[uicurrentUIIndex]].func ? (
+              <tr className="align-top">
+                <th className="pr-2 pb-2 font-medium">기능</th>
+                <td className="pb-2">
+                  {func[func_index[uicurrentUIIndex]]?.func?.map((func_item, index) => (
+                    <p key={index}>{"· " + func_item}</p>
+                  ))}
+                </td>
+              </tr>
+            ) : null}
           </tbody>
         </table>
       </Wrapper.MaxWidth>
@@ -161,9 +163,9 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
           <HorizontalDivider />
           {Object.keys(data.detail.trouble).map((trouble_key, index) => (
             <div key={index} className="flex flex-col gap-4 mb-4">
-              <p className="text-xl font-medium">{trouble_key}</p>
+              <p className="text-xl font-bold">{trouble_key}</p>
               <div className="flex flex-col">
-                <p className="text-lg">문제점</p>
+                <p className="text-lg font-medium">문제점</p>
                 {data.detail.trouble[trouble_key].problem.map((trouble_item, index) => (
                   <p key={index} className="pl-4">
                     · {trouble_item}
@@ -171,7 +173,7 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
                 ))}
               </div>
               <div className="flex flex-col">
-                <p className="text-lg">{data.detail.trouble[trouble_key]?.solve !== null && "해결 방안"}</p>
+                <p className="text-lg font-medium">{data.detail.trouble[trouble_key]?.solve !== null && "해결 방안"}</p>
                 {data.detail.trouble[trouble_key]?.solve?.map((trouble_item, index) => (
                   <p key={index} className="pl-4">
                     · {trouble_item}
@@ -179,7 +181,7 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
                 ))}
               </div>
               <div className="flex flex-col">
-                <p className="text-lg">{data.detail.trouble[trouble_key]?.result !== null && "결과"}</p>
+                <p className="text-lg font-medium">{data.detail.trouble[trouble_key]?.result !== null && "결과"}</p>
                 {data.detail.trouble[trouble_key]?.result?.map((trouble_item, index) => (
                   <p key={index} className="pl-4">
                     · {trouble_item}

@@ -11,7 +11,7 @@ export interface WorkAllDescInterface {
       };
       long_summary: string[];
       func: {
-        [key: string]: { ui: boolean; name: string; desc: string; func: string[] };
+        [key: string]: { ui: boolean; name: string; desc: string; func: string[] | null };
       };
       trouble: { [key: string]: { problem: string[]; solve: string[] | null; result: string[] | null } };
       review: string[];
@@ -106,19 +106,19 @@ export const WorkAllDesc: WorkAllDescInterface = {
           ui: true,
           name: "일기 상세 화면(감정 분포도)",
           desc: "생성한 일기의 감정 분포도를 보여주는 화면입니다.",
-          func: [""],
+          func: null,
         },
         "diary-detail-foryou": {
           ui: true,
           name: "일기 상세 화면(당신에게 해주고 싶은 말)",
           desc: "생성한 일기를 기반으로 사용자에게 전하는 따뜻한 말을 보여주는 화면입니다.",
-          func: [""],
+          func: null,
         },
         "diary-detail-quote": {
           ui: true,
           name: "일기 상세 화면(누군가 나에게 해주는 말)",
           desc: "생성한 일기를 기반으로 사용자에게 전하는 유명한 명언을 보여주는 화면입니다.",
-          func: [""],
+          func: null,
         },
       },
       trouble: {
@@ -186,19 +186,19 @@ export const WorkAllDesc: WorkAllDescInterface = {
           ui: true,
           name: "로그인 유효성 검사 화면",
           desc: "로그인 된 사용자가 아닐 때 표시되는 화면",
-          func: ["현재 유효성 검사 기능"],
+          func: ["로그인 유효성 검사 기능"],
         },
         create: {
           ui: true,
           name: "퀴즈 만들기 화면",
           desc: "로그인 된 사용자가 퀴즈를 만드는 화면입니다.",
-          func: [],
+          func: null,
         },
         edit: {
           ui: true,
           name: "퀴즈 만들기 수정 화면",
           desc: "로그인 된 사용자가 퀴즈를 만들 때, 내용을 수정하는 화면입니다.",
-          func: [],
+          func: null,
         },
         share: {
           ui: true,
@@ -355,7 +355,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
           ui: true,
           name: "메인 화면",
           desc: "사용자의 출석 현황과 공지사항 확인 및 유고결석을 신청할 수 있는 랜딩 화면입니다.",
-          func: [""],
+          func: null,
         },
         admin: {
           ui: true,
@@ -441,13 +441,13 @@ export const WorkAllDesc: WorkAllDescInterface = {
           ui: true,
           name: "모션암호 등록 성공 화면",
           desc: "자이로센서에서 반환된 값이 지정된 범위 내에 위치할 때 성공 메시지를 보내는 화면입니다.",
-          func: [""],
+          func: null,
         },
         testing: {
           ui: true,
           name: "이중 암호 테스트 메인 화면",
           desc: "저장된 이중 암호를 테스트하기 위해서 Toss사의 송금 화면을 참고하여 개발된 화면입니다.",
-          func: [""],
+          func: null,
         },
       },
       trouble: {
@@ -615,7 +615,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "실제 음악 스트리밍 서비스를 하는 웹/앱은 사용자 편의성을 고려하여 개발되었지만, 여기서는 디자인만을 위한 웹개발을 했습니다.",
       ],
       func: {
-        base: { ui: true, name: "메인 화면", desc: "프로젝트 랜딩 화면입니다.", func: [""] },
+        base: { ui: true, name: "메인 화면", desc: "프로젝트 랜딩 화면입니다.", func: null },
       },
       trouble: {
         "Chrome 브라우저 Audio 자동재생 차단": {
@@ -673,7 +673,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
           ui: true,
           name: "검색 이후 모달 화면",
           desc: "검색한 지역의 날씨 정보를 보여주는 모달 화면입니다.",
-          func: [""],
+          func: null,
         },
       },
       trouble: {
