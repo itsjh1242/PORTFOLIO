@@ -39,8 +39,8 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
     }
   };
 
-  const handleOnClickMove = (url: string) => {
-    if (url === "") {
+  const handleOnClickMove = (url: string | null) => {
+    if (url === null) {
       return alert("준비되지 않았거나 실행할 수 없습니다.");
     }
     window.open(url, "_blank");
@@ -49,8 +49,8 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
   return (
     <>
       {/* 대표 이미지 */}
-      <div className="w-screen h-580 max-sm:w-390 sm:rounded-3xl overflow-hidden mb-8">
-        <Image src={`workall/detail_main/${data.pid}_detail_main.svg`} alt={data.pid} width={0} height={0} className="w-full h-full" />
+      <div className="flex justify-center items-center w-screen h-580 overflow-hidden mb-8">
+        <Image src={`workall/detail_main/${data.pid}_detail_main.svg`} alt={data.pid} width={0} height={0} className="w-full h-full object-cover" />
       </div>
       <Wrapper.Center className="flex-col w-full p-6 max-sm:p-3 text-gray-800">
         {/* 프로젝트 제목 */}
@@ -102,7 +102,9 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
               </tr>
               <tr className="align-top">
                 <th className="pr-2 pb-2 font-medium">설명</th>
-                <td className="pb-2">{func[func_index[uicurrentUIIndex]].desc}</td>
+                <td className="pb-2">
+                  <p className="select-text">{func[func_index[uicurrentUIIndex]].desc}</p>
+                </td>
               </tr>
               {func[func_index[uicurrentUIIndex]].func ? (
                 <tr className="align-top">
@@ -119,11 +121,8 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
         </Wrapper.MaxWidth>
         {/* UI Image Slider */}
         <div className="relative flex justify-center items-center mb-6 max-w-screen-xl h-full">
-          <div
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer opacity-50 hover:opacity-100 transition"
-            onClick={() => handleBannerIndex("left")}
-          >
-            <VscChevronLeft size={30} className="text-gray-600 hover:text-black" />
+          <div className="absolute top-1/2 left-4 max-sm:left-0 transform -translate-y-1/2 cursor-pointer" onClick={() => handleBannerIndex("left")}>
+            <VscChevronLeft size={40} className="text-white bg-black rounded-full hover:scale-110 transition opacity-50 hover:opacity-100" />
           </div>
           <Image
             src={func[func_index[uicurrentUIIndex]].ui ? `/workall/${data.pid}/${func_index[uicurrentUIIndex]}.png` : ""}
@@ -136,7 +135,7 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
             className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer opacity-50 hover:opacity-100 transition"
             onClick={() => handleBannerIndex("right")}
           >
-            <VscChevronRight size={30} className="text-gray-600 hover:text-black" />
+            <VscChevronRight size={40} className="text-white bg-black rounded-full hover:scale-110 transition opacity-50 hover:opacity-100" />
           </div>
         </div>
 
@@ -154,7 +153,7 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
             <Wrapper.TitleText className="text-3xl font-bold mb-4">트러블 슈팅</Wrapper.TitleText>
             <HorizontalDivider />
             {Object.keys(data.detail.trouble).map((trouble_key, index) => (
-              <div key={index} className="flex flex-col gap-4 mb-4">
+              <div key={index} className="flex flex-col gap-2 mb-4">
                 <p className="text-xl font-bold">{trouble_key}</p>
                 <div className="flex flex-col">
                   <p className="text-lg font-medium">문제점</p>
@@ -202,11 +201,17 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
           <HorizontalDivider />
           <Wrapper.FlexRow className="gap-4">
             {/* Github Repository */}
-            <div className={` ${data.detail.github ? "cursor-pointer" : "cursor-not-allowed"}`} onClick={() => handleOnClickMove(data.detail.github)}>
+            <div
+              className={` ${data.detail.github ? "cursor-pointer" : "cursor-not-allowed"}`}
+              onClick={() => handleOnClickMove(data.detail.github ? data.detail.github : null)}
+            >
               <Badge icon={VscCode} iconSize="50" bgColor="bg-black" fontColor="text-white" fontSize="text-base" context="Github 레포지토리 " />
             </div>
             {/* Demo Link */}
-            <div className={` ${data.detail.demo ? "cursor-pointer" : "cursor-not-allowed"}`} onClick={() => handleOnClickMove(data.detail.demo)}>
+            <div
+              className={` ${data.detail.demo ? "cursor-pointer" : "cursor-not-allowed"}`}
+              onClick={() => handleOnClickMove(data.detail.demo ? data.detail.demo : null)}
+            >
               <Badge icon={VscBracketDot} iconSize="50" bgColor="bg-blue-500" fontColor="text-white" fontSize="text-base" context="Demo 사이트 " />
             </div>
           </Wrapper.FlexRow>

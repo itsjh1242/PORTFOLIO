@@ -15,8 +15,8 @@ export interface WorkAllDescInterface {
       };
       trouble: { [key: string]: { problem: string[]; solve: string[] | null; result: string[] | null } };
       review: string[];
-      github: string;
-      demo: string;
+      github: string | null;
+      demo: string | null;
     };
   };
 }
@@ -149,7 +149,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "'이 코드에서 왜 Async가 사용되는거야?'라는 질문을 던졌을 때, '데이터를 요청하고 기다리는 동안 다른 작업을 하기 위해서'라고만 답할 수 있는 나를 발견하고 '왜 사용해야하는지'에 대한 이해도를 기반으로 하는 코딩을 하자는 생각을 하게 되었습니다.",
       ],
       github: "https://github.com/itsjh1242/diary-writing-system/tree/main",
-      demo: "",
+      demo: null,
     },
   },
   quiz_me: {
@@ -286,7 +286,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         role: { title: "역할", content: ["아이디어 도출", "프로토타입 제작", "판넬 디자인 및 영상 자료 서치"] },
         refer: {
           title: "관련 활동",
-          content: ["2023 Yound One Adc, Merit 수상", "2022 Red dot Award, Best of the Best 수상", "2022 Mad Stars, Crystal 수상"],
+          content: ["2023 Young One Adc, Merit 수상", "2022 Red dot Award, Best of the Best 수상", "2022 Mad Stars, Crystal 수상"],
         },
       },
       long_summary: [
@@ -295,7 +295,13 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "본 3D 카탈로그는 유행하는 헤어 디자인을 3D 프린터를 이용해 입체적으로 제작하고, 해당 모형을 카탈로그에 접목시켜 촉각으로 확인할 수 있습니다.",
       ],
       func: {
-        base: { ui: true, name: "디자인 판넬", desc: "본 디자인 작품을 나타낸 판넬입니다.", func: [""] },
+        base: { ui: true, name: "디자인 판넬", desc: "본 디자인 작품을 나타낸 판넬입니다.", func: null },
+        news: {
+          ui: true,
+          name: "부산일보 기사",
+          desc: "Best of the Best 수상 당시 기사입니다. (출처: 부산일보, https://www.busan.com/view/busan/view.php?code=2022091418321197983)",
+          func: null,
+        },
       },
       trouble: {
         "아이디어 의견 충돌": {
@@ -319,8 +325,8 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "개인마다 보는 시각이 다를뿐더러 그동안 공부했던 전공의 시야까지 더해져 의견 조율이 정말 중요한 융합 실습이었습니다.",
         "각자의 전공을 살려 최고의 효율을 낼 수 있는 각자의 임무를 성공적으로 수행했으며 배려심과 이해심으로 팀원의 아이디어를 긍정적으로 받아들였기에 이러한 결과가 나왔다고 생각합니다.",
       ],
-      github: "",
-      demo: "",
+      github: null,
+      demo: null,
     },
   },
   attendance: {
@@ -393,7 +399,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "주로 웹페이지나 모바일 애플리케이션을 개발하여 기능을 동작하게 하는 프로젝트를 많이 해봤지만, 실제 폼보드 등의 재료를 사용하여 모듈 틀을 만들어 아두이노 모듈을 사용하며 기능을 동작시키는 개발은 처음이어서 더욱 의미 있는 프로젝트였습니다.",
       ],
       github: "https://github.com/itsjh1242/Arduino_Attendance_Management",
-      demo: "",
+      demo: null,
     },
   },
   motion: {
@@ -475,7 +481,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "또한, 논문 작성과 발표를 하며 내가 개발한 프로젝트와 알고리즘에 대해 보완이 필요한 부분에 대한 피드백과 객관적인 평가를 받았고, 이러한 피드백을 수용하여 프로젝트의 방향성을 확실하게 정할 수 있었습니다.",
       ],
       github: "https://github.com/itsjh1242/motion-password",
-      demo: "",
+      demo: null,
     },
   },
   github_battle: {
@@ -587,7 +593,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "또한, 개발된 서비스의 API 명세서 및 개요를 작성하는 습관을 길러야겠다고 생각했습니다.",
       ],
       github: "https://github.com/itsjh1242/github-battle",
-      demo: "",
+      demo: "https://itsjh1242.github.io/github-battle/",
     },
   },
   streaming: {
@@ -635,7 +641,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "기회가 된다면, 추후에는 Audio를 활용한 프로젝트를 진행해보고 싶습니다. 이번 프로젝트를 통해 UI 구성을 효과적으로 할 수있는 방법에 대해 많이 고민한 것 같습니다.",
       ],
       github: "https://github.com/itsjh1242/PORTFOLIO_/tree/main/client/src/views/streaming",
-      demo: "",
+      demo: null,
     },
   },
   weather_search: {
@@ -692,7 +698,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "앞서 해왔던 프로젝트들은 Python(*Flask), Node.js(*ejs)를 활용하여 데이터를 통신하는 방법을 공부했다면, 이번에는 처음으로 Front-end와 Back-end를 구분지어 코드를 짜고 공부함으로써 앞으로의 제 가능성을 열어준 프로젝트입니다.",
       ],
       github: "https://github.com/itsjh1242/PORTFOLIO_/tree/main/client/src/views/weatherPicker",
-      demo: "",
+      demo: null,
     },
   },
   realtime_chat: {
@@ -748,7 +754,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "향후에는 Socket 통신을 활용하여 실시간 1대1 게임을 만들어 보아도 좋을 것 같다는 생각을 하였습니다.",
       ],
       github: "https://github.com/itsjh1242/messenger-prime",
-      demo: "",
+      demo: null,
     },
   },
 };
