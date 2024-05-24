@@ -122,31 +122,37 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
             </tr>
           </tbody>
         </table>
-
-        {/* UI Image Slider */}
-        <div className="relative flex justify-center items-center mb-6">
-          <div className="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer" onClick={() => handleBannerIndex("left")}>
-            <VscChevronLeft size={30} className="text-gray-600 hover:text-black" />
-          </div>
-          <Image
-            src={func[func_index[uicurrentUIIndex]].ui ? `/workall/${data.pid}/${func_index[uicurrentUIIndex]}.png` : ""}
-            alt={data.pid}
-            width={1200}
-            height={580}
-            className="rounded-xl shadow-lg"
-          />
-          <div className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer" onClick={() => handleBannerIndex("right")}>
-            <VscChevronRight size={30} className="text-gray-600 hover:text-black" />
-          </div>
-        </div>
-        <div className="flex justify-center items-center gap-2">
-          {func_index.map((func_item, index) => (
-            <div key={index} className="cursor-pointer" onClick={() => handleBannerIndex(index.toString())}>
-              {index === uicurrentUIIndex ? <VscCircleFilled size={15} className="text-gray-600" /> : <VscCircle size={15} className="text-gray-400" />}
-            </div>
-          ))}
-        </div>
       </Wrapper.MaxWidth>
+      {/* UI Image Slider */}
+      <div className="relative flex justify-center items-center mb-6 max-w-screen-xl h-full">
+        <div
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer opacity-50 hover:opacity-100 transition"
+          onClick={() => handleBannerIndex("left")}
+        >
+          <VscChevronLeft size={30} className="text-gray-600 hover:text-black" />
+        </div>
+        <Image
+          src={func[func_index[uicurrentUIIndex]].ui ? `/workall/${data.pid}/${func_index[uicurrentUIIndex]}.png` : ""}
+          alt={data.pid}
+          width={1280}
+          height={658}
+          className="rounded-xl shadow-lg"
+        />
+        <div
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer opacity-50 hover:opacity-100 transition"
+          onClick={() => handleBannerIndex("right")}
+        >
+          <VscChevronRight size={30} className="text-gray-600 hover:text-black" />
+        </div>
+      </div>
+
+      <div className="flex justify-center items-center gap-2">
+        {func_index.map((func_item, index) => (
+          <div key={index} className="cursor-pointer" onClick={() => handleBannerIndex(index.toString())}>
+            {index === uicurrentUIIndex ? <VscCircleFilled size={15} className="text-gray-600" /> : <VscCircle size={15} className="text-gray-400" />}
+          </div>
+        ))}
+      </div>
 
       {/* 트러블 슈팅 */}
       {Object.keys(data.detail.trouble).length !== 0 && (

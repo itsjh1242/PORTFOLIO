@@ -181,6 +181,55 @@ export const WorkAllDesc: WorkAllDescInterface = {
       ],
       func: {
         base: { ui: true, name: "메인 화면", desc: "랜딩 화면입니다.", func: [""] },
+        login: { ui: true, name: "로그인 화면", desc: "사용자 로그인 화면입니다.", func: ["Firebase Auth를 활용한 로그인 기능"] },
+        not_user: {
+          ui: true,
+          name: "로그인 유효성 검사 화면",
+          desc: "로그인 된 사용자가 아닐 때 표시되는 화면",
+          func: ["현재 유효성 검사 기능"],
+        },
+        create: {
+          ui: true,
+          name: "퀴즈 만들기 화면",
+          desc: "로그인 된 사용자가 퀴즈를 만드는 화면입니다.",
+          func: [],
+        },
+        edit: {
+          ui: true,
+          name: "퀴즈 만들기 수정 화면",
+          desc: "로그인 된 사용자가 퀴즈를 만들 때, 내용을 수정하는 화면입니다.",
+          func: [],
+        },
+        share: {
+          ui: true,
+          name: "퀴즈 공유 화면",
+          desc: "로그인 된 사용자가 퀴즈를 만들고(퀴즈 항목 1개 이상, 10개 이하) 공유할 수 있는 링크를 제공하는 화면",
+          func: ["uuid 생성을 활용한 동적 라우팅 기능", "퀴즈 생성 결과 Firebase에 저장"],
+        },
+        quiz: {
+          ui: true,
+          name: "퀴즈 풀기 화면",
+          desc: "로그인 여부에 상관없이 퀴즈 링크가 있는 사용자가 퀴즈를 푸는 화면",
+          func: ["uuid를 쿼리로하여 Firebase에서 해당 퀴즈 가져오기"],
+        },
+        result: {
+          ui: true,
+          name: "퀴즈 풀기 결과 화면",
+          desc: "퀴즈를 풀고 자신이 맞춘 정답과 틀린 오답을 확인하는 화면",
+          func: ["퀴즈 결과 Firebase에 저장"],
+        },
+        myquiz: {
+          ui: true,
+          name: "내가 만든 퀴즈 목록 화면",
+          desc: "로그인 된 사용자가 만든 퀴즈 목록에 대한 화면",
+          func: ["Firebase에서 현재 사용자가 만든 퀴즈 가져오기"],
+        },
+        myquiz_detail: {
+          ui: true,
+          name: "내가 만든 퀴즈 상세 화면",
+          desc: "내가 만든 퀴즈에 대한 상세화면",
+          func: ["내가 만든 퀴즈에 참가한 사람 확인", "참가자 점수 및 답안 확인", "퀴즈 활성화 및 비활성화 기능"],
+        },
       },
       trouble: {
         "새로 생성되는 UUID에 대한 동적 라우팅": {
