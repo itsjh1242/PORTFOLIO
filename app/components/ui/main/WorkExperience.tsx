@@ -73,7 +73,7 @@ const WorkExperienceAccordion = (props: workExperienceAccordionProps) => {
   const { title, period, summary, location, task, url, keyword, accordian, accordianIndex, handleAccordian } = props;
   return (
     <div
-      className={`flex flex-col w-2/3 max-sm:w-full max-sm:min-h-14 border px-3 py-1 rounded shadow-sm bg-white overflow-hidden transition-all duration-1000 ${
+      className={`flex flex-col w-full max-sm:w-full max-sm:min-h-14 border px-3 py-1 rounded shadow-sm bg-white overflow-hidden transition-all duration-1000 ${
         accordian[accordianIndex] ? "max-h-screen" : "max-h-16"
       }`}
     >
@@ -81,12 +81,11 @@ const WorkExperienceAccordion = (props: workExperienceAccordionProps) => {
       <div className="flex justify-between items-center mb-6">
         {/* Title, Summary */}
         <div className={`flex flex-col break-keep max-sm:w-4/5 transition-all duration-700 ${accordian[accordianIndex] ? "text-black" : "text-gray-400"}`}>
-          <p className="text-lg max-sm:text-sm font-medium">{title}</p>
-          <p className="max-sm:text-xs">{summary}</p>
+          <p className="text-lg max-sm:text-sm font-bold">{title}</p>
+          <p className="text-sm max-sm:text-xs truncate">{summary}</p>
         </div>
-        {/* Period */}
+
         <div className="flex max-sm:flex-col gap-3 max-sm:gap-1">
-          <Badge icon={null} iconSize="1em" bgColor="bg-slate-600" fontSize="text-sm" fontColor="text-white" context={period} />
           <div
             className="flex justify-center items-center cursor-pointer"
             onClick={() => {
@@ -101,6 +100,7 @@ const WorkExperienceAccordion = (props: workExperienceAccordionProps) => {
       <div className="flex flex-col">
         {/* Location, Url */}
         <div className="flex gap-3 mb-3">
+          <Badge icon={null} iconSize="1em" bgColor="bg-slate-600" fontSize="text-sm" fontColor="text-white" context={period} />
           <Badge icon={FaLocationDot} iconSize="1em" bgColor="bg-blue-600" fontSize="text-sm" fontColor="text-white" context={location} />
           <a href={url[1]} target="_blank">
             <Badge icon={FiExternalLink} iconSize="1em" bgColor="bg-blue-600" fontSize="text-sm" fontColor="text-white" context={url[0]} />
@@ -115,7 +115,7 @@ const WorkExperienceAccordion = (props: workExperienceAccordionProps) => {
               {task[task_key].content.map((content_item, index) => {
                 return (
                   <div key={index} className="">
-                    <p className="break-keep max-sm:text-xs">· {content_item}</p>
+                    <p className="break-keep text-sm max-sm:text-xs">· {content_item}</p>
                   </div>
                 );
               })}

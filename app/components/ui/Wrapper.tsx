@@ -6,7 +6,7 @@ export const Center = ({ className, children }: { className?: string; children: 
 };
 
 export const MaxWidth = ({ className, children }: { className?: string; children: ReactNode }) => {
-  return <div className={cn("w-2/3 max-sm:w-full max-sm:px-3", className)}>{children}</div>;
+  return <div className={cn("w-2/3 max-sm:w-full max-sm:px-3 max-xl:w-full", className)}>{children}</div>;
 };
 
 export const FlexRow = ({ className, children }: { className?: string; children: ReactNode }) => {

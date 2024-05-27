@@ -21,7 +21,7 @@ export default function Nav(props: NavInterface) {
         <p className="font-medium text-xl max-sm:text-sm cursor-pointer">김준현 개발자 포트폴리오</p>
       </div>
       <div className="flex gap-6 max-sm:gap-2 max-sm:text-xs">
-        {["About", "Stack", "Experience", "Work", "Contact"].map((nav_item, index) => {
+        {["소개", "기술 스택", "경험", "프로젝트", "연락처"].map((nav_item, index) => {
           return <NavItem key={index} index={index + 1} context={nav_item} handleQuickMove={handleQuickMove} />;
         })}
       </div>

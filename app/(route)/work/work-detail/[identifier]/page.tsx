@@ -11,6 +11,7 @@ export function generateStaticParams() {
     { identifier: "streaming" },
     { identifier: "weather_search" },
     { identifier: "quiz_me" },
+    { identifier: "portfolio" },
   ];
 }
 

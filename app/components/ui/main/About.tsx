@@ -9,7 +9,7 @@ import CenterText from "../CenterText";
 
 interface AboutSectionProps {
   prefix: string;
-  script: { about_dsec: AboutDescInterface };
+  script: { about_desc: AboutDescInterface };
   sectionRef: RefObject<HTMLDivElement>;
 }
 
@@ -27,7 +27,7 @@ interface AboutSectionTextProps {
 
 const AboutSection = (props: AboutSectionProps) => {
   const { script, sectionRef } = props;
-  const about_desc = script.about_dsec;
+  const about_desc = script.about_desc;
 
   const [progressBar, setProgressBar] = useState(0);
   const introRef = useRef<HTMLDivElement>(null);

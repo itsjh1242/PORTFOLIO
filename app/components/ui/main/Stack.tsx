@@ -48,14 +48,15 @@ const StackSection = (props: StackSectionInterface) => {
       {/* Center Text */}
       <CenterText context="Stack" />
       {/* Stack Carousel */}
-      <div className="flex justify-center items-center w-2/3 max-sm:w-full sm:gap-3">
+      <div className="flex justify-center items-center max-w-5xl max-sm:max-w-full sm:gap-3">
         {/* Stack Selector */}
-        <div className="cursor-pointer">
+        <div className="pl-2 cursor-pointer">
           <VscChevronLeft
             size={40}
             onClick={() => {
               handleStackSelector("left");
             }}
+            className="text-white bg-black rounded-full hover:scale-110 transition opacity-50 hover:opacity-100"
           />
         </div>
         {/* Stack Content */}
@@ -92,12 +93,13 @@ const StackSection = (props: StackSectionInterface) => {
             })}
           </div>
         </div>
-        <div className="cursor-pointer">
+        <div className="pr-2 cursor-pointer">
           <VscChevronRight
             size={40}
             onClick={() => {
               handleStackSelector("right");
             }}
+            className="text-white bg-black rounded-full hover:scale-110 transition opacity-50 hover:opacity-100"
           />
         </div>
       </div>
