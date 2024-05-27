@@ -65,7 +65,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     pid: "ai_chatbot",
     title: "긍정적 감정 유발을 위한 AI챗봇 기반 일기작성 시스템",
     summary: "챗봇과의 대화를 통한 감정분석 및 일기작성",
-    stacks: ["python", "mysql", "html"],
+    stacks: ["python", "mysql", "html", "figma"],
 
     detail: {
       header: {
@@ -73,7 +73,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         period: { title: "기간", content: ["2023년 3월 ~ 6월"] },
         hc: { title: "인원", content: ["1명"] },
         role: { title: "역할", content: ["아이디어 도출, 풀스택 개발, KoBERT 모델 학습 데이터 전처리"] },
-        fe: { title: "프론트엔드", content: ["HTML", "CSS", "JQuery"] },
+        fe: { title: "프론트엔드", content: ["HTML", "CSS", "JQuery", "Figma"] },
         be: { title: "백엔드", content: ["Flask"] },
         db: { title: "데이터베이스", content: ["MySQL"] },
         scm: { title: "형상관리", content: ["Github"] },
@@ -165,7 +165,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     pid: "quiz_me",
     title: "퀴즈 미",
     summary: "퀴즈를 만들어 친구들에게 공유하는 서비스",
-    stacks: ["react", "tw", "next", "firebase", "ts"],
+    stacks: ["react", "tw", "next", "firebase", "ts", "figma"],
 
     detail: {
       header: {
@@ -173,7 +173,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         period: { title: "기간", content: ["2024년 5월"] },
         hc: { title: "인원", content: ["1명"] },
         role: { title: "역할", content: ["UI 디자인, DB설계, FE개발"] },
-        fe: { title: "프론트엔드", content: ["React(배포용)", "Tailwind CSS", "TypeScript", "Next.js(초기 개발)"] },
+        fe: { title: "프론트엔드", content: ["React(배포용)", "Tailwind CSS", "TypeScript", "Next.js(초기 개발)", "Figma"] },
         be: { title: "백엔드", content: ["-"] },
         db: { title: "데이터베이스", content: ["Firebase"] },
         scm: { title: "형상관리", content: ["Github"] },
@@ -281,6 +281,67 @@ export const WorkAllDesc: WorkAllDescInterface = {
       demo: "https://itsjh1242.github.io/quiz-me/",
     },
   },
+  portfolio: {
+    pid: "portfolio",
+    title: "직접 개발한 포트폴리오 웹 애플리케이션",
+    summary: "개발자로서의 역량을 보여주는 개인 포트폴리오 웹 애플리케이션입니다.",
+    stacks: ["next", "tw", "figma"],
+    detail: {
+      header: {
+        category: { title: "카테고리", content: ["웹 애플리케이션 개발"] },
+        period: { title: "기간", content: ["2024년 4월"] },
+        hc: { title: "인원", content: ["1명"] },
+        role: { title: "역할", content: ["웹 디자인", "FE 개발"] },
+        fe: { title: "프론트엔드", content: ["Next.js", "Tailwind CSS", "Figma"] },
+        be: { title: "백엔드", content: ["-"] },
+        db: { title: "데이터베이스", content: ["-"] },
+        scm: { title: "형상관리", content: ["Github"] },
+        deploy: { title: "배포", content: ["gh-pages(Github)"] },
+        refer: { title: "관련 활동", content: ["-"] },
+      },
+      long_summary: [
+        "이 프로젝트는 제 개발 역량을 시각적으로 보여주기 위해 개발한 포트폴리오 웹 애플리케이션입니다.",
+        "사용자는 메인 화면에서 제 간단한 소개와 사용할 수 있는 기술 스택 및 활용 가능한 정도, 프로젝트 페이지에서 상세한 프로젝트 정보를 볼 수 있습니다.",
+        "Next.js를 사용하여 서버 사이드 렌더링과 정적 사이트 생성 기능을 활용했고, Tailwind CSS로 스타일링을 적용하여 일관성 있는 디자인을 구현했습니다.",
+        "Figma를 사용하여 UI/UX 디자인을 설계하고, 실제 개발에 적용하였습니다.",
+        "프로젝트의 모든 소스 코드는 Github에서 관리하고 있으며, Github Pages를 통해 배포하고 있습니다.",
+      ],
+      func: {
+        base: { ui: true, name: "메인 화면", desc: "포트폴리오 메인 화면입니다.", func: ["개인 소개 및 사용 가능한 기술스택 표시"] },
+        project: { ui: true, name: "프로젝트 화면", desc: "진행했던 프로젝트들이 모여져 있는 페이지입니다.", func: ["프로젝트 별 간단한 설명"] },
+        detail: {
+          ui: true,
+          name: "프로젝트 상세 화면",
+          desc: "프로젝트와 관련된 정보를 상세히 기술한 페이지입니다.",
+          func: ["프로젝트 상세 설명, 사용 기술, 문제 해결 과정 및 결과"],
+        },
+      },
+      trouble: {
+        "스타일링 이슈": {
+          problem: ["로컬 환경에서는 정상적으로 보이던 스타일이 Github Pages에 배포한 후 깨지는 문제가 발생했습니다."],
+          solve: [
+            "Tailwind CSS의 purge 설정을 확인하고, 빌드 시 사용되지 않는 CSS 클래스가 제거되지 않도록 설정을 수정했습니다. 또한, 배포 후 캐시를 강제로 갱신하여 최신 스타일이 반영되도록 했습니다.",
+          ],
+          result: ["스타일링 문제가 해결되어 모든 페이지가 예상대로 렌더링되었습니다."],
+        },
+        "SEO 최적화": {
+          problem: ["검색 엔진 최적화를 위해 Next.js의 SSR과 SSG 기능을 제대로 활용하는 방법을 모색해야 했습니다."],
+          solve: [
+            "Next.js의 getStaticProps와 getServerSideProps를 활용하여 각 페이지의 메타 데이터를 설정하고, 중요한 콘텐츠가 서버 사이드에서 렌더링되도록 했습니다.",
+          ],
+          result: ["SEO 최적화가 이루어져 검색 엔진에서 포트폴리오 페이지의 가시성이 향상되었습니다."],
+        },
+      },
+      review: [
+        "이번 포트폴리오 프로젝트는 저의 개발 및 디자인 역량을 종합적으로 보여줄 수 있는 좋은 기회였습니다.",
+        "Next.js와 Tailwind CSS를 활용하여 빠르고 일관성 있는 UI를 구현할 수 있었으며, Figma를 통해 웹 애플리케이션 디자인 레이아웃의 일관성을 유지했습니다.",
+        "Github Pages를 통해 배포하면서 실제 배포 환경에서 발생할 수 있는 문제들을 해결하는 경험도 쌓을 수 있었습니다.",
+        "이 프로젝트를 통해 얻은 경험을 바탕으로 앞으로 더 나은 웹 애플리케이션을 개발할 수 있을 것이라 확신합니다.",
+      ],
+      github: "https://github.com/itsjh1242/portfolio",
+      demo: "https://itsjh1242.github.io/portfolio/",
+    },
+  },
   reddot_hair_catalog: {
     pid: "reddot_hair_catalog",
     title: "Touchable Hair Catalog for Blind",
@@ -342,7 +403,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     pid: "attendance",
     title: "지문인식 센서를 활용한 연구실 근태 관리 시스템",
     summary: "연구실 입퇴실을 효율적으로 관리하기 위한 시스템",
-    stacks: ["arduino", "c++", "mysql", "node"],
+    stacks: ["arduino", "c++", "mysql", "node", "figma"],
 
     detail: {
       header: {
@@ -350,7 +411,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         period: { title: "기간", content: ["2023년 5월"] },
         hc: { title: "인원", content: ["2명"] },
         role: { title: "역할", content: ["UI 디자인", "FE/BE", "데이터베이스 구축", "아두이노 모듈 개발"] },
-        fe: { title: "프론트엔드", content: ["HTML(ejs)", "CSS", "JQuery"] },
+        fe: { title: "프론트엔드", content: ["HTML(ejs)", "CSS", "JQuery", "Figma"] },
         be: { title: "백엔드", content: ["Node.js"] },
         db: { title: "데이터베이스", content: ["MySQL"] },
         scm: { title: "형상관리", content: ["Github"] },
@@ -415,7 +476,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     pid: "motion",
     title: "모션인식 기반의 이중 암호 인증방안",
     summary: "행동패턴 기반 암호 인증",
-    stacks: ["flutter", "node", "mysql", "aws"],
+    stacks: ["flutter", "node", "mysql", "aws", "figma"],
 
     detail: {
       header: {
@@ -423,7 +484,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         period: { title: "기간", content: ["2023년 3월 ~ 11월"] },
         hc: { title: "인원", content: ["2명"] },
         role: { title: "역할", content: ["UI 디자인", "FE/BE 개발", "모션인식 기반 암호 알고리즘 설계"] },
-        fe: { title: "프론트엔드", content: ["Flutter"] },
+        fe: { title: "프론트엔드", content: ["Flutter", "Figma"] },
         be: { title: "백엔드", content: ["Node.js"] },
         db: { title: "데이터베이스", content: ["MySQL"] },
         scm: { title: "형상관리", content: ["Github"] },
@@ -497,7 +558,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     pid: "github_battle",
     title: "Github Battle",
     summary: "Github API를 활용한 사용자 정보 분석 서비스",
-    stacks: ["react", "redux", "sass"],
+    stacks: ["react", "redux", "sass", "figma"],
 
     detail: {
       header: {
@@ -505,7 +566,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         period: { title: "기간", content: ["2024년 3월"] },
         hc: { title: "인원", content: ["1명"] },
         role: { title: "역할", content: ["풀스택 개발"] },
-        fe: { title: "프론트엔드", content: ["React"] },
+        fe: { title: "프론트엔드", content: ["React", "Figma"] },
         be: { title: "백엔드", content: ["-"] },
         db: { title: "데이터베이스", content: ["-"] },
         scm: { title: "형상관리", content: ["Github"] },
@@ -609,7 +670,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     pid: "streaming",
     title: "스트리밍 서비스 웹 디자인",
     summary: "간단하게 디자인하고 개발한 스트리밍 웹 서비스",
-    stacks: ["react", "css"],
+    stacks: ["react", "css", "figma"],
 
     detail: {
       header: {
@@ -617,7 +678,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         period: { title: "기간", content: ["2024년 2월"] },
         hc: { title: "인원", content: ["1명"] },
         role: { title: "역할", content: ["UI 디자인", "FE 개발"] },
-        fe: { title: "프론트엔드", content: ["React", "CSS"] },
+        fe: { title: "프론트엔드", content: ["React", "CSS", "Figma"] },
         be: { title: "백엔드", content: ["-"] },
         db: { title: "데이터베이스", content: ["-"] },
         scm: { title: "형상관리", content: ["Github"] },
@@ -657,7 +718,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     pid: "weather_search",
     title: "Naver Papago API를 활용한 날씨 검색 서비스",
     summary: "Axios활용 및 리액트 공부를 위한 미니 프로젝트",
-    stacks: ["react", "node", "css"],
+    stacks: ["react", "node", "css", "figma"],
 
     detail: {
       header: {
@@ -665,7 +726,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         period: { title: "기간", content: ["2024년 1월"] },
         hc: { title: "인원", content: ["1명"] },
         role: { title: "역할", content: ["프로젝트 설계", "FE/BE 개발"] },
-        fe: { title: "프론트엔드", content: ["React", "CSS"] },
+        fe: { title: "프론트엔드", content: ["React", "CSS", "Figma"] },
         be: { title: "백엔드", content: ["Node.js"] },
         db: { title: "데이터베이스", content: ["-"] },
         scm: { title: "형상관리", content: ["Github"] },
@@ -714,7 +775,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
     pid: "realtime_chat",
     title: "채팅 웹 애플리케이션",
     summary: "Socket 통신을 활용한 실시간 채팅",
-    stacks: ["react", "redux", "node", "mysql", "sass"],
+    stacks: ["react", "redux", "node", "mysql", "sass", "figma"],
 
     detail: {
       header: {
@@ -722,7 +783,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         period: { title: "기간", content: ["2024년 2월"] },
         hc: { title: "인원", content: ["1명"] },
         role: { title: "역할", content: ["프로젝트 구상", "FE/BE 개발"] },
-        fe: { title: "프론트엔드", content: ["React", "CSS"] },
+        fe: { title: "프론트엔드", content: ["React", "CSS", "Figma"] },
         be: { title: "백엔드", content: ["Node.js"] },
         db: { title: "데이터베이스", content: ["MySQL"] },
         scm: { title: "형상관리", content: ["Github"] },

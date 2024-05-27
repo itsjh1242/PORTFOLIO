@@ -79,7 +79,7 @@ const UnitWrapper = (props: UnitWrapperInterface) => {
       <div className={`overflow-hidden shadow-lg transition-transform transform rounded-xl`} style={{ width: "259px", height: "259px" }}>
         <Image src={`workall/unit/${pid}_unit.svg`} alt={title} width={0} height={0} className="w-full h-full hover:scale-110 transition" />
       </div>
-      <div className="flex justify-start items-center gap-2 mt-1">
+      <div className="flex justify-start items-center gap-2 mt-3">
         {stacks.map((stack_item, index) => (
           <Image key={index} src={`stack/${stack_item}.svg`} alt={stack_item} width={20} height={20} />
         ))}

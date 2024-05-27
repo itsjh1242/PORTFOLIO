@@ -131,10 +131,7 @@ export const WorkDetailPage = (props: WorkDetailInterface) => {
             height={658}
             className="rounded-xl shadow-lg"
           />
-          <div
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer opacity-50 hover:opacity-100 transition"
-            onClick={() => handleBannerIndex("right")}
-          >
+          <div className="absolute top-1/2 right-4 max-sm:right-0 transform -translate-y-1/2 cursor-pointer" onClick={() => handleBannerIndex("right")}>
             <VscChevronRight size={40} className="text-white bg-black rounded-full hover:scale-110 transition opacity-50 hover:opacity-100" />
           </div>
         </div>
