@@ -17,6 +17,7 @@ import { ABOUT_DESC } from "./db/AboutDesc";
 import { STACK_BADGE, STACK_DESC } from "./db/StackDesc";
 import { EXP_DESC } from "./db/WorkExperienceDesc";
 import { PROJECT_DESC } from "./db/ProjectDesc";
+import Head from "next/head";
 
 const Home = () => {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -33,6 +34,10 @@ const Home = () => {
 
   return (
     <>
+      <Head>
+        <title>김준현 개발자 포트폴리오</title>
+        <meta name="description" content="김준현 개발자의 포트폴리오 사이트입니다." key="desc" />
+      </Head>
       <Nav handleQuickMove={handleQuickMove} />
       <div className="flex flex-col w-full h-full">
         {/* Landing Section */}

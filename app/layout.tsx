@@ -9,7 +9,7 @@ const ngkr = Nanum_Gothic({ subsets: ["latin"], weight: ["700"] });
 const nskr = Noto_Sans_KR({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "김준현",
+  title: "김준현 개발자 포트폴리오",
   description: "김준현 개발자 포트폴리오",
 };
 

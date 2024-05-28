@@ -44,13 +44,13 @@ const StackSection = (props: StackSectionInterface) => {
   };
 
   return (
-    <div ref={sectionRef} className="relative flex justify-center items-center w-full max-w-screen h-apple max-sm:min-h-sm-apple py-20 max-sm:py-10">
+    <div ref={sectionRef} className="relative flex justify-center items-center w-screen h-apple max-sm:min-h-sm-apple py-20 max-sm:py-10">
       {/* Center Text */}
       <CenterText context="Stack" />
       {/* Stack Carousel */}
-      <div className="flex justify-center items-center max-w-5xl max-sm:max-w-full sm:gap-3">
+      <div className="flex justify-center items-start w-full max-sm:max-w-full sm:gap-3">
         {/* Stack Selector */}
-        <div className="pl-2 cursor-pointer">
+        <div className="pl-2 cursor-pointer pt-10 max-sm:pt-4">
           <VscChevronLeft
             size={40}
             onClick={() => {
@@ -60,7 +60,7 @@ const StackSection = (props: StackSectionInterface) => {
           />
         </div>
         {/* Stack Content */}
-        <div className="flex flex-col justify-center items-start w-full max-sm:w-full h-full p-3">
+        <div className="flex flex-col justify-center items-start w-full max-w-7xl max-sm:w-full h-full p-3">
           {/* Stack Name */}
           <div className="flex gap-3">
             <div className="flex justify-center items-center">
@@ -93,7 +93,7 @@ const StackSection = (props: StackSectionInterface) => {
             })}
           </div>
         </div>
-        <div className="pr-2 cursor-pointer">
+        <div className="pr-2 cursor-pointer pt-10 max-sm:pt-4">
           <VscChevronRight
             size={40}
             onClick={() => {

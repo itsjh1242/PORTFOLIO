@@ -20,9 +20,7 @@ const Landing = (props: LandingInterface) => {
           height={0}
           className="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 sm:scale-90 w-full h-full object-contain"
         />
-        <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-64 max-sm:-translate-y-80 text-9xl max-sm:text-3xl font-medium -z-10">
-          PORTFOLIO
-        </p>
+        <p className="max-sm:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-64 text-9xl font-medium -z-10">PORTFOLIO</p>
       </div>
       {/* Left Component */}
       <LandingDesc title="designer" desc="보고 듣는 모든 경험에서 영감을 얻어 저만의 디자인을 다양한 프로젝트에 적용시켰습니다." isRight={false} />

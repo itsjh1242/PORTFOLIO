@@ -42,10 +42,7 @@ const WorkExperienceSection = (props: workExperienceProps) => {
     setAccordian(updatedAccordian);
   };
   return (
-    <div
-      ref={sectionRef}
-      className="relative flex flex-col gap-3 justify-center items-center w-full max-w-screen h-full sm:min-h-sm-apple p-20 max-sm:p-3 max-sm:mb-20"
-    >
+    <div ref={sectionRef} className="relative flex flex-col gap-3 justify-center items-center w-full h-full sm:min-h-sm-apple p-20 max-sm:p-3 max-sm:mb-20">
       {/* Center Text */}
       <CenterText context="Work Experience" />
       {Object.keys(exp_desc).map((item, index) => {
@@ -73,9 +70,12 @@ const WorkExperienceAccordion = (props: workExperienceAccordionProps) => {
   const { title, period, summary, location, task, url, keyword, accordian, accordianIndex, handleAccordian } = props;
   return (
     <div
-      className={`flex flex-col w-full max-sm:w-full max-sm:min-h-14 border px-3 py-1 rounded shadow-sm bg-white overflow-hidden transition-all duration-1000 ${
+      className={`flex flex-col w-full max-w-7xl max-sm:w-full max-sm:min-h-14 border px-3 py-1 rounded shadow-sm bg-white overflow-hidden transition-all duration-1000 cursor-pointer ${
         accordian[accordianIndex] ? "max-h-screen" : "max-h-16"
       }`}
+      onClick={() => {
+        handleAccordian(accordianIndex);
+      }}
     >
       {/* Display */}
       <div className="flex justify-between items-center mb-6">
@@ -86,20 +86,13 @@ const WorkExperienceAccordion = (props: workExperienceAccordionProps) => {
         </div>
 
         <div className="flex max-sm:flex-col gap-3 max-sm:gap-1">
-          <div
-            className="flex justify-center items-center cursor-pointer"
-            onClick={() => {
-              handleAccordian(accordianIndex);
-            }}
-          >
-            {accordian[accordianIndex] ? <VscChevronUp size={20} /> : <VscChevronDown size={20} />}
-          </div>
+          <div className="flex justify-center items-center">{accordian[accordianIndex] ? <VscChevronUp size={20} /> : <VscChevronDown size={20} />}</div>
         </div>
       </div>
       {/* Selective Display */}
       <div className="flex flex-col">
         {/* Location, Url */}
-        <div className="flex gap-3 mb-3">
+        <div className="flex gap-3 mb-3 flex-wrap">
           <Badge icon={null} iconSize="1em" bgColor="bg-slate-600" fontSize="text-sm" fontColor="text-white" context={period} />
           <Badge icon={FaLocationDot} iconSize="1em" bgColor="bg-blue-600" fontSize="text-sm" fontColor="text-white" context={location} />
           <a href={url[1]} target="_blank">
