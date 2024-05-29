@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 // ui
-import Badge from "../Badge";
+import Badge from "../../ui/Badge";
 
 // Icons
 import { VscChevronLeft, VscCode } from "react-icons/vsc";

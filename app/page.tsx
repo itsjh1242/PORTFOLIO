@@ -5,12 +5,12 @@ import { prefix } from "../lib/prefix";
 
 // UI Section
 import Nav from "./components/ui/Nav";
-import Landing from "./components/ui/main/Landing";
-import AboutSection from "./components/ui/main/About";
-import StackSection from "./components/ui/main/Stack";
-import WorkExperienceSection from "./components/ui/main/WorkExperience";
-import ProjectSection from "./components/ui/main/Project";
-import Footer from "./components/ui/main/Footer";
+import Landing from "./components/view/main/Landing";
+import AboutSection from "./components/view/main/About";
+import StackSection from "./components/view/main/Stack";
+import WorkExperienceSection from "./components/view/main/WorkExperience";
+import ProjectSection from "./components/view/main/Project";
+import Footer from "./components/view/main/Footer";
 
 // Data Import
 import { ABOUT_DESC } from "./db/AboutDesc";

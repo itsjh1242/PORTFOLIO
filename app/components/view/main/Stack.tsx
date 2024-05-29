@@ -6,8 +6,8 @@ import Image from "next/image";
 import { StackDescInterface, StackBadgeInterface } from "../../../db/StackDesc";
 
 // UI Components
-import CenterText from "../CenterText";
-import Badge from "../Badge";
+import CenterText from "../../ui/CenterText";
+import Badge from "../../ui/Badge";
 
 // Icons
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";

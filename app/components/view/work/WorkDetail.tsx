@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 // UI Components
-import * as Wrapper from "../Wrapper";
-import Badge from "../Badge";
+import * as Wrapper from "../../ui/Wrapper";
+import Badge from "../../ui/Badge";
 
 // Data Import
 import { WorkAllDesc } from "../../../db/WorkAllDesc";

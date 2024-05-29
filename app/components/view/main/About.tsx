@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef, RefObject } from "react";
 import { AboutDescInterface } from "../../../db/AboutDesc";
 
 // UI Components
-import CenterText from "../CenterText";
+import CenterText from "../../ui/CenterText";
 
 interface AboutSectionProps {
   prefix: string;

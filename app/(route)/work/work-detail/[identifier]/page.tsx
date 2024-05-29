@@ -1,4 +1,4 @@
-import { WorkDetailPage, WorkDetailInterface } from "@/app/components/ui/work/WorkDetail";
+import { WorkDetailPage, WorkDetailInterface } from "@/app/components/view/work/WorkDetail";
 
 export function generateStaticParams() {
   return [

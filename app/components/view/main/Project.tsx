@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import { WorkAllDesc } from "@/app/db/WorkAllDesc";
 import { ProjectDescInterface } from "@/app/db/ProjectDesc";
 // UI Components
-import CenterText from "../CenterText";
-import CustomButton from "../Button";
-import Badge from "../Badge";
+import CenterText from "../../ui/CenterText";
+import CustomButton from "../../ui/button";
+import Badge from "../../ui/Badge";
 
 interface ProjectSectionInterface {
   prefix: string;

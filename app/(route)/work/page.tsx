@@ -1,4 +1,4 @@
-import { WorkAllPage } from "@/app/components/ui/work/WorkAll";
+import { WorkAllPage } from "@/app/components/view/work/WorkAll";
 
 const WorkAll = () => {
   return <WorkAllPage />;

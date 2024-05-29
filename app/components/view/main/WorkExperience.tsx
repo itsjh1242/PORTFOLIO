@@ -5,8 +5,8 @@ import React, { useState, RefObject } from "react";
 import { ExpDescInterface } from "../../../db/WorkExperienceDesc";
 
 // UI Components
-import CenterText from "../CenterText";
-import Badge from "../Badge";
+import CenterText from "../../ui/CenterText";
+import Badge from "../../ui/Badge";
 
 // Icons
 import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
