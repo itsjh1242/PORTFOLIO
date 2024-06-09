@@ -6,7 +6,7 @@ import { WorkAllDesc } from "@/app/db/WorkAllDesc";
 import { ProjectDescInterface } from "@/app/db/ProjectDesc";
 // UI Components
 import CenterText from "../../ui/CenterText";
-import CustomButton from "../../ui/Button";
+import CustomButton from "../../ui/Buttons";
 import Badge from "../../ui/Badge";
 
 interface ProjectSectionInterface {

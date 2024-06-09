@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import CustomButton from "../../ui/Button";
+import CustomButton from "../../ui/Buttons";
 
 export const IntroductionPage = () => {
   const router = useRouter();

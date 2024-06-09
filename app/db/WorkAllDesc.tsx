@@ -66,7 +66,6 @@ export const WorkAllDesc: WorkAllDescInterface = {
     title: "긍정적 감정 유발을 위한 AI챗봇 기반 일기작성 시스템",
     summary: "챗봇과의 대화를 통한 감정분석 및 일기작성",
     stacks: ["python", "mysql", "html", "figma"],
-
     detail: {
       header: {
         category: { title: "카테고리", content: ["개인 프로젝트 (졸업 작품)", "웹 애플리케이션 개발"] },
@@ -406,7 +405,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "본 프로젝트를 통해서 실시간 애플리케이션 개발에 대한 자신감을 얻었고, 향후 더욱 복잡한 웹 애플리케이션 개발에 도전할 준비가 되었다고 생각합니다.",
       ],
       github: "https://github.com/itsjh1242/nextjs-chat",
-      demo: "itsjh1242.github.io/nextjs-chat/",
+      demo: "https://itsjh1242.github.io/nextjs-chat/",
     },
   },
   portfolio: {
