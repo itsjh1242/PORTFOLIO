@@ -282,6 +282,134 @@ export const WorkAllDesc: WorkAllDescInterface = {
       demo: "https://itsjh1242.github.io/quiz-me/",
     },
   },
+  realtime_chat: {
+    pid: "realtime_chat",
+    title: "실시간 채팅 플랫폼",
+    summary: "Next.js와 Firebase를 사용한 실시간 채팅 플랫폼",
+    stacks: ["next", "firebase", "tw", "ts", "figma", "github"],
+    detail: {
+      header: {
+        category: { title: "카테고리", content: ["개인 프로젝트", "웹 애플리케이션 개발"] },
+        period: { title: "기간", content: ["2024년 6월"] },
+        hc: { title: "인원", content: ["1명"] },
+        role: { title: "역할", content: ["프로젝트 구상", "전체 개발"] },
+        fe: { title: "프론트엔드", content: ["Next.js", "Firebase", "TailwindCSS", "Figma"] },
+        be: { title: "백엔드", content: ["-"] },
+        db: { title: "데이터베이스", content: ["Firebase"] },
+        scm: { title: "형상관리", content: ["Github"] },
+        deploy: { title: "배포", content: ["gh-pages"] },
+        refer: { title: "관련 활동", content: ["-"] },
+      },
+      long_summary: [
+        "본 프로젝트는 실시간 데이터 통신 및 웹 애플리케이션에 대한 이해도를 높이고자 개발한 실시간 채팅 플랫폼입니다.",
+        "개발하면서 사용자와의 실시간 상호작용을 가능하게 하고, 실시간 데이터를 효율적으로 처리하여 사용자 화면에 적절히 배치하는 것을 목표로 했습니다.",
+        "프로젝트는 Next.js, Firebase, TailwindCSS, TypeScript를 활용하여 구현되었으며, 이는 최신 웹 개발 트렌드와 기술을 적용하고자 하는 목적을 포함하고 있습니다.",
+        "Firebase Authentication을 이용하여 사용자의 로그인 및 회원가입 기능을 구현하였고, 사용자 데이터를 Firebase Firestore에 저장하였습니다.",
+        "TailwindCSS를 사용하여 일관된 디자인과 반응형 UI를 구현했고, TypeScript를 사용하여 코드의 안정성과 유지보수성을 높였습니다.",
+        "본 프로젝트는 모바일과 데스크톱 상호 호환 가능한 반응형 웹입니다.",
+      ],
+      func: {
+        base: { ui: true, name: "랜딩 화면", desc: "프로젝트 랜딩 화면입니다.", func: null },
+        login: {
+          ui: true,
+          name: "로그인 화면",
+          desc: "Firebase Auth 기능을 통해 사용자를 관리합니다.",
+          func: ["로그인"],
+        },
+        main: { ui: true, name: "메인 화면", desc: "로그인 한 사용자의 메인 화면입니다.", func: null },
+        edit: {
+          ui: true,
+          name: "프로필 정보 수정 화면",
+          desc: "사용자의 프로필 정보를 수정할 수 있는 화면입니다.",
+          func: ["이름 및 태그로 구분", "유효성 검사", "무결성 검사"],
+        },
+        find: {
+          ui: true,
+          name: "친구 검색 성공 화면",
+          desc: "찾고자하는 사용자의 이름과 태그를 정확히 입력했을 때, 사용자가 맞는지 확인하는 화면입니다.",
+          func: ["유효성 검사"],
+        },
+        request: {
+          ui: true,
+          name: "친구 요청 후 화면",
+          desc: "친구 요청을 보낸 후 화면입니다.",
+          func: ["친구 요청 시 1대1 채팅방 생성"],
+        },
+        response: {
+          ui: true,
+          name: "상대방 사용자 화면",
+          desc: "친구 요청을 받은 사용자의 화면입니다.",
+          func: null,
+        },
+        response_ok: {
+          ui: true,
+          name: "수락 시 상대방 사용자 화면",
+          desc: "친구 요청을 수락한 후 사용자 화면입니다.",
+          func: ["친구 수락 시 상호 친구 등록"],
+        },
+        chat: {
+          ui: true,
+          name: "채팅 화면",
+          desc: "친구인 사용자와 실시간으로 채팅을 할 수 있는 화면",
+          func: ["실시간 채팅", "읽음/안읽음 표시 기능", "이모티콘 기능"],
+        },
+      },
+      trouble: {
+        "친구 및 채팅 데이터 실시간 동기화 시 참조 오류": {
+          problem: [
+            "친구 요청과 채팅 데이터를 실시간으로 동기화하기 위해서 Firebase Snapshot을 사용했습니다.",
+            "실시간 데이터 더미가 동기화되기 전에 웹 페이지를 렌더링하여 없는 값에 대한 참조 오류가 발생했습니다.",
+          ],
+          solve: [
+            "친구 및 채팅 데이터가 동기화되기 전 상태를 분기점으로 설정하여 데이터가 없더라도 웹 페이지가 렌더링 되게끔 Early Return Pattern을 사용했습니다.",
+          ],
+          result: ["결과적으로 데이터가 존재하는 상황과 대기 중인 상황을 분기하여 웹 페이지 렌더링에 문제가 없도록 하였습니다."],
+        },
+        "실시간 데이터 동기화 후 웹 페이지에 렌더링 되지 않는 문제": {
+          problem: [
+            "실시간 데이터 동기화가 이루어져도 웹 페이지에 업데이트가 되지 않는 문제가 발생했습니다.",
+            "특히, Firebase Firestore의 실시간 데이터 동기화 기능을 사용할 때 이러한 문제가 두드러졌습니다.",
+          ],
+          solve: [
+            "데이터 변경 및 동기화 시 발생하는 상태 변화를 추적하고, 필요할 때마다 React의 상태 관리 기능(useEffect, useState)을 통해 컴포넌트를 강제로 재렌더링하도록 했습니다.",
+          ],
+          result: ["데이터 변경 및 동기화 후에도 웹 페이지가 올바르게 업데이트되었으며, 사용자에게 실시간 변경 사항을 정확히 보여줄 수 있었습니다."],
+        },
+        "Snapshot을 사용한 실시간 동기화 시 무한 루프 발생 및 데이터 전송 초과 문제": {
+          problem: [
+            "Firebase Firestore의 Snapshot 리스너를 사용하여 실시간 동기화 시 무한 루프에 빠지는 문제가 발생했습니다.",
+            "이로 인해 동일한 데이터가 반복적으로 전송되어 네트워크 사용량이 급증하고, 애플리케이션의 성능이 저하되었습니다.",
+          ],
+          solve: ["Snapshot 리스너 설정 시, 데이터 변경 이벤트의 중복 처리를 방지하기 위해 조건문을 추가하여 불필요한 데이터 업데이트를 막았습니다."],
+          result: [
+            "무한 루프 문제를 해결하고, 데이터 전송 효율을 높여 네트워크 사용량을 최적화했습니다.",
+            "실시간 동기화 시 안정성이 향상되었으며, 애플리케이션의 성능이 개선되었습니다.",
+          ],
+        },
+        "반응형 디자인 구현 시 UI 깨짐 현상": {
+          problem: [
+            "다양한 디바이스에서 반응형 디자인을 적용하는 과정에서 UI가 깨지는 문제가 발생했습니다.",
+            "특히, 모바일 디바이스에서 특정 레이아웃이 의도한 대로 작동하지 않았습니다.",
+          ],
+          solve: [
+            "TailwindCSS의 유틸리티 클래스를 활용하여 다양한 화면 크기에서 레이아웃이 정상적으로 작동하도록 수정했습니다.",
+            "미디어 쿼리를 사용하여 디바이스 크기별로 레이아웃을 조정하고, 브라우저 개발자 도구를 통해 테스트를 진행했습니다.",
+          ],
+          result: ["모든 디바이스에서 일관된 사용자 경험을 제공할 수 있도록 반응형 디자인을 성공적으로 구현했습니다."],
+        },
+      },
+      review: [
+        "본 프로젝트를 통해 FE/BE 전반에 걸친 다양한 기술을 접하고, 이를 실질적으로 구현하는 과정을 경험할 수 있었습니다.",
+        "특히 실시간 데이터 동기화의 복잡성을 이해하고 이를 효율적으로 처리하는 방법을 학습하였습니다.",
+        "또한, Firebase와 같은 BaaS(Backend as a Service) 솔루션을 활용하여 서버 관리의 부담을 덜고, 빠르게 프로토타입을 개발할 수 있었습니다.",
+        "사용자 경험을 향상시키기 위해 반응형 디자인을 구현하여 다양한 디바이스에서 최적의 사용자 인터페이스를 제공하였습니다.",
+        "프로젝트의 모든 단계를 혼자서 수행하면서 문제 해결 능력과 자기 주도적인 학습 능력을 기를 수 있었습니다.",
+        "본 프로젝트를 통해서 실시간 애플리케이션 개발에 대한 자신감을 얻었고, 향후 더욱 복잡한 웹 애플리케이션 개발에 도전할 준비가 되었다고 생각합니다.",
+      ],
+      github: "https://github.com/itsjh1242/nextjs-chat",
+      demo: "itsjh1242.github.io/nextjs-chat/",
+    },
+  },
   portfolio: {
     pid: "portfolio",
     title: "직접 개발한 포트폴리오 웹 애플리케이션",
@@ -772,62 +900,6 @@ export const WorkAllDesc: WorkAllDescInterface = {
         "앞서 해왔던 프로젝트들은 Python(*Flask), Node.js(*ejs)를 활용하여 데이터를 통신하는 방법을 공부했다면, 이번에는 처음으로 Front-end와 Back-end를 구분지어 코드를 짜고 공부함으로써 앞으로의 제 가능성을 열어준 프로젝트입니다.",
       ],
       github: "https://github.com/itsjh1242/PORTFOLIO_/tree/main/client/src/views/weatherPicker",
-      demo: null,
-    },
-  },
-  realtime_chat: {
-    pid: "realtime_chat",
-    title: "채팅 웹 애플리케이션",
-    summary: "Socket 통신을 활용한 실시간 채팅",
-    stacks: ["react", "redux", "node", "mysql", "sass", "figma"],
-
-    detail: {
-      header: {
-        category: { title: "카테고리", content: ["개인 프로젝트", "웹 애플리케이션 개발"] },
-        period: { title: "기간", content: ["2024년 2월"] },
-        hc: { title: "인원", content: ["1명"] },
-        role: { title: "역할", content: ["프로젝트 구상", "FE/BE 개발"] },
-        fe: { title: "프론트엔드", content: ["React", "CSS", "Figma"] },
-        be: { title: "백엔드", content: ["Node.js"] },
-        db: { title: "데이터베이스", content: ["MySQL"] },
-        scm: { title: "형상관리", content: ["Github"] },
-        deploy: { title: "배포", content: ["-"] },
-        refer: { title: "관련 활동", content: ["-"] },
-      },
-      long_summary: [
-        "React-Redux와 Socket통신에 대한 이해도를 높이고자 진행한 프로젝트입니다.",
-        "본 프로젝트에는 메신저를 친구 맺기를 한 사용자와 실시간 양방향 통신을 중점으로 개발했습니다.",
-      ],
-      func: {
-        base: { ui: true, name: "메인 화면", desc: "프로젝트 랜딩 화면입니다.", func: ["로그인"] },
-        chat_room: {
-          ui: true,
-          name: "채팅방 화면",
-          desc: "로그인 한 사용자가 접속한 채팅방 화면입니다.",
-          func: ["채팅", "친구 추가", "친구 수락"],
-        },
-      },
-      trouble: {
-        "React-Redux와 Socket에 대한 이해 부족": {
-          problem: [
-            "React 프로젝트에서 상태(State)를 하위 또는 상위 컴포넌트로 전달하는 과정에서 코드의 복잡성이 증가하고 유지보수가 어려워지는 문제 발생.",
-            "사용자 간 실시간 양방향 통신을 구현하는 데 필요한 Socket 통신에 대한 이해 부족.",
-          ],
-          solve: [
-            "[ React-Redux 사용 ]",
-            "상태(State)를 Redux 스토어에 저장하고, 필요한 컴포넌트에서 이를 구독(subscribe)하여 상태 변경에 따라 자동으로 업데이트되도록 구성.",
-            "[ Socket 통신 구현 ]",
-            "실시간 양방향 통신을 위해 Socket.io 라이브러리를 사용.",
-          ],
-          result: ["Redux를 통해 상태 관리를 단순화하고 유지보수를 용이하게 하여 코드의 복잡성을 감소."],
-        },
-      },
-      review: [
-        "이번 프로젝트는 React-Redux를 활용하여 상태관리를 하고, Socket 통신을 활용하여 실시간 양방향 통신 및 서버와 데이터 통신을 중점으로 개발을 진행하였습니다.",
-        "React-Redux를 활용하여 상태관리를 하는 것과 Socket을 활용하여 통신을 하는 것이 처음이었기에 생각한만큼 완성도 있게 개발하지는 못했으나, Redux와 Socket이 어떤 역할을 하며 어떤 상황에서 왜 사용해야하는지를 알 수 있게 되었습니다.",
-        "향후에는 Socket 통신을 활용하여 실시간 1대1 게임을 만들어 보아도 좋을 것 같다는 생각을 하였습니다.",
-      ],
-      github: "https://github.com/itsjh1242/messenger-prime",
       demo: null,
     },
   },
