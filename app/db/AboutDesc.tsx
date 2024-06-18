@@ -48,8 +48,8 @@ export const ABOUT_DESC: AboutDescInterface = {
     isRight: false,
   },
   certificate: {
-    header: "정보처리기사 (결과 대기중)",
-    content: ["2024년 4월 시험, 2024년 6월 18일 결과 발표"],
+    header: "정보처리기사 자격증 취득",
+    content: ["2024년 4월"],
     isRight: true,
   },
 };
