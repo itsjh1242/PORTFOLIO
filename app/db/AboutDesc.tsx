@@ -49,7 +49,7 @@ export const ABOUT_DESC: AboutDescInterface = {
   },
   certificate: {
     header: "정보처리기사 자격증 취득",
-    content: ["2024년 4월"],
+    content: ["2024년 1회차"],
     isRight: true,
   },
 };
