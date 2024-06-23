@@ -291,7 +291,7 @@ export const WorkAllDesc: WorkAllDescInterface = {
         period: { title: "기간", content: ["2024년 6월"] },
         hc: { title: "인원", content: ["1명"] },
         role: { title: "역할", content: ["프로젝트 구상", "전체 개발"] },
-        fe: { title: "프론트엔드", content: ["Next.js", "Firebase", "TailwindCSS", "Figma"] },
+        fe: { title: "프론트엔드", content: ["Next.js", "TailwindCSS", "Figma"] },
         be: { title: "백엔드", content: ["-"] },
         db: { title: "데이터베이스", content: ["Firebase"] },
         scm: { title: "형상관리", content: ["Github"] },
